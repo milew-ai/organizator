@@ -1,53 +1,78 @@
 ---
 name: git-ssh-setup
-description: Automated setup of SSH keys, GitHub SSH configuration, remote URL updates, and connection testing. Use when configuring git authentication over SSH or resolving permission denied push errors.
+description: Set up GitHub authentication over SSH. Use when configuring an SSH key, fixing "permission denied" on git push, or switching a remote from HTTPS to SSH.
 ---
 
-# Git SSH Setup & Authentication
+# Git SSH Setup
 
-## Overview
-This skill provides automated guidance and procedures for setting up and verifying SSH-based authentication with GitHub, replacing HTTPS/password prompts or token hassles.
+Manual checklist for GitHub over SSH. Do the steps in order. Skip a step only when its check already passes.
 
-## Workflow
+## 1. Check for an existing key
 
-### 1. Check Existing SSH Keys
-Check if an SSH key already exists in the user profile (`~/.ssh/`):
-- `id_ed25519` / `id_ed25519.pub` (Recommended)
-- `id_rsa` / `id_rsa.pub`
+Look in the user profile (`~/.ssh/` on Linux and macOS, `%USERPROFILE%\.ssh\` on Windows) for:
 
-### 2. Generate New SSH Key (if none exists)
-Run:
+- `id_ed25519` and `id_ed25519.pub` (preferred)
+- `id_rsa` and `id_rsa.pub`
+
+If a key pair is already there, do not generate another one. Continue from step 3 with that private key.
+
+## 2. Generate a key
+
+Only when no key exists. Default path is `~/.ssh/id_ed25519` (`%USERPROFILE%\.ssh\id_ed25519` on Windows).
+
 ```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
-*(Press Enter to accept default file path and optionally set a passphrase).*
 
-### 3. Start SSH Agent & Add Key
-Ensure ssh-agent is running and add the private key:
+Press Enter to accept the default path. A passphrase is optional.
 
-- **Linux / macOS / Git Bash (Windows):**
-  ```bash
-  eval "$(ssh-agent -s)"
-  ssh-add ~/.ssh/id_ed25519
-  ```
+## 3. Load the key into ssh-agent
 
-- **Windows PowerShell (Administrator - Windows Service):**
-  If using native Windows PowerShell and the OpenSSH Authentication Agent service is disabled:
-  ```powershell
-  Get-Service ssh-agent | Set-Service -StartupType Automatic
-  Start-Service ssh-agent
-  ssh-add $HOME\.ssh\id_ed25519
-  ```
+Linux, macOS, or Git Bash:
 
-### 4. Test SSH Connection to GitHub
-Verify authentication:
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+
+Windows PowerShell. Starting the OpenSSH Authentication Agent service needs an elevated shell:
+
+```powershell
+Get-Service ssh-agent | Set-Service -StartupType Automatic
+Start-Service ssh-agent
+ssh-add $env:USERPROFILE\.ssh\id_ed25519
+```
+
+Use the private key path from step 1 or 2 if it is not `id_ed25519`.
+
+## 4. Add the public key to GitHub
+
+Print the public key and copy the whole line:
+
+```bash
+# Linux / macOS / Git Bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+```powershell
+Get-Content $env:USERPROFILE\.ssh\id_ed25519.pub
+```
+
+In GitHub: Settings → SSH and GPG keys → New SSH key. Paste the `.pub` contents. Never upload the private key.
+
+## 5. Test the connection
+
 ```bash
 ssh -T git@github.com
 ```
-*(Confirm fingerprint acceptance with `yes`).*
 
-### 5. Update Git Remote URL
-Switch repository from HTTPS to SSH:
+On the first connection, confirm the host key with `yes` only after it matches GitHub's published fingerprint. Success looks like `Hi <username>! You've successfully authenticated`.
+
+## 6. Point the remote at SSH
+
+From the repository, only if `origin` is still HTTPS:
+
 ```bash
 git remote set-url origin git@github.com:<username>/<repository>.git
+git remote -v
 ```
