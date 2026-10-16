@@ -25,14 +25,14 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 ### 3. Start SSH Agent & Add Key
 Ensure ssh-agent is running and add the private key:
 
-- **Linux / macOS:**
+- **Linux / macOS / Git Bash (Windows):**
   ```bash
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/id_ed25519
   ```
 
-- **Windows (PowerShell as Administrator):**
-  On Windows, starting the OpenSSH Authentication Agent service requires administrator privileges:
+- **Windows PowerShell (Administrator - Windows Service):**
+  If using native Windows PowerShell and the OpenSSH Authentication Agent service is disabled:
   ```powershell
   Get-Service ssh-agent | Set-Service -StartupType Automatic
   Start-Service ssh-agent
