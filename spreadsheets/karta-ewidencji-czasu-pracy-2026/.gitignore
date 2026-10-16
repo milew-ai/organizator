@@ -1,0 +1,7 @@
+# Efekty pośrednie budowania (odtwarzalne przez build.ps1 / gen_karta.py)
+*.fods
+*.tmp
+
+# Python
+__pycache__/
+*.pyc
