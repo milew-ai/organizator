@@ -1,5 +1,4 @@
-# Efekty pośrednie budowania (odtwarzalne przez build.ps1 / gen_karta.py)
-*.fods
+# Pliki tymczasowe
 *.tmp
 
 # Python

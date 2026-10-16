@@ -22,14 +22,19 @@ Gotowy plik: [`Karta_ewidencji_czasu_pracy_2026.xlsx`](Karta_ewidencji_czasu_pra
 
 | Plik | Rola |
 | --- | --- |
-| [`Karta_ewidencji_czasu_pracy_2026.xlsx`](Karta_ewidencji_czasu_pracy_2026.xlsx) | **Gotowy arkusz** — to otwierasz i wypełniasz. |
+| [`Karta_ewidencji_czasu_pracy_2026.xlsx`](Karta_ewidencji_czasu_pracy_2026.xlsx) | **Gotowy arkusz** — to otwierasz i wypełniasz (Excel / Calc). |
+| [`Karta_ewidencji_czasu_pracy_2026.fods`](Karta_ewidencji_czasu_pracy_2026.fods) | Ten sam arkusz w formacie płaskiego ODF — otworzysz go bezpośrednio w LibreOffice, bez konwersji. |
 | [`gen_karta.py`](gen_karta.py) | Generator: tworzy arkusz jako płaski ODF (`.fods`). |
 | [`postprocess_xlsx.py`](postprocess_xlsx.py) | Poprawki pliku `.xlsx` po konwersji (marginesy, zamrożenie, lista). |
 | [`build.ps1`](build.ps1) | Skrypt budujący: generator → LibreOffice → postprocess. |
-| `.gitignore` | Pomija `*.fods` (efekt pośredni, odtwarzalny) i pliki `*.tmp`. |
+| `.gitignore` | Pomija pliki tymczasowe (`*.tmp`) oraz `__pycache__/`. |
 
-Plik `Karta_ewidencji_czasu_pracy_2026.fods` **nie jest wersjonowany** — powstaje
-przy każdym budowaniu.
+Oba pliki wynikowe są **wersjonowane**: `.xlsx` dla Excela/Calca, a `.fods` jako
+zapas — gdy nie da się uruchomić konwersji (np. brak LibreOffice) albo gdy chcesz
+podejrzeć „źródłowy" XML arkusza.
+
+> ⚠️ `build.ps1` **nadpisuje oba pliki**. Po przebudowie z innym `--year` albo po
+> zmianach w generatorze pojawi się zmiana do zacommitowania — to oczekiwane, nie błąd.
 
 ---
 

@@ -10,8 +10,8 @@ gotowy plik `.xlsx` + generator + instrukcja obsługi i budowania.
 ## Jak dodać kolejny arkusz
 
 1. Utwórz podkatalog `spreadsheets/<nazwa>/`.
-2. Wrzuć: gotowy `.xlsx`, generator (`gen_*.py`), post-processing (`postprocess_*.py`),
-   skrypt budujący (`build.ps1`) oraz `.gitignore` pomijający efekty pośrednie.
+2. Wrzuć: gotowy `.xlsx` i towarzyszący mu `.fods`, generator (`gen_*.py`),
+   post-processing (`postprocess_*.py`), skrypt budujący (`build.ps1`) oraz `.gitignore`.
 3. Napisz `README.md` według wzoru z
    [karta-ewidencji-czasu-pracy-2026/README.md](karta-ewidencji-czasu-pracy-2026/README.md).
 4. Dopisz wiersz w tabeli powyżej.
