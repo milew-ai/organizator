@@ -36,6 +36,20 @@
     .todo ul{margin:6px 0 0;padding-left:20px}
     .todo li{margin:6px 0}
     footer{margin-top:40px;color:var(--muted);font-size:.85rem}
+    a{color:var(--accent)}
+    .lead{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0 16px}
+    .variant{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px 14px;margin:10px 0;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+    .variant h3{margin:2px 0 8px;font-size:1.02rem}
+    .variant ul{margin:6px 0 0;padding-left:20px}
+    .variant li{margin:7px 0}
+    .badge{font-size:.72rem;font-weight:700;padding:2px 9px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+    .badge.rec{background:var(--ok-soft);color:var(--ok)}
+    .badge.warn{background:var(--accent-soft);color:var(--accent)}
+    table.mini{margin:6px 0 4px}
+    table.mini th{font-size:.75rem}
+    table.mini td{font-size:.9rem}
+    tr.dim td{color:var(--muted);text-decoration:line-through}
+    .caption{color:var(--muted);font-size:.85rem;margin:4px 2px 0}
     @media (max-width:480px){h1{font-size:1.6rem}}
   </style>
 </head>
@@ -76,6 +90,55 @@
       <div class="top"><span class="route">✈️ Madryt → Cancún</span><span class="times">15:20 → 20:25</span></div>
       <div class="detail"><span class="chip">bilet kupiony</span><span>314,87 €</span><span>przylot czasu lokalnego Cancún (UTC−5)</span></div>
     </div>
+  </section>
+
+  <section>
+    <h2>🌙 Pierwsza noc — jak dotrzeć do Méridy</h2>
+
+    <p class="lead">Lądujecie we wtorek 24.11 o <strong>20:25</strong>; realistyczne wyjście z terminala (paszporty + bagaż) to <strong>21:00–21:45</strong>. Uwaga na strefy czasu: <strong>Mérida jest o godzinę za Cancún</strong>. Ostatni pociąg Tren Maya odjeżdża o 20:04 — czyli <em>przed</em> Waszym lądowaniem, więc pociągiem tej nocy nie da rady. Zostają autobusy ADO albo nocleg po drodze.</p>
+
+    <div class="variant">
+      <h3>Wariant A · Nocleg w centrum Cancún <span class="badge rec">nasz typ</span></h3>
+      <ul>
+        <li>🚌 <strong>Lotnisko → centrum:</strong> autobus ADO z terminali T2/T4 do dworca w centrum (Av. Tulum) — ok. 40 min, <strong>100–150 MXN</strong><span class="pln" data-mxn-lo="100" data-mxn-hi="150">≈ 21,12 – 31,68 zł</span>kursy mniej więcej co 30 min, także późnym wieczorem.</li>
+        <li>🛏️ <strong>Nocleg:</strong> hostele od <strong>250–450 MXN</strong>/os.<span class="pln" data-mxn-lo="250" data-mxn-hi="450">≈ 52,80 – 95,04 zł</span>hotele <strong>700–1 300 MXN</strong>/pokój<span class="pln" data-mxn-lo="700" data-mxn-hi="1300">≈ 147,84 – 274,56 zł</span>dziesiątki opcji wokół Av. Tulum i Parque Las Palapas. Pierwszą noc warto mieć zarezerwowaną (Booking), kolejne można ogarniać na miejscu.</li>
+        <li>🌅 <strong>Rano do Méridy:</strong> ADO z dworca w centrum — kursy ~co godzinę, przejazd ok. 3,5–4,5 h, <strong>600–900 MXN</strong><span class="pln" data-mxn-lo="600" data-mxn-hi="900">≈ 126,72 – 190,08 zł</span>bez wracania na lotnisko.</li>
+      </ul>
+    </div>
+
+    <div class="variant">
+      <h3>Wariant B · Nocleg przy lotnisku → rano Tren Maya</h3>
+      <ul>
+        <li>🏨 <strong>Nocleg:</strong> hotele przy lotnisku (shuttle/taxi 5–10 min od terminala) — <strong>1 500–2 800 MXN</strong>/pokój<span class="pln" data-mxn-lo="1500" data-mxn-hi="2800">≈ 316,80 – 591,36 zł</span>wygodnie, ale drożej.</li>
+        <li>🚆 <strong>Rano:</strong> stacja Tren Maya „Cancún Aeropuerto" (przy pętli lotniskowej — z terminala taxi/shuttle kilka minut), pociągi <strong>08:00 → Mérida Teya 10:28</strong> albo <strong>09:20 → 11:48</strong> (3 h 28 min). Bilety orientacyjnie <strong>500–1 000 MXN</strong><span class="pln" data-mxn-lo="500" data-mxn-hi="1000">≈ 105,60 – 211,20 zł</span>kup z wyprzedzeniem na <a href="https://reservas.ventaboletostrenmaya.com.mx/">reservas.ventaboletostrenmaya.com.mx</a>.</li>
+        <li>🚕 <strong>Uwaga na stację docelową:</strong> Mérida Teya leży poza centrum — taxi/uber do hotelu kilkanaście minut, orientacyjnie 150–300 MXN<span class="pln" data-mxn-lo="150" data-mxn-hi="300">≈ 31,68 – 63,36 zł</span></li>
+      </ul>
+    </div>
+
+    <div class="variant">
+      <h3>Wariant C · Od razu do Méridy tej samej nocy <span class="badge warn">ryzykowny</span></h3>
+      <ul>
+        <li>🚂 <strong>Trenem — odpada:</strong> ostatni o 20:04, przed lądowaniem.</li>
+        <li>🚌 <strong>Autobusem ADO:</strong> teoretycznie można zdążyć na wieczorny kurs z dworca w centrum i spać w Méridzie ok. 2:30–4:00, ale: dokładnych wieczornych godzin ADO nie ma w otwartych rozkładach (sprawdź w aplikacji <em>ADO Conexión</em> na 24.11), a każdy poślizg lotu oznacza noc na dworcu. Nie polecamy na start wyprawy.</li>
+        <li>🚐 <strong>Prywatny transfer:</strong> prosto z lotniska do Méridy, ~3 h 30 min, orientacyjnie <strong>1 000–1 500 MXN</strong> za auto<span class="pln" data-mxn-lo="1000" data-mxn-hi="1500">≈ 211,20 – 316,80 zł</span>— drożej, ale pewnie; w Méridzie śpicie ok. północy.</li>
+      </ul>
+    </div>
+
+    <h3 style="font-size:1rem;margin:22px 0 6px">📅 Tren Maya — pełny rozkład (Cancún Aeropuerto → Mérida Teya)</h3>
+    <table class="mini">
+      <thead>
+        <tr><th>Odjazd</th><th>Przyjazd</th><th>Pociąg nr</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>08:00</td><td>10:28</td><td>306</td></tr>
+        <tr><td>09:20</td><td>11:48</td><td>102</td></tr>
+        <tr><td>12:00</td><td>14:28</td><td>304</td></tr>
+        <tr><td>16:40</td><td>19:08</td><td>202</td></tr>
+        <tr><td>18:30</td><td>20:58</td><td>308</td></tr>
+        <tr class="dim"><td>20:04</td><td>22:32</td><td>302</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Czasy lokalne (przejazd 3 h 28 min, uwzględnia różnicę stref); ostatni kurs odpada przy Waszym lądowaniu 20:25. Sprawdzone 17.10.2026 (rozkład identyczny 24 i 25.11) — zweryfikuj przy zakupie.</p>
   </section>
 
   <section>
@@ -131,17 +194,17 @@
         <tr class="total"><td>Razem</td><td></td><td class="num">394,60 zł + 690,34 €<span class="pln" data-eur="690.34" data-base-pln="394.60">≈ 3 408,69 zł</span></td></tr>
       </tbody>
     </table>
-    <p class="rate-note" id="kurs-nbp">Kwoty w € przeliczone po kursie średnim NBP (tabela A): 4,3661 zł/€ z 16.10.2026. Kurs odświeża się przy każdym otwarciu strony.</p>
+    <p class="rate-note" id="kurs-nbp">Kwoty w € i MXN przeliczone po kursach średnich NBP (tabela A): 4,3661 zł/€ i 0,2112 zł/MXN (16.10.2026). Kursy odświeżają się przy każdym otwarciu strony.</p>
   </section>
 
   <section>
     <h2>📋 Uwagi</h2>
     <div class="todo">
       <ul>
-        <li>Wszystkie godziny podane lokalnie (Madryt UTC+1, Cancún UTC−5).</li>
+        <li>Wszystkie godziny podane lokalnie (Mérida UTC−6, Madryt UTC+1, Cancún UTC−5).</li>
         <li>W drodze tam długa przesiadka w Madrycie: 9:55 – 15:20.</li>
         <li>Powrót: przylot do Warszawy 22:50, autobus do Ełku 0:45 — ok. 2 h na lotnisku.</li>
-        <li>Do zaplanowania: nocleg i zwiedzanie Madrytu (11–12.12), transfer lotnisko ↔ Cancún, plan dni na Jukatanie.</li>
+        <li>Do zaplanowania: nocleg i zwiedzanie Madrytu (11–12.12) oraz plan dni na Jukatanie (pierwsza noc — patrz sekcja powyżej).</li>
       </ul>
     </div>
   </section>
@@ -152,29 +215,43 @@
 
 <script>
 (function () {
-  var url = 'https://api.nbp.pl/api/exchangerates/rates/a/eur/?format=json';
+  var EUR_URL = 'https://api.nbp.pl/api/exchangerates/rates/a/eur/?format=json';
+  var MXN_URL = 'https://api.nbp.pl/api/exchangerates/rates/a/mxn/?format=json';
   function fmtPLN(v) {
     return new Intl.NumberFormat('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(v);
   }
-  fetch(url)
-    .then(function (res) {
-      if (!res.ok) { throw new Error('NBP HTTP ' + res.status); }
-      return res.json();
-    })
-    .then(function (data) {
-      var r = data.rates && data.rates[0];
-      if (!r || !r.mid) { throw new Error('brak kursu w odpowiedzi NBP'); }
-      var rateTxt = r.mid.toFixed(4).replace('.', ',');
-      var date = r.effectiveDate.split('-').reverse().join('.');
+  function get(url) {
+    return fetch(url)
+      .then(function (res) {
+        if (!res.ok) { throw new Error('NBP HTTP ' + res.status); }
+        return res.json();
+      })
+      .then(function (data) { return data.rates[0]; });
+  }
+  Promise.all([get(EUR_URL), get(MXN_URL)])
+    .then(function (rates) {
+      var eur = rates[0];
+      var mxn = rates[1];
+      var eurTxt = eur.mid.toFixed(4).replace('.', ',');
+      var mxnTxt = mxn.mid.toFixed(4).replace('.', ',');
+      var eurDate = eur.effectiveDate.split('-').reverse().join('.');
+      var mxnDate = mxn.effectiveDate.split('-').reverse().join('.');
       document.querySelectorAll('.pln').forEach(function (el) {
-        var eur = parseFloat(el.getAttribute('data-eur'));
-        var base = parseFloat(el.getAttribute('data-base-pln') || '0');
-        el.textContent = '≈ ' + fmtPLN(base + eur * r.mid) + ' zł';
-        el.title = 'kurs średni NBP ' + rateTxt + ' (' + date + ')';
+        if (el.hasAttribute('data-eur')) {
+          var eurVal = parseFloat(el.getAttribute('data-eur'));
+          var base = parseFloat(el.getAttribute('data-base-pln') || '0');
+          el.textContent = '≈ ' + fmtPLN(base + eurVal * eur.mid) + ' zł';
+          el.title = 'kurs średni NBP ' + eurTxt + ' zł/€ (' + eurDate + ')';
+        } else if (el.hasAttribute('data-mxn-lo')) {
+          var lo = parseFloat(el.getAttribute('data-mxn-lo'));
+          var hi = parseFloat(el.getAttribute('data-mxn-hi'));
+          el.textContent = '≈ ' + fmtPLN(lo * mxn.mid) + ' – ' + fmtPLN(hi * mxn.mid) + ' zł';
+          el.title = 'kurs średni NBP ' + mxnTxt + ' zł/MXN (' + mxnDate + ')';
+        }
       });
       var note = document.getElementById('kurs-nbp');
       if (note) {
-        note.textContent = 'Kwoty w € przeliczone po kursie średnim NBP (tabela A): ' + rateTxt + ' zł/€ z ' + date + '. Kurs odświeża się przy każdym otwarciu strony.';
+        note.textContent = 'Kwoty w € i MXN przeliczone po kursach średnich NBP (tabela A): ' + eurTxt + ' zł/€ (' + eurDate + ') oraz ' + mxnTxt + ' zł/MXN (' + mxnDate + '). Kursy odświeżają się przy każdym otwarciu strony.';
       }
     })
     .catch(function () { /* brak internetu/API — zostają kwoty zapasowe wbudowane w stronę */ });
