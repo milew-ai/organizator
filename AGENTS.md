@@ -1,6 +1,8 @@
 # Zasady projektu — organizator (strona wycieczki)
 
-- **Po każdej zmianie od razu publikuj na GitHubie**: commit (tytuł po angielsku, tryb rozkazujący) + `git push origin Wycieczki`.
+**Zakres: wszystkie poniższe zasady dotyczą wyłącznie brancha `Wycieczki`.** Na innych branchach (np. `main`) ich nie stosuj — bez automatycznych commitów i pushy.
+
+- **Po każdej zmianie od razu publikuj na GitHubie** (tylko branch `Wycieczki`): commit (tytuł po angielsku, tryb rozkazujący) + `git push origin Wycieczki`.
 - Po pushu odczekaj ~80 s (przebudowa GitHub Pages) i zweryfikuj, że zmiana jest live: https://milew-ai.github.io/organizator/Jukatan/ — użyj `?v=<commit>` jako cache-buster.
 - Brancha `Wycieczki` **nigdy** nie scalaj z `main`.
 - Treść strony po polsku; w liczbach dziesiętnych przecinek.
