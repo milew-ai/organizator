@@ -30,6 +30,8 @@
     th{background:#faf7f2;font-size:.82rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
     td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
     tr.total td{font-weight:700;border-bottom:none;background:#faf7f2}
+    .pln{display:block;font-size:.8rem;font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+    .rate-note{margin:10px 2px 0;color:var(--muted);font-size:.88rem}
     .todo{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:14px 18px}
     .todo ul{margin:6px 0 0;padding-left:20px}
     .todo li{margin:6px 0}
@@ -122,13 +124,14 @@
         <tr><td>Suwałki → Ełk (auto)</td><td>23.11</td><td class="num">40,00 zł</td></tr>
         <tr><td>Ełk → Gdańsk (pociąg)</td><td>23.11</td><td class="num">80,00 zł</td></tr>
         <tr><td>Gdańsk → Madryt (lot)</td><td>24.11</td><td class="num">146,60 zł</td></tr>
-        <tr><td>Madryt → Cancún (lot)</td><td>24.11</td><td class="num">314,87 €</td></tr>
-        <tr><td>Cancún → Madryt (lot)</td><td>10.12</td><td class="num">329,47 €</td></tr>
-        <tr><td>Madryt → Warszawa (lot)</td><td>12.12</td><td class="num">46,00 €</td></tr>
+        <tr><td>Madryt → Cancún (lot)</td><td>24.11</td><td class="num">314,87 €<span class="pln" data-eur="314.87">≈ 1 374,75 zł</span></td></tr>
+        <tr><td>Cancún → Madryt (lot)</td><td>10.12</td><td class="num">329,47 €<span class="pln" data-eur="329.47">≈ 1 438,50 zł</span></td></tr>
+        <tr><td>Madryt → Warszawa (lot)</td><td>12.12</td><td class="num">46,00 €<span class="pln" data-eur="46">≈ 200,84 zł</span></td></tr>
         <tr><td>Warszawa → Ełk (autobus)</td><td>13.12</td><td class="num">128,00 zł</td></tr>
-        <tr class="total"><td>Razem</td><td></td><td class="num">394,60 zł + 690,34 €</td></tr>
+        <tr class="total"><td>Razem</td><td></td><td class="num">394,60 zł + 690,34 €<span class="pln" data-eur="690.34" data-base-pln="394.60">≈ 3 408,69 zł</span></td></tr>
       </tbody>
     </table>
+    <p class="rate-note" id="kurs-nbp">Kwoty w € przeliczone po kursie średnim NBP (tabela A): 4,3661 zł/€ z 16.10.2026. Kurs odświeża się przy każdym otwarciu strony.</p>
   </section>
 
   <section>
@@ -146,5 +149,36 @@
   <footer>Jukatan 2026 &middot; plan transportu (bilety zakupione); szczegóły na miejscu w przygotowaniu.</footer>
 
 </div>
+
+<script>
+(function () {
+  var url = 'https://api.nbp.pl/api/exchangerates/rates/a/eur/?format=json';
+  function fmtPLN(v) {
+    return new Intl.NumberFormat('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(v);
+  }
+  fetch(url)
+    .then(function (res) {
+      if (!res.ok) { throw new Error('NBP HTTP ' + res.status); }
+      return res.json();
+    })
+    .then(function (data) {
+      var r = data.rates && data.rates[0];
+      if (!r || !r.mid) { throw new Error('brak kursu w odpowiedzi NBP'); }
+      var rateTxt = r.mid.toFixed(4).replace('.', ',');
+      var date = r.effectiveDate.split('-').reverse().join('.');
+      document.querySelectorAll('.pln').forEach(function (el) {
+        var eur = parseFloat(el.getAttribute('data-eur'));
+        var base = parseFloat(el.getAttribute('data-base-pln') || '0');
+        el.textContent = '≈ ' + fmtPLN(base + eur * r.mid) + ' zł';
+        el.title = 'kurs średni NBP ' + rateTxt + ' (' + date + ')';
+      });
+      var note = document.getElementById('kurs-nbp');
+      if (note) {
+        note.textContent = 'Kwoty w € przeliczone po kursie średnim NBP (tabela A): ' + rateTxt + ' zł/€ z ' + date + '. Kurs odświeża się przy każdym otwarciu strony.';
+      }
+    })
+    .catch(function () { /* brak internetu/API — zostają kwoty zapasowe wbudowane w stronę */ });
+})();
+</script>
 </body>
 </html>
