@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chichén Itzá — plan kompleksu · Jukatan 2026</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    :root{
+      --bg:#f5f1ea; --card:#fff; --ink:#2f2a24; --muted:#766c5f;
+      --accent:#b64a17; --accent-soft:#f8e9dd;
+      --ok:#2f7d4f; --ok-soft:#e2f2e7;
+      --line:#e7ddcf;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    .wrap{max-width:760px;margin:0 auto;padding:28px 16px 72px}
+    h1{margin:0;font-size:1.9rem}
+    .sub{color:var(--muted);margin:6px 0 0}
+    h2{font-size:1.2rem;margin:38px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--accent)}
+    h3{font-size:1rem;margin:22px 0 6px}
+    footer{margin-top:40px;color:var(--muted);font-size:.85rem}
+    a{color:var(--accent)}
+    .lead{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0 16px}
+    .caption{color:var(--muted);font-size:.85rem;margin:4px 2px 0}
+    ul.tight{margin:6px 0;padding-left:20px}
+    ul.tight li{margin:5px 0}
+    ol.tight{margin:6px 0;padding-left:24px}
+    ol.tight li{margin:5px 0}
+    .variant{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:12px 0;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+    #plan{height:520px;border-radius:12px;border:1px solid var(--line);background:#e9e4da}
+    @media (max-width:640px){#plan{height:420px}}
+    .pin{width:26px;height:26px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.55);color:#fff;font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center}
+    .foto-tip{background:transparent;border:0;box-shadow:none;padding:0}
+    .foto-tip::before{display:none!important}
+    .tip-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.35);width:190px}
+    .tip-card img{width:190px;height:120px;object-fit:cover;display:block}
+    .tip-card span{display:block;padding:6px 8px;font-weight:600;font-size:.84rem;color:#2f2a24;line-height:1.25}
+    .legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:8px 2px 0;color:var(--muted);font-size:.85rem}
+    .legend i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px}
+    .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:12px;margin:10px 0}
+    .pcard{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+    .pcard img{width:100%;height:132px;object-fit:cover;display:block}
+    .pcard .pb{padding:8px 11px 10px}
+    .pcard b{font-size:.92rem}
+    .pcard p{margin:4px 0 0;font-size:.82rem;color:var(--muted);line-height:1.4}
+    .dot-n{display:inline-flex;width:20px;height:20px;border-radius:50%;color:#fff;font-size:.72rem;font-weight:700;align-items:center;justify-content:center;margin-right:6px}
+    @media (max-width:480px){h1{font-size:1.6rem}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>🏛️ Chichén Itzá — plan kompleksu</h1>
+    <p class="sub">Podstrona punktu 1 &middot; zwiedzamy w drodze Valladolid → Chichén → Izamal → Mérida (26.11.2026)</p>
+  </header>
+
+  <p class="caption" style="margin-top:10px">↩︎ <a href="index.html">Wróć do planu wycieczki (mapa)</a> &middot; <a href="transport.html">🚌 transport: baza wiedzy</a> &middot; <a href="aplikacje.html">📱 aplikacje</a></p>
+
+  <section>
+    <p class="lead">Ikoniczne miasto Majów i meksykański cud świata. Poniżej <strong>interaktywny plan kompleksu</strong>: 16 najważniejszych miejsc z numerami (kolejność = proponowana trasa). <strong>Najedź kursorem na pinezkę</strong> — pokaże się zdjęcie; <strong>kliknij</strong> — opis i większa fotografia. Na telefonie po prostu dotknij pinezki.</p>
+
+    <h3 style="margin-top:14px">🧭 Praktycznie</h3>
+    <div class="variant">
+      <ul class="tight" style="margin:0">
+        <li>🎟️ <strong>Bilet:</strong> 653 MXN/os. (≈ 138 zł — 105 MXN INAH + 548 MXN Cultur Jukatan) · kasa przy wejściu, karta działa.</li>
+        <li>🕗 <strong>Godziny:</strong> codziennie 8:00–17:00 — bądź na otwarciu: chłodniej i mniejszy tłum, zwłaszcza przed 10:00.</li>
+        <li>🚌 <strong>Dojazd:</strong> kolektywem z Valladolid ~45 min (wysiadanie przy głównym wejściu) albo busem ADO/Oriente; po zwiedzaniu łapiesz bus w stronę Izamalu/Méridy — szczegóły na <a href="transport.html">transport.html</a>.</li>
+        <li>☀️ <strong>Upał i dystans:</strong> łącznie ~2,5–3 km spaceru po kamieniu, cień rzadki — 1–1,5 l wody na osobę, czapka, krem.</li>
+        <li>🚫 <strong>Zasady:</strong> nie wolno wchodzić na piramidy ani do cenote; drony zakazane. Kąpiel w cenotach tylko poza kompleksem (np. wypad z Valladolid).</li>
+        <li>⏱️ <strong>Ile czasu:</strong> ~4–5 h na ruiny; z muzeum +1 h. Sztywny plan dnia: rano Chichén, po południu Izamal, wieczorem Mérida.</li>
+      </ul>
+    </div>
+
+    <h2>🗺️ Mapa kompleksu — 16 punktów</h2>
+    <div id="plan"></div>
+    <p class="legend">
+      <span><i style="background:#b03a2e"></i>świątynie, piramidy, boisko</span>
+      <span><i style="background:#1f6feb"></i>cenoty</span>
+      <span><i style="background:#2e7d32"></i>pałace, domy</span>
+      <span><i style="background:#6b7280"></i>platformy, wejście, muzeum</span>
+    </p>
+    <p class="caption">🛰️ Kafelki: Esri World Imagery (satelita) / OpenStreetMap &middot; 📷 zdjęcia: Wikimedia Commons &middot; przełącznik warstw w lewym górnym rogu mapy.</p>
+
+    <h2>🚶 Kolejność zwiedzania (~4–5 h)</h2>
+    <ol class="tight">
+      <li>Wejście północne (CATVI) — kasy i start</li>
+      <li>Gran Museo de Chichén Itzá <em>(opcjonalnie)</em></li>
+      <li>Cenote Sagrado — Wielka Studnia</li>
+      <li>Tzompantli — platforma czaszek</li>
+      <li>Gran Juego de Pelota — wielkie boisko</li>
+      <li>Templo de los Jaguares</li>
+      <li>Plataforma Orłów i Jaguarów</li>
+      <li>Plataforma Wenus</li>
+      <li>El Castillo — piramida Kukulkána</li>
+      <li>Templo de los Guerreros i Mil Kolumn</li>
+      <li>Cenote Xtoloc</li>
+      <li>El Osario — grób kapłana</li>
+      <li>Casa Colorada (Chichanchob)</li>
+      <li>El Caracol — obserwatorium</li>
+      <li>Las Monjas i La Iglesia</li>
+      <li>Akab Dzib — koniec trasy</li>
+    </ol>
+    <p class="caption">Powrót do wyjścia to ~15 min przez środek kompleksu — załóż go w planie dnia.</p>
+
+    <h2>📸 Punkty po kolei</h2>
+    <div class="pgrid" id="grid"></div>
+  </section>
+
+  <p class="caption">↩︎ <a href="index.html">Wróć do planu wycieczki</a></p>
+  <footer>Chichén Itzá &middot; podstrona punktu 1 &middot; zdjęcia: Wikimedia Commons (licencje plików) &middot; kafelki: Esri / OpenStreetMap.</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function () {
+  var W = 'https://upload.wikimedia.org/wikipedia/commons/thumb/';
+  var COL = { r: '#b03a2e', b: '#1f6feb', g: '#2e7d32', s: '#6b7280' };
+  var pts = [
+    [1, 's', 20.68975, -88.56747, 'Wejście północne (CATVI)', 'Kasy, punkt informacyjny CATVI i początek zwiedzania; obok parking, toalety i sklepiki. Tu zatrzymują się autokary i kolektywy z Valladolid.', 'd/d6/Chichen_Itza_Visitor_Entrance.jpg/500px-Chichen_Itza_Visitor_Entrance.jpg'],
+    [2, 's', 20.69006, -88.56908, 'Gran Museo de Chichén Itzá', 'Nowe muzeum tuż przy wejściu: znaleziska z kompleksu, makiety i multimedia. Osobny bilet poza wstępem do ruin — dobry plan B na deszcz.', '2/2c/Gran_Museo_de_Chich%C3%A9n_Itz%C3%A1_Entrada.jpg/500px-Gran_Museo_de_Chich%C3%A9n_Itz%C3%A1_Entrada.jpg'],
+    [3, 'b', 20.68773, -88.56774, 'Cenote Sagrado (Wielka Studnia)', 'Święta studnia Majów — tu wrzucano dary dla boga deszczu: złoto, jadeit i ludzi. Oglądasz z góry, bez kąpieli; ~5–10 min od głównej osi.', '7/78/2014-01-03_Chich%C3%A9n_Itz%C3%A1%2C_Cenote_Sagrado_01_anagoria.JPG/500px-2014-01-03_Chich%C3%A9n_Itz%C3%A1%2C_Cenote_Sagrado_01_anagoria.JPG'],
+    [4, 's', 20.68434, -88.56937, 'Tzompantli (Platforma Czaszek)', 'Ściany pokryte reliefami czaszek — tu wystawiano głowy pokonanych. Leży między Placem Gry a El Castillo, tuż przy ścieżce.', '6/66/Tzompantli_-_Chichen_Itza_2024.jpg/500px-Tzompantli_-_Chichen_Itza_2024.jpg'],
+    [5, 'r', 20.68451, -88.57005, 'Gran Juego de Pelota', 'Największe boisko gry w piłkę w Mezoameryce (~90 × 30 m); reliefy na ścianach pokazują rytuał ofiary. Piłkę odbijano biodrem.', '0/05/Chich%C3%A9n_Itz%C3%A1_-_Gran_Juego_de_Pelota_12.jpg/500px-Chich%C3%A9n_Itz%C3%A1_-_Gran_Juego_de_Pelota_12.jpg'],
+    [6, 'r', 20.68444, -88.56988, 'Templo de los Jaguares', 'Świątynia na szczycie wschodniej ściany boiska: węże przy wejściu, kamienny jaguar i ślady malowideł w środku.', '6/63/01Templo_de_los_Jaguares_in_Chich%C3%A9n_Itz%C3%A1.jpg/500px-01Templo_de_los_Jaguares_in_Chich%C3%A9n_Itz%C3%A1.jpg'],
+    [7, 's', 20.68404, -88.56933, 'Plataforma Orłów i Jaguarów', 'Niewielka platforma z najsłynniejszymi reliefami: jaguar i orzeł pożerają serca ofiar.', 'b/b1/Relief_carving_Platform_of_the_Eagles_and_the_Jaguars_Chichen_Itza_03_2011_1442.jpg/500px-Relief_carving_Platform_of_the_Eagles_and_the_Jaguars_Chichen_Itza_03_2011_1442.jpg'],
+    [8, 's', 20.68399, -88.56831, 'Plataforma Wenus', 'Ołtarz gwiazdy porannej przed El Castillo — reliefy węży i jaguarów. Stąd najlepsze zdjęcie piramidy z platformą w kadrze.', 'f/fe/Venus_Platform_and_El_Castillo%2C_Chichen_Itza.jpg/500px-Venus_Platform_and_El_Castillo%2C_Chichen_Itza.jpg'],
+    [9, 'r', 20.68299, -88.56864, 'El Castillo (Templo Kukulkána)', 'Serce Chichén: 4 × 91 + 1 stopień = 365 dni roku; w równonoce po stopniach pełznie cień węża Kukulkána. Klaśnij mocno przed schodami — echo wraca jak ćwierk ptaka.', '5/51/Chichen_Itza_3.jpg/500px-Chichen_Itza_3.jpg'],
+    [10, 'r', 20.68314, -88.56711, 'Templo de los Guerreros i Mil Kolumn', 'Świątynia Wojowników z Chac Moolem i Grupa Tysiąca Kolumn — dach dawnych sal targowych. Najlepiej widać ją z góry El Castillo, na wprost.', '9/9a/Templo_de_los_Guerreros%2C_Chich%C3%A9n_Itz%C3%A1_-_panoramio.jpg/500px-Templo_de_los_Guerreros%2C_Chich%C3%A9n_Itz%C3%A1_-_panoramio.jpg'],
+    [11, 'b', 20.68034, -88.56908, 'Cenote Xtoloc', 'Drugi cenote kompleksu — rezerwuar wody pitnej miasta; nad nim świątynia z kolumnadą. Oglądasz z góry, kąpiel wykluczona.', '6/62/Xtoloc_Cenote_Chichen_Itza.JPG/500px-Xtoloc_Cenote_Chichen_Itza.JPG'],
+    [12, 'r', 20.68141, -88.57082, 'El Osario (Grób Kapłana)', 'Mniejsza piramida z grobem kapłana wykopanym pod schodami (bogate dary). Obok okrągła platforma i drugi ołtarz Wenus. Zwykle pusto.', '1/16/El_Osario_o_Tumba_del_Gran_Sacerdote_%28Chichen_Itza%29.jpg/500px-El_Osario_o_Tumba_del_Gran_Sacerdote_%28Chichen_Itza%29.jpg'],
+    [13, 'g', 20.68015, -88.57153, 'Casa Colorada (Chichanchob)', 'Czerwony Dom — świetnie zachowany pałac z IX-wieczną inskrypcją w środku. Stoi na sacbé prowadzącym do obserwatorium.', 'c/cf/Chichen_Itza_CasaColorada.jpg/500px-Chichen_Itza_CasaColorada.jpg'],
+    [14, 'r', 20.67925, -88.57073, 'El Caracol (Obserwatorium)', 'Okrągła wieża obserwacyjna: szczeliny w kopule celowały w Wenus i Słońce. Nazwa ślimak — od spiralnych schodów w środku.', 'b/b9/The_Caracol_tower%2C_Chichen_Itza%2C_Mexico.jpg/500px-The_Caracol_tower%2C_Chichen_Itza%2C_Mexico.jpg'],
+    [15, 'g', 20.67820, -88.57127, 'Las Monjas i La Iglesia', 'Pałac Mniszek — ozdobne fryzy na fasadach (nazwa hiszpańska myli, klasztoru tu nie było); obok La Iglesia z bogatym reliefem.', '3/39/Edificio_de_las_Monjas_3_und_Iglesia.jpg/500px-Edificio_de_las_Monjas_3_und_Iglesia.jpg'],
+    [16, 'g', 20.67825, -88.56965, 'Akab Dzib', 'Dom Ciemnych Inskrypcji — jedna z najstarszych budowli kompleksu, w głębi zieleni; w środku hieroglify o losach budynku. Tu kończy się trasa.', 'c/cb/Chichen_Itza_Akab_Dzib.jpg/500px-Chichen_Itza_Akab_Dzib.jpg']
+  ];
+
+  var grid = document.getElementById('grid');
+  pts.forEach(function (p) {
+    var d = document.createElement('div');
+    d.className = 'pcard';
+    d.innerHTML = '<img loading="lazy" src="' + W + p[6] + '" alt="' + p[4] + '"><div class="pb"><b><span class="dot-n" style="background:' + COL[p[1]] + '">' + p[0] + '</span>' + p[4] + '</b><p>' + p[5] + '</p></div>';
+    grid.appendChild(d);
+  });
+
+  var el = document.getElementById('plan');
+  if (!window.L) {
+    el.innerHTML = '<p style="padding:18px;margin:0;color:#766c5f">Mapa wymaga połączenia z internetem — lista punktów poniżej i tak działa.</p>';
+    return;
+  }
+  var map = L.map(el, { scrollWheelZoom: false });
+  var sat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics'
+  });
+  var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  });
+  sat.addTo(map);
+  L.control.layers({ '🛰️ Satelita (Esri)': sat, '🗺️ Mapa (OSM)': osm }, null, { position: 'topleft' }).addTo(map);
+  L.control.scale({ imperial: false }).addTo(map);
+
+  var all = [];
+  pts.forEach(function (p) {
+    var ic = L.divIcon({
+      className: '',
+      html: '<div class="pin" style="background:' + COL[p[1]] + '">' + p[0] + '</div>',
+      iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -16], tooltipAnchor: [0, -18]
+    });
+    L.marker([p[2], p[3]], { icon: ic, title: p[4] })
+      .bindTooltip('<div class="tip-card"><img src="' + W + p[6] + '" alt="' + p[4] + '"><span>' + p[0] + '. ' + p[4] + '</span></div>', { direction: 'top', offset: [0, -16], opacity: 1, className: 'foto-tip' })
+      .bindPopup('<strong>' + p[0] + '. ' + p[4] + '</strong><br><img src="' + W + p[6] + '" alt="' + p[4] + '" style="width:240px;max-width:100%;border-radius:8px;margin:6px 0 4px;display:block">' + p[5] + '<br><span style="font-size:.85em"><a href="https://www.google.com/maps/search/?api=1&query=' + p[2] + ',' + p[3] + '" target="_blank" rel="noopener">📍 Google Maps</a></span>', { maxWidth: 280, minWidth: 240 })
+      .addTo(map);
+    all.push([p[2], p[3]]);
+  });
+  map.fitBounds(L.latLngBounds(all).pad(0.12));
+})();
+</script>
+</body>
+</html>
