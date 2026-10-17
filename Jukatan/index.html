@@ -53,6 +53,13 @@
     .legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:8px 2px 0;font-size:.85rem;color:var(--muted)}
     .legend .dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px;border:1px solid rgba(0,0,0,.15)}
     .legend .line{display:inline-block;width:24px;border-top:3px dashed #4a4038;margin-right:6px;vertical-align:3px;border-radius:2px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:10px 0 6px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.05);display:flex;flex-direction:column}
+    .card img{width:100%;height:140px;object-fit:cover;display:block;background:#ddd}
+    .card .cb{padding:9px 12px 11px;font-size:.88rem}
+    .card .cb .nm{font-weight:700;display:block}
+    .card .cb .ch{display:block;font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.3px;margin:2px 0 4px}
+    .card .cb p{margin:0;color:var(--muted)}
     @media (max-width:480px){h1{font-size:1.6rem}.map-plan{height:340px}}
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
@@ -222,7 +229,7 @@
 
   <section>
     <h2>🗺️ Wstępny plan zwiedzania — Jukatan, Chiapas, Gwatemala</h2>
-    <p class="lead">To wstępny plan tego, co chcemy zwiedzić: wszystkie punkty z naszej listy — miasta Majów, przyroda i wulkan z założeń — ułożone w trasę <strong>„bazami”</strong>: zatrzymujemy się w sprawdzonym miejscu na 1–3 noce i stąd robimy wypady. Mapa pokazuje punkty i szkielet trasy; szczegóły (co, jak i kiedy) w tabelach poniżej.</p>
+    <p class="lead">To wstępny plan tego, co chcemy zwiedzić: wszystkie punkty z listy (poza Panajachel/Atitlánem — odpuszczony) — miasta Majów, przyroda i wulkan z założeń — ułożone w trasę <strong>„bazami”</strong>: zatrzymujemy się w sprawdzonym miejscu na 1–3 noce i stąd robimy wypady. Mapa pokazuje punkty i szkielet trasy, a karty ze zdjęciami poniżej pomagają zapamiętać plan.</p>
 
     <div id="map-plan" class="map-plan">Tu wczyta się mapa (Leaflet + OpenStreetMap). Jeśli widzisz ten tekst — mapa się nie załadowała, ale wszystkie punkty są w tabeli poniżej.</div>
     <p class="legend">
@@ -233,31 +240,25 @@
       <span><span class="line"></span>trasa lądem (szkielet)</span>
       <span><span class="line" style="border-color:#c0392b"></span>loty (Tikal + powrót do Cancún)</span>
     </p>
-    <p class="caption">Wniosek na skróty: <strong>wszystkie punkty mieszczą się w 16 dniach (24.11–10.12)</strong>, ale 4 dni wyjdą intensywne — ocena i warianty „na luzie” <a href="#ocena-planu">niżej</a>.</p>
+    <p class="caption">Wniosek na skróty: <strong>13 punktów mieści się w 16 dniach (24.11–10.12)</strong>; 3 dni wyjdą intensywne (26.11, 5.12, 7.12) — ocena i opcje <a href="#ocena-planu">niżej</a>.</p>
 
-    <h3 style="font-size:1rem;margin:22px 0 6px">📍 Co zwiedzamy — punkty z mapy</h3>
-    <table class="mini">
-      <thead>
-        <tr><th>#</th><th>Punkt</th><th>Charakter</th><th>Jak zwiedzamy</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>1</td><td><strong>Chichén Itzá</strong></td><td>Majowie, UNESCO</td><td>kolektywem z Valladolid (~45 min), na otwarcie; ~4–5 h</td></tr>
-        <tr><td>2</td><td><strong>Izamal</strong></td><td>Majowie / miasto</td><td>po drodze Chichén → Mérida (bus ~1 h 40, kursy co ~3 h); klasztor + piramida Kinich Kakmó</td></tr>
-        <tr><td>3</td><td><strong>Mérida</strong></td><td>baza (3 noce)</td><td>centrum, Paseo de Montejo, katedra, mercado; stąd wypad do Uxmal</td></tr>
-        <tr><td>4</td><td><strong>Uxmal</strong></td><td>Majowie, UNESCO</td><td>wypad z Méridy (~1,5 h); opcja Ruta Puuc (Kabah, Sayil, Labná)</td></tr>
-        <tr><td>5</td><td><strong>Campeche</strong></td><td>miasto, UNESCO</td><td>nocleg w drodze z Méridy do Palenque; forty, mury i bramy, malecón</td></tr>
-        <tr><td>6</td><td><strong>Palenque</strong></td><td>Majowie, UNESCO</td><td>baza (3 noce); ruiny w dżungli na otwarcie; stąd dwa wypady</td></tr>
-        <tr><td>7</td><td><strong>Agua Azul</strong> (wodospady)</td><td>przyroda</td><td>całodniowy wypad z Palenque razem z Misol-Ha</td></tr>
-        <tr><td>8</td><td><strong>Bonampak</strong></td><td>Majowie (malowidła)</td><td>jeden długi dzień razem z Yaxchilán (agencja z Palenque)</td></tr>
-        <tr><td>9</td><td><strong>Yaxchilán</strong></td><td>Majowie nad rzeką</td><td>jak wyżej — dojazd do Frontera Corozal + łódź po Usumacincie</td></tr>
-        <tr><td>10</td><td><strong>Cañón del Sumidero</strong></td><td>przyroda</td><td>wypad z San Cristóbal; łódź 2 h + punkty widokowe (+ Chiapa de Corzo)</td></tr>
-        <tr><td>11</td><td><strong>Antigua</strong></td><td>baza końcowa (4 noce + obóz)</td><td>kolonialne miasto (UNESCO); stąd Atitlán, Tikal (lot) i Acatenango</td></tr>
-        <tr><td>12</td><td><strong>Panajachel</strong> (Atitlán)</td><td>przyroda / wioski</td><td>wypad z Antiguy (~2,5–3 h); łódką do San Juan La Laguna / Santiago</td></tr>
-        <tr><td>13</td><td><strong>Tikal</strong></td><td>Majowie, UNESCO</td><td>lot GUA → Flores + transfer; wariant jednodniowy lub z noclegiem w Flores</td></tr>
-        <tr><td>14</td><td><strong>Acatenango</strong></td><td>wulkan (z założeń)</td><td>trek 2-dniowy z Antiguy, nocleg w obozie, widok na wybuchające Fuego</td></tr>
-      </tbody>
-    </table>
-    <p class="caption">„Azul” czytamy jako Agua Azul (wodospady w Chiapas, obok Palenque) — jeśli chodziło o coś innego, dajcie znać. Yaxchilán i Bonampak zwiedzamy jednego dnia, oba z Palenque.</p>
+    <h3 style="font-size:1rem;margin:22px 0 6px">📍 Co zwiedzamy — punkty z mapy (ze zdjęciami, żeby łatwiej zapamiętać)</h3>
+    <div class="cards">
+      <div class="card"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Chichen_Itza_3.jpg/500px-Chichen_Itza_3.jpg" alt="Chichén Itzá — El Castillo"><div class="cb"><span class="nm">1. Chichén Itzá</span><span class="ch">Majowie · UNESCO</span><p>El Castillo i Wielka Studnia; kolektywem z Valladolid, na otwarcie (~4–5 h).</p></div></div>
+      <div class="card"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Convento_de_San_Antonio_de_Padua%2C_Izamal%2C_Yucatan%2C_Mexico.jpg/500px-Convento_de_San_Antonio_de_Padua%2C_Izamal%2C_Yucatan%2C_Mexico.jpg" alt="Izamal — klasztor"><div class="cb"><span class="nm">2. Izamal</span><span class="ch">Majowie · żółte miasto</span><p>Klasztor i piramida Kinich Kakmó; po drodze z Chichén do Méridy.</p></div></div>
+      <div class="card"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Catedral_de_San_Ildefonso_1.jpg/500px-Catedral_de_San_Ildefonso_1.jpg" alt="Mérida — katedra"><div class="cb"><span class="nm">3. Mérida</span><span class="ch">baza · 3 noce</span><p>Katedra, Plaza Grande, Paseo de Montejo; stąd wypad do Uxmal.</p></div></div>
+      <div class="card"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Uxmal_Pyramid_of_the_Magician.jpg" alt="Uxmal — Piramida Wróżbity"><div class="cb"><span class="nm">4. Uxmal</span><span class="ch">Majowie · UNESCO</span><p>Piramida Wróżbity i Klasztor Mniszek; wypad z Méridy (~1,5 h).</p></div></div>
+      <div class="card"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Facades_in_Old_City_with_Cathedral_at_Rear_-_Campeche_-_Mexico.jpg/500px-Facades_in_Old_City_with_Cathedral_at_Rear_-_Campeche_-_Mexico.jpg" alt="Campeche — kamieniczki"><div class="cb"><span class="nm">5. Campeche</span><span class="ch">miasto · UNESCO</span><p>Forty, mury i kolorowe kamieniczki; nocleg w drodze do Palenque.</p></div></div>
+      <div class="card"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Palenque_Temple_of_Inscriptions.JPG/500px-Palenque_Temple_of_Inscriptions.JPG" alt="Palenque — Świątynia Inskrypcji"><div class="cb"><span class="nm">6. Palenque</span><span class="ch">Majowie · UNESCO</span><p>Ruiny w dżungli (Świątynia Inskrypcji); baza na 3 noce.</p></div></div>
+      <div class="card"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/VODOPADI.jpg/500px-VODOPADI.jpg" alt="Agua Azul — wodospady"><div class="cb"><span class="nm">7. Agua Azul</span><span class="ch">przyroda</span><p>Turkusowe kaskady; wypad z Palenque razem z Misol-Ha.</p></div></div>
+      <div class="card"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Zona_arqueologica_Bonampak_01_ID_ZA30_DBannasch.jpg/500px-Zona_arqueologica_Bonampak_01_ID_ZA30_DBannasch.jpg" alt="Bonampak — ruiny"><div class="cb"><span class="nm">8. Bonampak</span><span class="ch">Majowie · malowidła</span><p>Świątynia Fresków; jeden dzień razem z Yaxchilán.</p></div></div>
+      <div class="card"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Foto_en_la_Zona_Arqueol%C3%B3gica_de_Yaxchilan_01.jpg/500px-Foto_en_la_Zona_Arqueol%C3%B3gica_de_Yaxchilan_01.jpg" alt="Yaxchilán — ruiny nad rzeką"><div class="cb"><span class="nm">9. Yaxchilán</span><span class="ch">Majowie nad rzeką</span><p>Dojazd do Frontera Corozal i łódź po Usumacincie.</p></div></div>
+      <div class="card"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Canyon_sumidero_entrada.jpg/500px-Canyon_sumidero_entrada.jpg" alt="Cañón del Sumidero"><div class="cb"><span class="nm">10. Cañón del Sumidero</span><span class="ch">przyroda</span><p>Łódź między stromymi ścianami kanionu; wypad z San Cristóbal.</p></div></div>
+      <div class="card"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Antigua_-_Arco.jpg/500px-Antigua_-_Arco.jpg" alt="Antigua — Arco de Santa Catalina"><div class="cb"><span class="nm">11. Antigua</span><span class="ch">baza końcowa · UNESCO</span><p>Kolonialne miasto; stąd Tikal (lot) i Acatenango.</p></div></div>
+      <div class="card"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Tikal_3.jpg/500px-Tikal_3.jpg" alt="Tikal — świątynie w dżungli"><div class="cb"><span class="nm">12. Tikal</span><span class="ch">Majowie · UNESCO</span><p>Świątynie w dżungli; lot Gwatemala → Flores + transfer.</p></div></div>
+      <div class="card"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Volcan_de_Fuego_y_Acatenango.jpg/500px-Volcan_de_Fuego_y_Acatenango.jpg" alt="Acatenango i Fuego"><div class="cb"><span class="nm">13. Acatenango</span><span class="ch">wulkan</span><p>Trek 2-dniowy z obozem; widok na wybuchające Fuego.</p></div></div>
+    </div>
+    <p class="caption">Zdjęcia: Wikimedia Commons (miniatury poglądowe). „Azul” czytamy jako Agua Azul (wodospady w Chiapas, obok Palenque); Yaxchilán i Bonampak zwiedzamy jednego dnia, oba z Palenque. Atitlán/Panajachel — odpuszczony (w odwodzie, gdyby wrócił pomysł).</p>
 
     <h3 style="font-size:1rem;margin:22px 0 6px">🏠 Bazy i wypady</h3>
     <table class="mini">
@@ -269,7 +270,7 @@
         <tr><td>Campeche</td><td class="num">1</td><td>miasto warowne (UNESCO)</td></tr>
         <tr><td>Palenque</td><td class="num">3</td><td>ruiny; <strong>Misol-Ha + Agua Azul</strong>; <strong>Bonampak + Yaxchilán</strong></td></tr>
         <tr><td>San Cristóbal de las Casas</td><td class="num">2</td><td><strong>Cañón del Sumidero</strong> + Chiapa de Corzo; samo miasteczko</td></tr>
-        <tr><td>Antigua</td><td class="num">4 + 1 obóz</td><td><strong>Panajachel / Atitlán</strong>; <strong>Tikal</strong> (lot); <strong>Acatenango</strong> (trek, nocleg w obozie)</td></tr>
+        <tr><td>Antigua</td><td class="num">4 + 1 obóz</td><td>miasto (UNESCO); <strong>Tikal</strong> (lot); <strong>Acatenango</strong> (trek, nocleg w obozie)</td></tr>
         <tr class="total"><td>Razem</td><td class="num">16</td><td>dokładnie tyle, ile mamy nocy: 24.11 → 10.12</td></tr>
       </tbody>
     </table>
@@ -290,30 +291,29 @@
         <tr><td>czw 3.12</td><td>Palenque → San Cristóbal de las Casas (bus przez góry ~7–9 h)</td><td>San Cristóbal</td></tr>
         <tr><td>pt 4.12</td><td>Cañón del Sumidero (łódź) + Chiapa de Corzo; wieczór w miasteczku</td><td>San Cristóbal</td></tr>
         <tr><td>sob 5.12</td><td>⚠️ Przeprawa San Cristóbal → Antigua przez La Mesilla (shared shuttle ~12–14 h)</td><td>Antigua</td></tr>
-        <tr><td>ndz 6.12</td><td>⚠️ Wypad: Panajachel / jezioro Atitlán (łódką do wiosek); wieczorem powrót</td><td>Antigua</td></tr>
+        <tr><td>ndz 6.12</td><td>☀️ Luz w Antigue: zwiedzanie miasta (UNESCO), zakupy, przygotowanie do treku</td><td>Antigua</td></tr>
         <tr><td>pon 7.12</td><td>⚠️ Wypad: Tikal — lot Gwatemala → Flores + transfer (jeden dzień); wieczorem powrót</td><td>Antigua</td></tr>
         <tr><td>wt 8.12</td><td>Acatenango, dzień 1: trek w górę, nocleg w obozie</td><td>⛺ obóz</td></tr>
         <tr><td>śr 9.12</td><td>Acatenango: świt z widokiem na Fuego, zejście; popołudnie luzem w Antigue</td><td>Antigua</td></tr>
         <tr><td>czw 10.12</td><td>Antigua → lotnisko GUA → lot do Cancún (2–2,5 h) → wieczorem wylot 22:25 do Madrytu</td><td>✈️ w drodze</td></tr>
       </tbody>
     </table>
-    <p class="caption">⚠️ = dni najbardziej intensywne (dwa wypady „od rana do wieczora” i dwa długie przejazdy). Pozostałe dni są spokojne — zwiedzanie i krótkie przejazdy (1,5–3 h). Czasy przejazdów sprawdzone 17.10.2026 (rozkłady operatorów + rome2rio); godziny potwierdzimy przy zakupie biletów.</p>
+    <p class="caption">⚠️ = dni najbardziej intensywne: 26.11 (Chichén + Izamal), 5.12 (przeprawa do Gwatemali), 7.12 (Tikal w jeden dzień). Pozostałe dni są spokojne — zwiedzanie i krótkie przejazdy (1,5–3 h). Czasy przejazdów sprawdzone 17.10.2026 (rozkłady operatorów + rome2rio); godziny potwierdzimy przy zakupie biletów.</p>
 
-    <h3 id="ocena-planu" style="font-size:1rem;margin:22px 0 6px">🔎 Ocena: czy to się zmieści? — tak, ale z czterema intensywnymi dniami</h3>
+    <h3 id="ocena-planu" style="font-size:1rem;margin:22px 0 6px">🔎 Ocena: czy to się zmieści? — tak; trzy dni będą intensywne</h3>
     <div class="variant">
-      <p style="margin:0 0 8px"><strong>Da się — wszystkie 14 punktów.</strong> Układają się w naturalną pętlę: Cancún → Jukatan → Chiapas → Gwatemala → wylot z Cancún, bez cofania się. Najdłuższe odcinki to przeprawa do Gwatemali (5.12) i dwa wypady z Antiguy; reszta to krótkie przejazdy albo zwiedzanie. Nocy wychodzi dokładnie 16 — tyle, ile mamy.</p>
+      <p style="margin:0 0 8px"><strong>Da się — 13 punktów (Atitlán odpuszczony).</strong> Punkty układają się w naturalną pętlę: Cancún → Jukatan → Chiapas → Gwatemala → wylot z Cancún, bez cofania się. Najdłuższe odcinki to przeprawa do Gwatemali (5.12) i wypad lotniczy do Tikal; reszta to krótkie przejazdy albo zwiedzanie. Nocy wychodzi dokładnie 16 — tyle, ile mamy, i dzięki odpuszczeniu Atitlánu zostaje wolny dzień w Antigue (6.12).</p>
       <p style="margin:0 0 8px"><strong>Na co uważać:</strong></p>
       <ul style="margin:0 0 8px;padding-left:20px">
         <li>✈️ <strong>Lot Gwatemala → Cancún na 10.12</strong> — bezpośrednie latają Avianca i Volaris; sprawdzić, czy 10.12 (czwartek) jest kurs i o której godzinie — chcemy być w Cancún z zapasem na wieczorny wylot (22:25).</li>
-        <li>✈️ <strong>Tikal jednodniowo</strong> — działa tylko, jeśli loty GUA ↔ Flores (TAG / Avianca Guatemala) mają poranny kurs tam i popołudniowy z powrotem. Jeśli nie — wariant z noclegiem w Flores (zachód słońca + świt w Tikal).</li>
-        <li>🌋 <strong>Acatenango</strong> — trek 2-dniowy rezerwujemy na miejscu w Antigue (agencje ~Q350–600/os. + wstęp do parku); po Tikal/Atitlán to najbardziej wysiłkowy punkt wycieczki (bagaże zostają w Antigue).</li>
+        <li>✈️ <strong>Tikal jednodniowo</strong> — działa tylko, jeśli loty GUA ↔ Flores (TAG / Avianca Guatemala) mają poranny kurs tam i popołudniowy z powrotem. Plan B: wariant z noclegiem w Flores (odpada wtedy wolny dzień w Antigue).</li>
+        <li>🌋 <strong>Acatenango</strong> — trek 2-dniowy rezerwujemy na miejscu w Antigue (agencje ~Q350–600/os. + wstęp do parku); bagaże zostają w hotelu.</li>
         <li>🛂 <strong>Przejście La Mesilla</strong> (5.12) — formalności ~30–60 min; przed wyjazdem potwierdzimy aktualne zasady (pieczątka wyjazdowa z Meksyku, wjazd do Gwatemali).</li>
       </ul>
-      <p style="margin:0 0 4px"><strong>Warianty, jeśli chcemy mniej szarży:</strong></p>
+      <p style="margin:0 0 4px"><strong>Warianty:</strong></p>
       <ul style="margin:0;padding-left:20px">
-        <li><strong>A — pełny (powyżej):</strong> wszystkie 14 punktów, 4 intensywne dni.</li>
-        <li><strong>B — bez Atitlánu:</strong> 6.12 zostaje wolne w Antigue (odpoczynek przed Acatenango); Atitlán dokładamy, jeśli będzie zapas sił.</li>
-        <li><strong>C — Tikal z noclegiem:</strong> zamiast jednodniowego wypadu — dzień + noc w Flores (Tikal o zachodzie i świcie); kosztem Atitlánu, ale mniej męczące i więcej czasu w Tikal.</li>
+        <li><strong>Bazowy (wybrany):</strong> 13 punktów + wolny dzień 6.12 w Antigue na odpoczynek przed Acatenango.</li>
+        <li><strong>Opcja „Tikal na dłużej”:</strong> zamiast wolnego dnia — 6.12 lot do Flores, Tikal o zachodzie słońca, noc w Flores; 7.12 świt w Tikal i powrót. Więcej magii Tikal (świt i zachód), ale zero luzu przed trekiem.</li>
       </ul>
     </div>
 
@@ -321,7 +321,7 @@
       <strong>Do ogarnięcia wcześniej</strong> (od tego zależy plan):
       <ul style="margin:6px 0 0;padding-left:20px">
         <li>bilety lotnicze: Gwatemala → Cancún (10.12) — kupić możliwie wcześnie;</li>
-        <li>loty do Tikal: GUA ↔ Flores (wg wybranego wariantu A lub C);</li>
+        <li>loty do Tikal: GUA ↔ Flores — jednodniowo albo z noclegiem w Flores (do decyzji);</li>
         <li>trek Acatenango — rezerwacja 1–2 dni przed w Antigue wystarczy (agencję wybierzemy na miejscu);</li>
         <li>reszta (autobusy ADO, shuttle) — kupujemy na miejscu, kursy są codzienne.</li>
       </ul>
@@ -452,21 +452,21 @@
   }).addTo(map);
 
   var MAYA = '#b03a2e', NAT = '#1f6feb', CITY = '#2e7d32';
+  var W = 'https://upload.wikimedia.org/wikipedia/commons/';
   var pts = [
-    [1, MAYA, 20.6843, -88.5678, 'Chichén Itzá', 'UNESCO. El Castillo, Wielka Studnia. Kolektywem z Valladolid (~45 min), na otwarcie; ~4–5 h.'],
-    [2, MAYA, 20.9354, -89.0184, 'Izamal', 'Żółte miasto: klasztor i piramida Kinich Kakmó. Po drodze z Chichén do Méridy (bus ~1 h 40).'],
-    [3, CITY, 20.9674, -89.5926, 'Mérida', 'Baza na 3 noce. Centrum, Paseo de Montejo, katedra, mercado; stąd wypad do Uxmal.'],
-    [4, MAYA, 20.3594, -89.7702, 'Uxmal', 'UNESCO. Piramida Wróżbity, Klasztor Mniszek. Wypad z Méridy (~1,5 h); opcja Ruta Puuc.'],
-    [5, CITY, 19.8448, -90.5252, 'Campeche', 'UNESCO: forty, mury i bramy, malecón. Nocleg w drodze z Méridy do Palenque.'],
-    [6, MAYA, 17.4839, -92.0459, 'Palenque', 'UNESCO. Ruiny w dżungli (Świątynia Inskrypcji, Pałac). Baza na 3 noce.'],
-    [7, NAT, 17.2558, -92.1156, 'Agua Azul', 'Kaskady turkusowej wody; wypad z Palenque razem z Misol-Ha.'],
-    [8, MAYA, 16.7037, -91.0650, 'Bonampak', 'Malowidła w Świątyni Fresków; jeden dzień razem z Yaxchilán.'],
-    [9, MAYA, 16.8986, -90.9672, 'Yaxchilán', 'Miasto nad Usumacintą; dojazd do Frontera Corozal i łódź po rzece.'],
-    [10, NAT, 16.8320, -93.0770, 'Cañón del Sumidero', 'Łódź między ścianami kanionu + punkty widokowe; wypad z San Cristóbal.'],
-    [11, CITY, 14.5586, -90.7295, 'Antigua', 'Baza końcowa (UNESCO). Stąd Atitlán, Tikal (lot) i Acatenango.'],
-    [12, CITY, 14.7412, -91.1586, 'Panajachel (Atitlán)', 'Jezioro pod wulkanami; łódką do San Juan La Laguna / Santiago. Wypad z Antiguy.'],
-    [13, MAYA, 17.2220, -89.6237, 'Tikal', 'UNESCO. Miasta Majów w dżungli; wypad z GUA: lot do Flores + transfer.'],
-    [14, NAT, 14.5009, -90.8757, 'Acatenango', 'Trek 2-dniowy z noclegiem w obozie; widok na wybuchające Fuego.']
+    [1, MAYA, 20.6843, -88.5678, 'Chichén Itzá', 'UNESCO. El Castillo, Wielka Studnia. Kolektywem z Valladolid (~45 min), na otwarcie; ~4–5 h.', W + 'thumb/5/51/Chichen_Itza_3.jpg/500px-Chichen_Itza_3.jpg'],
+    [2, MAYA, 20.9354, -89.0184, 'Izamal', 'Żółte miasto: klasztor i piramida Kinich Kakmó. Po drodze z Chichén do Méridy (bus ~1 h 40).', W + 'thumb/2/23/Convento_de_San_Antonio_de_Padua%2C_Izamal%2C_Yucatan%2C_Mexico.jpg/500px-Convento_de_San_Antonio_de_Padua%2C_Izamal%2C_Yucatan%2C_Mexico.jpg'],
+    [3, CITY, 20.9674, -89.5926, 'Mérida', 'Baza na 3 noce. Centrum, Paseo de Montejo, katedra, mercado; stąd wypad do Uxmal.', W + 'thumb/9/90/Catedral_de_San_Ildefonso_1.jpg/500px-Catedral_de_San_Ildefonso_1.jpg'],
+    [4, MAYA, 20.3594, -89.7702, 'Uxmal', 'UNESCO. Piramida Wróżbity, Klasztor Mniszek. Wypad z Méridy (~1,5 h); opcja Ruta Puuc.', W + 'e/e5/Uxmal_Pyramid_of_the_Magician.jpg'],
+    [5, CITY, 19.8448, -90.5252, 'Campeche', 'UNESCO: forty, mury i bramy, malecón. Nocleg w drodze z Méridy do Palenque.', W + 'thumb/e/e6/Facades_in_Old_City_with_Cathedral_at_Rear_-_Campeche_-_Mexico.jpg/500px-Facades_in_Old_City_with_Cathedral_at_Rear_-_Campeche_-_Mexico.jpg'],
+    [6, MAYA, 17.4839, -92.0459, 'Palenque', 'UNESCO. Ruiny w dżungli (Świątynia Inskrypcji, Pałac). Baza na 3 noce.', W + 'thumb/0/02/Palenque_Temple_of_Inscriptions.JPG/500px-Palenque_Temple_of_Inscriptions.JPG'],
+    [7, NAT, 17.2558, -92.1156, 'Agua Azul', 'Kaskady turkusowej wody; wypad z Palenque razem z Misol-Ha.', W + 'thumb/1/1d/VODOPADI.jpg/500px-VODOPADI.jpg'],
+    [8, MAYA, 16.7037, -91.0650, 'Bonampak', 'Malowidła w Świątyni Fresków; jeden dzień razem z Yaxchilán.', W + 'thumb/6/64/Zona_arqueologica_Bonampak_01_ID_ZA30_DBannasch.jpg/500px-Zona_arqueologica_Bonampak_01_ID_ZA30_DBannasch.jpg'],
+    [9, MAYA, 16.8986, -90.9672, 'Yaxchilán', 'Miasto nad Usumacintą; dojazd do Frontera Corozal i łódź po rzece.', W + 'thumb/5/56/Foto_en_la_Zona_Arqueol%C3%B3gica_de_Yaxchilan_01.jpg/500px-Foto_en_la_Zona_Arqueol%C3%B3gica_de_Yaxchilan_01.jpg'],
+    [10, NAT, 16.8320, -93.0770, 'Cañón del Sumidero', 'Łódź między ścianami kanionu + punkty widokowe; wypad z San Cristóbal.', W + 'thumb/d/d8/Canyon_sumidero_entrada.jpg/500px-Canyon_sumidero_entrada.jpg'],
+    [11, CITY, 14.5586, -90.7295, 'Antigua', 'Baza końcowa (UNESCO). Stąd Tikal (lot) i Acatenango.', W + 'thumb/b/b6/Antigua_-_Arco.jpg/500px-Antigua_-_Arco.jpg'],
+    [12, MAYA, 17.2220, -89.6237, 'Tikal', 'UNESCO. Miasta Majów w dżungli; wypad z GUA: lot do Flores + transfer.', W + 'thumb/7/75/Tikal_3.jpg/500px-Tikal_3.jpg'],
+    [13, NAT, 14.5009, -90.8757, 'Acatenango', 'Trek 2-dniowy z noclegiem w obozie; widok na wybuchające Fuego.', W + 'thumb/2/20/Volcan_de_Fuego_y_Acatenango.jpg/500px-Volcan_de_Fuego_y_Acatenango.jpg']
   ];
   var all = [];
   pts.forEach(function (p) {
@@ -477,7 +477,7 @@
     });
     L.marker([p[2], p[3]], { icon: ic, title: p[4] })
       .bindTooltip(p[0] + '. ' + p[4])
-      .bindPopup('<strong>' + p[0] + '. ' + p[4] + '</strong><br>' + p[5])
+      .bindPopup('<strong>' + p[0] + '. ' + p[4] + '</strong><br><img src="' + p[6] + '" alt="' + p[4] + '" style="width:200px;max-width:100%;border-radius:8px;margin:5px 0 4px;display:block">' + p[5])
       .addTo(map);
     all.push([p[2], p[3]]);
   });
@@ -504,7 +504,6 @@
   [[[17.4839, -92.0459], [17.4180, -92.0060], [17.2558, -92.1156]],
    [[17.4839, -92.0459], [16.7037, -91.0650], [16.8986, -90.9672]],
    [[16.7370, -92.6376], [16.8320, -93.0770]],
-   [[14.5586, -90.7295], [14.7412, -91.1586]],
    [[14.5586, -90.7295], [14.5009, -90.8757]]
   ].forEach(function (seg) {
     L.polyline(seg, { color: '#8a8177', weight: 2, dashArray: '3 7', opacity: 0.85 }).addTo(map);
