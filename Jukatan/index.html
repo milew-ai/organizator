@@ -3,10 +3,148 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jukatan</title>
+  <title>Jukatan 2026 — plan wycieczki</title>
+  <style>
+    :root{
+      --bg:#f5f1ea; --card:#fff; --ink:#2f2a24; --muted:#766c5f;
+      --accent:#b64a17; --accent-soft:#f8e9dd;
+      --ok:#2f7d4f; --ok-soft:#e2f2e7;
+      --line:#e7ddcf;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    .wrap{max-width:760px;margin:0 auto;padding:28px 16px 72px}
+    h1{margin:0;font-size:1.9rem}
+    .sub{color:var(--muted);margin:6px 0 0}
+    h2{font-size:1.2rem;margin:38px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--accent)}
+    .day{font-weight:700;color:var(--accent);margin:20px 0 8px}
+    .leg{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+    .leg .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+    .route{font-weight:600}
+    .times{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+    .detail{margin-top:6px;color:var(--muted);font-size:.92rem;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center}
+    .chip{font-size:.75rem;font-weight:700;padding:1px 9px;border-radius:999px;background:var(--ok-soft);color:var(--ok);white-space:nowrap}
+    .chip.own{background:var(--accent-soft);color:var(--accent)}
+    table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+    th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);font-size:.95rem}
+    th{background:#faf7f2;font-size:.82rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+    td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+    tr.total td{font-weight:700;border-bottom:none;background:#faf7f2}
+    .todo{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:14px 18px}
+    .todo ul{margin:6px 0 0;padding-left:20px}
+    .todo li{margin:6px 0}
+    footer{margin-top:40px;color:var(--muted);font-size:.85rem}
+    @media (max-width:480px){h1{font-size:1.6rem}}
+  </style>
 </head>
 <body>
-  <h1>Jukatan</h1>
-  <p>Strona w budowie — treść wycieczki pojawi się tutaj.</p>
+<div class="wrap">
+
+  <header>
+    <h1>Jukatan 2026</h1>
+    <p class="sub">23.11 – 13.12.2026 &middot; bilety kupione, daty stałe</p>
+  </header>
+
+  <section>
+    <h2>🛫 Droga tam</h2>
+
+    <div class="day">poniedziałek, 23.11.2026</div>
+    <div class="leg">
+      <div class="top"><span class="route">🚗 Suwałki (dom) → Ełk</span><span class="times">16:00 → 17:00</span></div>
+      <div class="detail"><span class="chip own">transport własny</span><span>40,00 zł</span></div>
+    </div>
+    <div class="leg">
+      <div class="top"><span class="route">🚆 Ełk (PKP) → Gdańsk Wrzeszcz</span><span class="times">17:31 → 21:41</span></div>
+      <div class="detail"><span class="chip">bilet kupiony</span><span>80,00 zł</span></div>
+    </div>
+    <div class="leg">
+      <div class="top"><span class="route">🌙 Nocleg — Gdańsk (u Patryka)</span></div>
+    </div>
+
+    <div class="day">wtorek, 24.11.2026</div>
+    <div class="leg">
+      <div class="top"><span class="route">🚗 Gdańsk (Patryk) → Lotnisko Gdańsk</span><span class="times">3:30 → 4:00</span></div>
+      <div class="detail"><span class="chip own">transport własny</span><span>wyjazd nad ranem</span></div>
+    </div>
+    <div class="leg">
+      <div class="top"><span class="route">✈️ Gdańsk → Madryt</span><span class="times">6:00 → 9:55</span></div>
+      <div class="detail"><span class="chip">bilet kupiony</span><span>146,60 zł</span><span>przesiadka w Madrycie: 9:55 – 15:20</span></div>
+    </div>
+    <div class="leg">
+      <div class="top"><span class="route">✈️ Madryt → Cancún</span><span class="times">15:20 → 20:25</span></div>
+      <div class="detail"><span class="chip">bilet kupiony</span><span>314,87 €</span><span>przylot czasu lokalnego Cancún (UTC−5)</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🌴 Jukatan</h2>
+    <div class="leg">
+      <div class="top"><span class="route">24.11 (wieczór) → 10.12 (wieczór)</span></div>
+      <div class="detail"><span>Plan zwiedzania dzień po dniu — do uzupełnienia. Tu wpiszemy miejsca, noclegi i atrakcje.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🛬 Droga powrotna</h2>
+
+    <div class="day">czwartek, 10.12.2026</div>
+    <div class="leg">
+      <div class="top"><span class="route">✈️ Cancún → Madryt</span><span class="times">22:25 → 13:25 (+1 dzień)</span></div>
+      <div class="detail"><span class="chip">bilet kupiony</span><span>329,47 €</span><span>przylot w piątek 11.12, czasu Madrytu</span></div>
+    </div>
+
+    <div class="day">piątek, 11.12.2026</div>
+    <div class="leg">
+      <div class="top"><span class="route">🕐 Dzień w Madrycie</span></div>
+      <div class="detail"><span>przylot 13:25 — wolny czas do sobotniego wieczoru</span><span>do zaplanowania: nocleg + zwiedzanie</span></div>
+    </div>
+
+    <div class="day">sobota, 12.12.2026</div>
+    <div class="leg">
+      <div class="top"><span class="route">✈️ Madryt → Warszawa (Lotnisko Chopina)</span><span class="times">19:15 → 22:50</span></div>
+      <div class="detail"><span class="chip">bilet kupiony</span><span>46,00 €</span></div>
+    </div>
+
+    <div class="day">niedziela, 13.12.2026</div>
+    <div class="leg">
+      <div class="top"><span class="route">🚌 Warszawa (Lotnisko Chopina) → Ełk (dworzec)</span><span class="times">0:45 → 4:46</span></div>
+      <div class="detail"><span class="chip">bilet kupiony</span><span>128,00 zł</span><span>autobus ok. 2 h po przylocie</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>💸 Bilety — podsumowanie</h2>
+    <table>
+      <thead>
+        <tr><th>Odcinek</th><th>Data</th><th class="num">Koszt</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Suwałki → Ełk (auto)</td><td>23.11</td><td class="num">40,00 zł</td></tr>
+        <tr><td>Ełk → Gdańsk (pociąg)</td><td>23.11</td><td class="num">80,00 zł</td></tr>
+        <tr><td>Gdańsk → Madryt (lot)</td><td>24.11</td><td class="num">146,60 zł</td></tr>
+        <tr><td>Madryt → Cancún (lot)</td><td>24.11</td><td class="num">314,87 €</td></tr>
+        <tr><td>Cancún → Madryt (lot)</td><td>10.12</td><td class="num">329,47 €</td></tr>
+        <tr><td>Madryt → Warszawa (lot)</td><td>12.12</td><td class="num">46,00 €</td></tr>
+        <tr><td>Warszawa → Ełk (autobus)</td><td>13.12</td><td class="num">128,00 zł</td></tr>
+        <tr class="total"><td>Razem</td><td></td><td class="num">394,60 zł + 690,34 €</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>📋 Uwagi</h2>
+    <div class="todo">
+      <ul>
+        <li>Wszystkie godziny podane lokalnie (Madryt UTC+1, Cancún UTC−5).</li>
+        <li>W drodze tam długa przesiadka w Madrycie: 9:55 – 15:20.</li>
+        <li>Powrót: przylot do Warszawy 22:50, autobus do Ełku 0:45 — ok. 2 h na lotnisku.</li>
+        <li>Do zaplanowania: nocleg i zwiedzanie Madrytu (11–12.12), transfer lotnisko ↔ Cancún, plan dni na Jukatanie.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>Jukatan 2026 &middot; plan transportu (bilety zakupione); szczegóły na miejscu w przygotowaniu.</footer>
+
+</div>
 </body>
 </html>
