@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tikal — plan kompleksu · Jukatan 2026</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    :root{
+      --bg:#f5f1ea; --card:#fff; --ink:#2f2a24; --muted:#766c5f;
+      --accent:#b64a17; --accent-soft:#f8e9dd;
+      --ok:#2f7d4f; --ok-soft:#e2f2e7;
+      --line:#e7ddcf;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    .wrap{max-width:760px;margin:0 auto;padding:28px 16px 72px}
+    h1{margin:0;font-size:1.9rem}
+    .sub{color:var(--muted);margin:6px 0 0}
+    h2{font-size:1.2rem;margin:38px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--accent)}
+    h3{font-size:1rem;margin:22px 0 6px}
+    footer{margin-top:40px;color:var(--muted);font-size:.85rem}
+    a{color:var(--accent)}
+    .lead{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0 16px}
+    .caption{color:var(--muted);font-size:.85rem;margin:4px 2px 0}
+    ul.tight{margin:6px 0;padding-left:20px}
+    ul.tight li{margin:5px 0}
+    ol.tight{margin:6px 0;padding-left:24px}
+    ol.tight li{margin:5px 0}
+    .variant{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:12px 0;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+    #plan{height:520px;border-radius:12px;border:1px solid var(--line);background:#e9e4da}
+    @media (max-width:640px){#plan{height:420px}}
+    .pin{width:26px;height:26px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.55);color:#fff;font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center}
+    .foto-tip{background:transparent;border:0;box-shadow:none;padding:0}
+    .foto-tip::before{display:none!important}
+    .tip-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.35);width:190px}
+    .tip-card img{width:190px;height:120px;object-fit:cover;display:block}
+    .tip-card span{display:block;padding:6px 8px;font-weight:600;font-size:.84rem;color:#2f2a24;line-height:1.25}
+    .legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:8px 2px 0;color:var(--muted);font-size:.85rem}
+    .legend i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px}
+    .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:12px;margin:10px 0}
+    .pcard{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+    .pcard img{width:100%;height:132px;object-fit:cover;display:block}
+    .pcard .pb{padding:8px 11px 10px}
+    .pcard b{font-size:.92rem}
+    .pcard p{margin:4px 0 0;font-size:.82rem;color:var(--muted);line-height:1.4}
+    .dot-n{display:inline-flex;width:20px;height:20px;border-radius:50%;color:#fff;font-size:.72rem;font-weight:700;align-items:center;justify-content:center;margin-right:6px}
+    @media (max-width:480px){h1{font-size:1.6rem}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>🏛️ Tikal — plan kompleksu</h1>
+    <p class="sub">Podstrona punktu 9 &middot; wypad 4.12.2026 &middot; lot Gwatemala → Flores + transfer do parku</p>
+  </header>
+
+  <p class="caption" style="margin-top:10px">↩︎ <a href="index.html">Wróć do planu wycieczki (mapa)</a> &middot; <a href="transport.html">🚌 transport: baza wiedzy</a> &middot; <a href="aplikacje.html">📱 aplikacje</a></p>
+
+  <section>
+    <p class="lead">Jedno z największych miast Majów i jedno z najbardziej spektakularnych miejsc na świecie — ruiny wynurzają się z dżungli, a z Templo IV widać szczyty świątyń ponad koronami drzew. Poniżej <strong>interaktywny plan kompleksu</strong>: 15 najważniejszych miejsc z numerami (kolejność = proponowana trasa). <strong>Najedź kursorem na pinezkę</strong> — pokaże się zdjęcie; <strong>kliknij</strong> — opis i większa fotografia. Na telefonie po prostu dotknij pinezki. Na końcu trasy (fioletowa pinezka „15”) znajduje się <strong>Templo VI</strong> — opcjonalny odcinek deptakiem Méndez (~1,3 km w jedną stronę).</p>
+
+    <h3 style="margin-top:14px">🧭 Praktycznie</h3>
+    <div class="variant">
+      <ul class="tight" style="margin:0">
+        <li>🎟️ <strong>Bilet:</strong> Q150/os. (cudzoziemiec dorosły) — Boletos MCD, kasa przy wejściu; płatność gotówką, miej paszport. Dzieci/seniorzy taniej — sprawdźcie na miejscu. Świt (4:00–6:00) i zachód (17:00–20:00) za dopłatą Q100 i z uprawnionym przewodnikiem (rezerwacja min. dzień wcześniej).</li>
+        <li>🕗 <strong>Godziny:</strong> park codziennie 6:00–18:00 (ostatni wstęp ~17:00). Muzea (Museo Lítico + Sylvanus G. Morley): Q30/os., zwykle 8:00–16:00 (źródła podają 8–18 — potwierdźcie na miejscu).</li>
+        <li>✈️ <strong>Dojazd (4.12):</strong> lot Gwatemala → Flores + transfer do parku (~1,5–2 h). Z Flores/El Remate kursują shuttle busy (~1–1,5 h). Szczegóły w planie wycieczki (index.html) i na transport.html.</li>
+        <li>🚶 <strong>Dystans:</strong> centrum obsługi → ruiny ~1,2 km (15–20 min); pełna pętla ~6–8 km; powrót z Templo IV do wyjścia ~2 km (30–40 min). Templo VI (opcja) +2,6 km w obie strony.</li>
+        <li>☀️ <strong>Upał i woda:</strong> 1–1,5 l wody/os., czapka, krem z filtrem; cień rzadki. Comedor przy wejściu i budka „Refrescos y Chips" przy Templo IV.</li>
+        <li>🪜 <strong>Wejścia:</strong> Templo II, Templo IV i Wielka Piramida Mundo Perdido — drewniane schody (dozwolone); Templo I, III, V, VI — nie wolno wchodzić. Regulamin może się zmieniać — sprawdźcie tabliczki (konserwacja).</li>
+        <li>🚫 <strong>Zasady:</strong> drony zakazane; nie zostawiajcie jedzenia (ostronosy/małpy). Zdjęcia i filmowanie bez statywów komercyjnych.</li>
+        <li>⏱️ <strong>Ile czasu:</strong> ~5–6 h na ruiny z przerwą. Wariant z zachodem słońca wymaga noclegu w Flores/El Remate („Tikal na dłużej").</li>
+        <li>🎬 <strong>Ciekawostka:</strong> plenery bazy Rebelii na Yavin 4 („Gwiezdne wojny", 1977) kręcono w Tikal — kadry z Templo IV rozpozna każdy fan.</li>
+      </ul>
+    </div>
+
+    <h2>🗺️ Mapa kompleksu — 15 punktów</h2>
+    <div id="plan"></div>
+    <p class="legend">
+      <span><i style="background:#b03a2e"></i>świątynie, piramidy, boisko</span>
+      <span><i style="background:#2e7d32"></i>pałace, place</span>
+      <span><i style="background:#6b7280"></i>wejście, muzea, obsługa</span>
+      <span><i style="background:#6d28d9"></i>Templo VI — opcja (deptak Méndez)</span>
+    </p>
+    <p class="caption">🛰️ Kafelki: Esri World Imagery (satelita) / OpenStreetMap &middot; 📷 zdjęcia: Wikimedia Commons &middot; przełącznik warstw w lewym górnym rogu mapy. Fioletowa linia = opcjonalny odcinek do Templo VI.</p>
+
+    <h2>🚶 Kolejność zwiedzania (~5–6 h)</h2>
+    <ol class="tight">
+      <li>Centrum dla odwiedzających — kasy i start</li>
+      <li>Muzea (Museo Lítico + Sylvanus G. Morley)</li>
+      <li>Complejo Q — bliźniacze piramidy (po drodze)</li>
+      <li>Juego de Pelota — boisko (Plaza del Este)</li>
+      <li>Templo I — Gran Jaguar (Wielki Plac)</li>
+      <li>Acrópolis Norte — nekropolia królewska</li>
+      <li>Templo II — Máscaras (wejście na górę)</li>
+      <li>Acrópolis Central — pałace</li>
+      <li>Templo V</li>
+      <li>Acrópolis Sur — wielka platforma</li>
+      <li>Plaza de los Siete Templos</li>
+      <li>El Mundo Perdido — Wielka Piramida</li>
+      <li>Templo III — Gran Sacerdote</li>
+      <li>Templo IV — najwyższa (widok, Star Wars)</li>
+      <li>Templo VI — opcja, deptakiem Méndez (~1,3 km)</li>
+    </ol>
+    <p class="caption">Powrót z Templo IV do wyjścia to ~2 km (30–40 min) przez Tozzer Causeway i centrum kompleksu — załóż go w planie dnia. Templo VI zwiedza się jako odcinek opcjonalny z punktu 4 (lub 8): tam i z powrotem ~2,6 km.</p>
+
+    <h2>📸 Punkty po kolei</h2>
+    <div class="pgrid" id="grid"></div>
+
+    <p class="caption">Zdjęcia: Wikimedia Commons (licencje plików) · ceny i godziny wg stanu na 10.2026 (Boletos MCD, tikal.tours, tikalnationalpark.org) — potwierdźcie przed wyjazdem.</p>
+  </section>
+
+  <p class="caption">↩︎ <a href="index.html">Wróć do planu wycieczki</a></p>
+  <footer>Tikal &middot; podstrona punktu 9 &middot; zdjęcia: Wikimedia Commons (licencje plików) &middot; kafelki: Esri / OpenStreetMap.</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function () {
+  var W = 'https://upload.wikimedia.org/wikipedia/commons/thumb/';
+  var COL = { r: '#b03a2e', g: '#2e7d32', s: '#6b7280', v: '#6d28d9' };
+  var pts = [
+    [1, 's', 17.2242, -89.6123, 'Centrum dla odwiedzających', 'Kasy, restauracje, sklepiki i punkt informacyjny przy wejściu — to tu kupicie bilet (Q150) i zaczniecie spacer do ruin (~1,2 km, 15–20 min). Na makiecie parku w centrum obsługi dobrze widać układ kompleksu przed wyjściem na szlak.', '9/97/Tikal_Modell_2.JPG/500px-Tikal_Modell_2.JPG'],
+    [2, 's', 17.2239, -89.6124, 'Muzea (Museo Lítico + Sylvanus G. Morley)', 'Museo Lítico (stele i nadproża) i Museo Sylvanus G. Morley (ceramika, jadeit) — oryginały rzeźb z kompleksu. Q30/os., zwykle 8:00–16:00; warto na początku lub na końcu dnia.', 'd/d6/Maya_artifacts_Tikal_Museum.jpg/500px-Maya_artifacts_Tikal_Museum.jpg'],
+    [3, 'r', 17.2253, -89.6194, 'Complejo Q (bliźniacze piramidy)', 'Jeden z dziewięciu zespołów bliźniaczych piramid Tikal (VIII w.): dwie piramidy naprzeciwko siebie na osi wschód–zachód, zagroda ze stelami i ołtarzami. Leży przy ścieżce z centrum obsługi — mijacie go w drodze do serca ruin.', '9/9d/Complex_Q%2C_Tikal_03.jpg/500px-Complex_Q%2C_Tikal_03.jpg'],
+    [4, 'r', 17.2218, -89.6231, 'Juego de Pelota (Plaza del Este)', 'Boisko gry w piłkę między Wielkim Placem a Acrópolis Central (ściany z reliefami rytuału) — tu zaczyna się Plaza del Este z Templo 38 i łaźnią parową (sweat house). Spokojniejsze niż Gran Plaza.', 'd/db/Tikal_central_ballcourt%2C_looking_towards_the_Central_Acropolis.jpg/500px-Tikal_central_ballcourt%2C_looking_towards_the_Central_Acropolis.jpg'],
+    [5, 'r', 17.2221, -89.6231, 'Templo I — Gran Jaguar', '47 m, wschodnia strona Wielkiego Placu — grobowiec Jasaw Chan K\'awiila I (VIII w.). Nie wolno wchodzić; najlepsze zdjęcie z Acrópolis Norte lub z Templo II. Na szczycie widać grzebień dachu ponad dżunglą.', 'e/e8/Temple_of_the_Great_Jaguar.jpg/500px-Temple_of_the_Great_Jaguar.jpg'],
+    [6, 'r', 17.2227, -89.6234, 'Acrópolis Norte', 'Nekropolia królewska — ponad 100 faz budowy, maski stiukowe i stele wzdłuż schodów. Stąd najlepszy widok na Wielki Plac i Templo I/II. Można chodzić po platformach.', 'a/a6/North_Acropolis_-_Gran_Plaza_-_Tikal_Archaeological_Site_-_Peten_-_Guatemala_-_02_%2815869514371%29.jpg/500px-North_Acropolis_-_Gran_Plaza_-_Tikal_Archaeological_Site_-_Peten_-_Guatemala_-_02_%2815869514371%29.jpg'],
+    [7, 'r', 17.2222, -89.6242, 'Templo II — Máscaras', '38 m, zachodnia strona placu — drewniane schody z tyłu prowadzą na górę (jedno z najlepszych miejsc na zdjęcie Templo I). Zbudowany dla żony Jasaw Chan K\'awiila I.', 'c/ce/Tikal_Temple_II.jpg/500px-Tikal_Temple_II.jpg'],
+    [8, 'g', 17.2215, -89.6233, 'Acrópolis Central', 'Pałacowa dzielnica z korytarzami, dziedzińcami i schodami — siedziba dynastii. Można przejść przez wnętrza (labirynt). Dobre schronienie w upale.', '7/72/Tikal%2C_Central_Acropolis_02.jpg/500px-Tikal%2C_Central_Acropolis_02.jpg'],
+    [9, 'r', 17.2197, -89.6237, 'Templo V', '57 m, jeden z najstarszych stojących (VI w.), smukły, o zaokrąglonych narożnikach. Nie wolno wchodzić — podziwia się z dołu. Tuż obok Acrópolis Sur.', '5/54/Tikal_Temple_V_-_Abril_2002.jpg/500px-Tikal_Temple_V_-_Abril_2002.jpg'],
+    [10, 'g', 17.2199, -89.6247, 'Acrópolis Sur', 'Wielka platforma (>20 000 m²) z pałacami na południe od Acrópolis Central — mniej odwiedzana, cicha. Dobre miejsce na odpoczynek w cieniu.', '9/9a/Tikal_Group_G_%289791142055%29.jpg/500px-Tikal_Group_G_%289791142055%29.jpg'],
+    [11, 'g', 17.2196, -89.6258, 'Plaza de los Siete Templos', 'Siedem niemal identycznych świątyń w rzędzie (VIII w.), pałace po stronie południowej i potrójne boisko od północy. Spokojne — turystów mniej niż na Gran Plaza.', '6/63/Plaza_of_the_Seven_Temples%2C_Tikal_10.jpg/500px-Plaza_of_the_Seven_Temples%2C_Tikal_10.jpg'],
+    [12, 'r', 17.2200, -89.6277, 'El Mundo Perdido (Wielka Piramida)', 'Najstarsza część miasta (preklasyk, ok. 700 r. p.n.e.–200 n.e.): E-Group — Wielka Piramida (~30 m, wejście po drewnianych schodach) i platformy astronomiczne. Dobry punkt na zachód słońca.', 'f/fc/Mundo_Perdido_pyramid_5C-54%2C_Tikal.jpg/500px-Mundo_Perdido_pyramid_5C-54%2C_Tikal.jpg'],
+    [13, 'r', 17.2221, -89.6261, 'Templo III — Gran Sacerdote', '55 m, ok. 810 r. (ostatnia wielka budowla w Tikal), w większości zalesiony — zza drzew wystaje grzebień dachu. Nie wolno wchodzić. Na trasie między Wielkim Placem a Templo IV.', '3/3d/Tikal_Temple_III_%2810514818025%29.jpg/500px-Tikal_Temple_III_%2810514818025%29.jpg'],
+    [14, 'r', 17.2237, -89.6298, 'Templo IV — Serpiente Bicéfala', 'Najwyższa (ok. 70 m, 741 r.) — wejście po drewnianych schodach na platformę widokową. Stąd widać szczyty Templo I, II, III i V ponad koronami drzew; tu kręcono plenery bazy Rebelii na Yavin 4 („Gwiezdne wojny", 1977). Budka z napojami przy szlaku.', '1/18/Tikal_Temple_IV%2C_2022_05.jpg/500px-Tikal_Temple_IV%2C_2022_05.jpg'],
+    [15, 'v', 17.2145, -89.6145, 'Templo VI — de las Inscripciones (opcja)', 'Na końcu deptaka Méndez (ok. 1,3 km w jedną stronę z Plaza del Este) — grzebień dachu pokryty jednym z najdłuższych tekstów hieroglificznych w świecie Majów (VIII w.). Opcja tylko jeśli zostanie czas i siły.', '0/00/Tikal_Temple_VI_%28Temple_of_the_Inscriptions%29.jpg/500px-Tikal_Temple_VI_%28Temple_of_the_Inscriptions%29.jpg']
+  ];
+
+  var grid = document.getElementById('grid');
+  pts.forEach(function (p) {
+    var d = document.createElement('div');
+    d.className = 'pcard';
+    d.innerHTML = '<img loading="lazy" src="' + W + p[6] + '" alt="' + p[4] + '"><div class="pb"><b><span class="dot-n" style="background:' + COL[p[1]] + '">' + p[0] + '</span>' + p[4] + '</b><p>' + p[5] + '</p></div>';
+    grid.appendChild(d);
+  });
+
+  var el = document.getElementById('plan');
+  if (!window.L) {
+    el.innerHTML = '<p style="padding:18px;margin:0;color:#766c5f">Mapa wymaga połączenia z internetem — lista punktów poniżej i tak działa.</p>';
+    return;
+  }
+  var map = L.map(el, { scrollWheelZoom: false });
+  var sat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics'
+  });
+  var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  });
+  sat.addTo(map);
+  L.control.layers({ '🛰️ Satelita (Esri)': sat, '🗺️ Mapa (OSM)': osm }, null, { position: 'topleft' }).addTo(map);
+  L.control.scale({ imperial: false }).addTo(map);
+
+  var all = [];
+  pts.forEach(function (p) {
+    var ic = L.divIcon({
+      className: '',
+      html: '<div class="pin" style="background:' + COL[p[1]] + '">' + p[0] + '</div>',
+      iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -16], tooltipAnchor: [0, -18]
+    });
+    L.marker([p[2], p[3]], { icon: ic, title: p[4] })
+      .bindTooltip('<div class="tip-card"><img src="' + W + p[6] + '" alt="' + p[4] + '"><span>' + p[0] + '. ' + p[4] + '</span></div>', { direction: 'top', offset: [0, -16], opacity: 1, className: 'foto-tip' })
+      .bindPopup('<strong>' + p[0] + '. ' + p[4] + '</strong><br><img src="' + W + p[6] + '" alt="' + p[4] + '" style="width:240px;max-width:100%;border-radius:8px;margin:6px 0 4px;display:block">' + p[5] + '<br><span style="font-size:.85em"><a href="https://www.google.com/maps/search/?api=1&query=' + p[2] + ',' + p[3] + '" target="_blank" rel="noopener">📍 Google Maps</a></span>', { maxWidth: 280, minWidth: 240 })
+      .addTo(map);
+    all.push([p[2], p[3]]);
+  });
+
+  // Główna trasa (punkty 1–14)
+  var route = pts.slice(0, 14).map(function (p) { return [p[2], p[3]]; });
+  L.polyline(route, { color: '#b03a2e', weight: 3, dashArray: '6 8', opacity: 0.7 })
+    .bindTooltip('Proponowana trasa zwiedzania (punkty 1–14)', { sticky: true })
+    .addTo(map);
+
+  // Deptak Méndez → Templo VI (opcja, punkt 15)
+  var mendez = [[17.2219, -89.6225], [17.221, -89.621], [17.22, -89.6195], [17.2191, -89.6187], [17.2181, -89.6177], [17.2176, -89.6174], [17.2162, -89.6159], [17.2156, -89.6152], [17.2149, -89.6141]];
+  L.polyline(mendez, { color: '#6d28d9', weight: 3, dashArray: '4 7', opacity: 0.85 })
+    .bindTooltip('Deptak Méndez → Templo VI: ~1,3 km (opcja)', { sticky: true })
+    .addTo(map);
+
+  map.fitBounds(L.latLngBounds(all).pad(0.12));
+})();
+</script>
+</body>
+</html>
