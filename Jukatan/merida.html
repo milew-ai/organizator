@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mérida — plan centrum · Jukatan 2026</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    :root{
+      --bg:#f5f1ea; --card:#fff; --ink:#2f2a24; --muted:#766c5f;
+      --accent:#b64a17; --accent-soft:#f8e9dd;
+      --ok:#2f7d4f; --ok-soft:#e2f2e7;
+      --line:#e7ddcf;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    .wrap{max-width:760px;margin:0 auto;padding:28px 16px 72px}
+    h1{margin:0;font-size:1.9rem}
+    .sub{color:var(--muted);margin:6px 0 0}
+    h2{font-size:1.2rem;margin:38px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--accent)}
+    h3{font-size:1rem;margin:22px 0 6px}
+    footer{margin-top:40px;color:var(--muted);font-size:.85rem}
+    a{color:var(--accent)}
+    .lead{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0 16px}
+    .caption{color:var(--muted);font-size:.85rem;margin:4px 2px 0}
+    ul.tight{margin:6px 0;padding-left:20px}
+    ul.tight li{margin:5px 0}
+    ol.tight{margin:6px 0;padding-left:24px}
+    ol.tight li{margin:5px 0}
+    .variant{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:12px 0;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+    #plan{height:520px;border-radius:12px;border:1px solid var(--line);background:#e9e4da}
+    @media (max-width:640px){#plan{height:420px}}
+    .pin{width:26px;height:26px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.55);color:#fff;font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center}
+    .foto-tip{background:transparent;border:0;box-shadow:none;padding:0}
+    .foto-tip::before{display:none!important}
+    .tip-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.35);width:190px}
+    .tip-card img{width:190px;height:120px;object-fit:cover;display:block}
+    .tip-card span{display:block;padding:6px 8px;font-weight:600;font-size:.84rem;color:#2f2a24;line-height:1.25}
+    .legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:8px 2px 0;color:var(--muted);font-size:.85rem}
+    .legend i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px}
+    .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:12px;margin:10px 0}
+    .pcard{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+    .pcard img{width:100%;height:132px;object-fit:cover;display:block}
+    .pcard .pb{padding:8px 11px 10px}
+    .pcard b{font-size:.92rem}
+    .pcard p{margin:4px 0 0;font-size:.82rem;color:var(--muted);line-height:1.4}
+    .dot-n{display:inline-flex;width:20px;height:20px;border-radius:50%;color:#fff;font-size:.72rem;font-weight:700;align-items:center;justify-content:center;margin-right:6px}
+    @media (max-width:480px){h1{font-size:1.6rem}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>🏛️ Mérida — plan centrum</h1>
+    <p class="sub">Podstrona punktu 3 &middot; baza na 3 noce &middot; wolne muzea i punkty na wolnym powietrzu</p>
+  </header>
+
+  <p class="caption" style="margin-top:10px">↩︎ <a href="index.html">Wróć do planu wycieczki (mapa)</a> &middot; <a href="transport.html">🚌 transport: baza wiedzy</a> &middot; <a href="aplikacje.html">📱 aplikacje</a></p>
+
+  <section>
+    <p class="lead">Stolica Jukatanu i jedno z najbezpieczniejszych miast Meksyku — kolonialne centrum (trzecie co do wielkości stare miasto na kontynencie) z <strong>darmowymi muzeami i placami</strong>. Poniżej <strong>interaktywny plan centrum</strong>: 15 punktów z numerami (kolejność = proponowana trasa pętlą od Plaza Grande). <strong>Najedź kursorem na pinezkę</strong> — zdjęcie; <strong>kliknij</strong> — opis i większa fotografia. Na telefonie po prostu dotknij pinezki. Zdecydowana większość muzeów jest <strong>wstęp wolny</strong> — godziny i ceny w sekcji praktycznej (punkty 15 to osobny wyjazd na północ).</p>
+
+    <h3 style="margin-top:14px">🧭 Praktycznie — muzea i godziny (stan X.2026)</h3>
+    <div class="variant">
+      <p style="margin:0 0 6px"><strong>🎟️ Wstęp wolny (godziny wg oficjalnych źródeł, potwierdźcie przed wyjazdem):</strong></p>
+      <ul class="tight" style="margin:0">
+        <li><strong>Palacio de Gobierno</strong> (północna strona Plaza Grande) — 27 murali Castro Pacheco (olej), wstęp wolny; wg przewodników zwykle pon–sob 8:00–17:00, ndz 9:00–14:00.</li>
+        <li><strong>Casa de Montejo</strong> (południowa strona Plaza Grande) — muzeum (Banamex), wstęp wolny; wg przewodników wt–nd 10:00–19:00.</li>
+        <li><strong>MACAY</strong> (Pasaje de la Revolución) — sztuka nowoczesna i współczesna; wstęp wolny; <em>nowy harmonogram 2026</em>: pon, wt, czw, pt, sob 10:00–14:00; śr i ndz zamknięte — sprawdźcie na macay.org (zmieniają się).</li>
+        <li><strong>Centro Cultural Olimpo</strong> (zachodnia strona Plaza Grande) — wystawy czasowe wstęp wolny; wg przewodników wt–nd 10:00–18:00; śr 20:30 videomapping „Piedras Sagradas” (wolny).</li>
+        <li><strong>Museo de la Ciudad de Mérida</strong> (Calle 56 x 65) — wstęp wolny; wt–pt 9:00–18:00, sb–nd 9:00–14:00 (SIC).</li>
+        <li><strong>Museo de Historia Natural</strong> (Calle 59 x 84) — wstęp wolny; wt–nd 9:00–14:00 (SIC). (Poza mapą poniżej — ~15 min spacerem na zachód.)</li>
+        <li><strong>Museo de Arte Popular (MAPY)</strong> (Barrio de la Mejorada) — wstęp wolny (donacja mile widziana); śr–sob 10:00–17:00, ndz 10:00–15:00 (SIC).</li>
+        <li><strong>Museo Conmemorativo de la Inmigración Coreana</strong> (Calle 65) — wstęp wolny; wt–pt 10:00–13:00 i 14:00–17:00, sb–nd 10:00–13:00 (SIC).</li>
+        <li><strong>Palacio Municipal</strong> (zachodnia strona Plaza Grande) — fasada i patio wolne; wg przewodników pon–pt 8:00–17:00.</li>
+      </ul>
+      <p style="margin:10px 0 6px"><strong>💰 Płatne (warto):</strong></p>
+      <ul class="tight" style="margin:0">
+        <li><strong>Palacio Cantón</strong> (Muzeum Regionalne Antropologii, INAH, Paseo de Montejo 485) — 210 MXN (105 MXN narodowi); ndz wolne dla Meksykanów; wt–nd 8:00–17:00 (INAH).</li>
+        <li><strong>Museo de la Canción Yucateca</strong> (Barrio de la Mejorada) — 50 MXN (25 studenci/seniorzy); wt–pt 9:00–17:00, sb 9:00–15:00 (mucy.mx; inne źródła podają 10:00–17:00 — potwierdźcie).</li>
+        <li><strong>Palacio de la Música</strong> (Calle 58) — wg OSM We–nd 10:00–16:00; ceny sprawdźcie na miejscu.</li>
+        <li><strong>Gran Museo del Mundo Maya</strong> (Calle 60 Norte, ~8 km na północ) — 200 MXN (100 narodowi, 50 rezydenci Jukatanu, 25 studenci/seniorzy/dzieci 4–12); śr–pon 9:00–17:00 (wt zamknięte); ndz wolne dla rezydentów Jukatanu (SIC).</li>
+      </ul>
+      <p style="margin:10px 0 6px"><strong>☀️ Na wolnym powietrzu (zawsze otwarte, za darmo):</strong></p>
+      <ul class="tight" style="margin:0">
+        <li>Plaza Grande, Paseo de Montejo (bulwar ~2 km), Monumento a la Patria, Parque de la Plancha, Parque de Santa Lucía, Parque Hidalgo, Parque de la Mejorada, Arco de San Juan, Arco de Dragones, Pasaje de la Revolución (zadaszony korytarz z galerią sztuki).</li>
+      </ul>
+      <p style="margin:10px 0 6px"><strong>📅 Kalendarz tygodnia (za darmo):</strong></p>
+      <ul class="tight" style="margin:0">
+        <li>pon 21:00 — Vaquería przed Palacio Municipal; wt 20:00 — trova w Olimpo + 20:30 tańce w Parque de Santiago; śr 20:30 — videomapping „Piedras Sagradas” na Casa Montejo.</li>
+        <li>czw 21:00 — serenada trovy w Parque de Santa Lucía; pt/sob — Corazón de Mérida na Calle 60 + Pok ta Pok przed katedrą; sob — Noche Mexicana na Remate de Paseo de Montejo.</li>
+        <li>ndz — Biciruta (8:00, ulice zamknięte dla aut) + Mérida en Domingo (cały dzień).</li>
+      </ul>
+      <p style="margin:10px 0 0"><strong>⏱️ Ile czasu:</strong> centrum (punkty 1–14) ~2,5–3,5 h spacerem; z Gran Museo (15) doliczcie ~2–3 h (osobny wyjazd taxi/bus). <strong>☀️ Upał:</strong> muzea w środku dnia (klimatyzacja), place i Paseo rano/wieczorem — woda 1–1,5 l/os. <strong>🚫 Zasady:</strong> w muzeach nie je się i nie pali; w MACAY/Olimpo bez flasha; w Palacio de Gobierno bez jedzenia.</p>
+    </div>
+
+    <h2>🗺️ Mapa centrum — 15 punktów</h2>
+    <div id="plan"></div>
+    <p class="legend">
+      <span><i style="background:#b03a2e"></i>muzea i galerie</span>
+      <span><i style="background:#2e7d32"></i>pałace i domy historyczne</span>
+      <span><i style="background:#6b7280"></i>place, parki, pomniki (na wolnym powietrzu)</span>
+    </p>
+    <p class="caption">🛰️ Kafelki: Esri World Imagery (satelita) / OpenStreetMap &middot; 📷 zdjęcia: Wikimedia Commons &middot; przełącznik warstw w lewym górnym rogu mapy.</p>
+
+    <h2>🚶 Kolejność zwiedzania (~2,5–3,5 h)</h2>
+    <ol class="tight">
+      <li>Plaza Grande + Catedral de San Ildefonso — start od placu</li>
+      <li>Palacio de Gobierno — murale Castro Pacheco</li>
+      <li>Casa de Montejo — rezydencja konkwistadora</li>
+      <li>Palacio Municipal + Pasaje de la Revolución</li>
+      <li>MACAY — sztuka nowoczesna (sprawdźcie godziny!)</li>
+      <li>Centro Cultural Olimpo — wystawy i videomapping</li>
+      <li>Museo de la Ciudad — historia T'ho i kolonii</li>
+      <li>Museo de Arte Popular (MAPY) — sztuka ludowa</li>
+      <li>Museo de la Canción Yucateca — trova i muzyka</li>
+      <li>Museo Conmemorativo Inmigración Coreana — imigracja koreańska</li>
+      <li>Paseo de Montejo — bulwar porfiriański</li>
+      <li>Monumento a la Patria — pomnik historii Meksyku</li>
+      <li>Parque de la Plancha — nowy park na warsztatach kolejowych</li>
+      <li>Parque de Santa Lucía — serenada trovy (czw 21:00)</li>
+      <li><em>Gran Museo del Mundo Maya (opcja)</em> — ~8 km na północ (taxi/bus)</li>
+    </ol>
+    <p class="caption">Bez Gran Museo zwiedzanie centrum (punkty 1–14) zajmuje ~2,5–3,5 h spacerem; z Gran Museo doliczcie ~2–3 h (osobny wyjazd). Punkty 11–15 leżą na północy — można je zrobić w inny dzień.</p>
+
+    <h2>📸 Punkty po kolei</h2>
+    <div class="pgrid" id="grid"></div>
+    <p class="caption">Zdjęcia: Wikimedia Commons (licencje plików) · godziny i ceny wg INAH (inah.gob.mx), SIC (sic.cultura.gob.mx), macay.org, mucy.mx i oficjalnych stron muzeów — stan 18.10.2026. Współrzędne: OpenStreetMap (część punktów przybliżona).</p>
+  </section>
+
+  <p class="caption">↩︎ <a href="index.html">Wróć do planu wycieczki</a></p>
+  <footer>Mérida &middot; podstrona punktu 3 &middot; zdjęcia: Wikimedia Commons (licencje plików) &middot; kafelki: Esri / OpenStreetMap.</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function () {
+  var W = 'https://upload.wikimedia.org/wikipedia/commons/thumb/';
+  var COL = { r: '#b03a2e', g: '#2e7d32', s: '#6b7280' };
+  var pts = [
+    [1, 's', 20.9671, -89.6231, 'Plaza Grande + Catedral de San Ildefonso', 'Serce Méridy: Plaza Grande (Plaza de la Independencia) z ławkami pod drzewami i Catedral de San Ildefonso (1598) — pierwsza katedra na kontynencie amerykańskim, zbudowana z kamieni ruin Majów (Ti’ho). Wstęp wolny; msze codziennie (7:30–13:00 i 17:00–20:00 wg OSM). Wokół: Palacio de Gobierno (północ), Palacio Municipal (zachód), Casa de Montejo (południe).', '0/03/CATEDRAL_DE_SAN_ILDEFONSO%2C_MERIDA_YUCATAN.jpg/500px-CATEDRAL_DE_SAN_ILDEFONSO%2C_MERIDA_YUCATAN.jpg'],
+    [2, 'g', 20.9676, -89.6237, 'Palacio de Gobierno — murale Castro Pacheco', 'Pałac rządowy stanu Jukatan z 27 muralami (olej na tynku) Fernando Castro Pacheco — „szlak historii Jukatanu” od kosmogonii Majów po rewolucję. Wstęp wolny, bez lampy błyskowej i bez jedzenia. Zobaczcie też Salón de los Retratos (8 efigii).', '9/96/Palacio_de_Gobierno_8_-_Merida_Yuc_Mex.jpg/500px-Palacio_de_Gobierno_8_-_Merida_Yuc_Mex.jpg'],
+    [3, 'g', 20.9662, -89.6240, 'Casa de Montejo', 'Rezydencja konkwistadora Francisco de Montejo (XVI w.) — renesansowa fasada z rzeźbami konkwistadorów deptających głowy Indian; wnętrze to muzeum (Banamex, wstęp wolny). Patio z fontanną i wystawy czasowe.', '1/19/Centro_Hist%C3%B3rico_de_M%C3%A9rida_-_Casa_Montejo_2015.jpg/500px-Centro_Hist%C3%B3rico_de_M%C3%A9rida_-_Casa_Montejo_2015.jpg'],
+    [4, 's', 20.9671, -89.6243, 'Palacio Municipal + Pasaje de la Revolución', 'Ratusz z 1735 r. na zachodniej stronie placu; z tarasu (w godzinach urzędowych) panorama Plaza Grande. Obok Pasaje de la Revolución — zadaszony korytarz z galerią sztuki i videomappingiem (środy 20:30).', 'f/f0/Palacio_Municipal_de_M%C3%A9rida%2C_Merida%2C_Yucatan%2C_Mexico_6_Marzo_2021.jpg/500px-Palacio_Municipal_de_M%C3%A9rida%2C_Merida%2C_Yucatan%2C_Mexico_6_Marzo_2021.jpg'],
+    [5, 'r', 20.9674, -89.6229, 'MACAY — sztuka nowoczesna', 'Jedyne muzeum sztuki nowoczesnej i współczesnej na półwyspie — 15 sal i 4 sale stałe (Castro Pacheco, García Ponce, Ramírez Aznar). Wstęp wolny; nowy harmonogram 2026: pon, wt, czw, pt, sob 10:00–14:00; śr i ndz zamknięte — sprawdźcie na macay.org.', 'b/ba/Museo_de_Arte_Contempor%C3%A1neo_Ateneo_de_Yucat%C3%A1n_MACAY%2C_Interior.jpg/500px-Museo_de_Arte_Contempor%C3%A1neo_Ateneo_de_Yucat%C3%A1n_MACAY%2C_Interior.jpg'],
+    [6, 'r', 20.9672, -89.6241, 'Centro Cultural Olimpo', 'Centrum kultury przy Palacio Municipal z wystawami czasowymi (wstęp wolny) i salą kinową. Środy 20:30: videomapping „Piedras Sagradas” (wolny). Wg przewodników wt–nd 10:00–18:00 — potwierdźcie.', '8/84/Centro_Cultural_Olimpo%2C_M%C3%A9rida%2C_Yucat%C3%A1n_Junio_2024.jpg/500px-Centro_Cultural_Olimpo%2C_M%C3%A9rida%2C_Yucat%C3%A1n_Junio_2024.jpg'],
+    [7, 'r', 20.9644, -89.6214, 'Museo de la Ciudad de Mérida', 'Muzeum Miasta w zabytkowym budynku poczty (1907) — artefakty z epoki kolonialnej i prekolumbijskiej, plan miasta, historia T’ho. Wstęp wolny; wt–pt 9:00–18:00, sb–nd 9:00–14:00.', 'f/f9/Museo_de_la_Ciudad_de_M%C3%A9rida%2C_Yucat%C3%A1n.jpg/500px-Museo_de_la_Ciudad_de_M%C3%A9rida%2C_Yucat%C3%A1n.jpg'],
+    [8, 'r', 20.9684, -89.6164, 'Museo de Arte Popular (MAPY)', 'Muzeum Sztuki Ludowej Jukatanu — 6 sal stałych ze sztuką ludową z całego Meksyku i Jukatanu (hamaki, huaraches, ceramika). Wstęp wolny (donacja mile widziana); śr–sob 10:00–17:00, ndz 10:00–15:00. W Barrio de la Mejorada, obok parku.', '6/6e/Museo_de_Arte_Popular%2C_M%C3%A9rida%2C_Yucat%C3%A1n_%2801%29.jpg/500px-Museo_de_Arte_Popular%2C_M%C3%A9rida%2C_Yucat%C3%A1n_%2801%29.jpg'],
+    [9, 'r', 20.9684, -89.6150, 'Museo de la Canción Yucateca', 'Muzeum Piosenki Jukatańskiej w budynku szkoły z 1909 r. — 8 sal z instrumentami, nutami i portretami kompozytorów trovy (Palmerín, Cárdenas, Manzanero). 50 MXN (25 studenci/seniorzy); wt–pt 9:00–17:00, sb 9:00–15:00 (mucy.mx).', 'e/e4/Vista_del_Museo_de_la_Canci%C3%B3n_Yucateca_en_M%C3%A9rida_05.jpg/500px-Vista_del_Museo_de_la_Canci%C3%B3n_Yucateca_en_M%C3%A9rida_05.jpg'],
+    [10, 'r', 20.9655, -89.6270, 'Museo Conmemorativo Inmigración Coreana', 'Małe muzeum (wstęp wolny) o historii koreańskiej imigracji do Jukatanu (od 1905 r.) — zdjęcia, dokumenty, przedmioty codzienne. Wt–pt 10:00–13:00 i 14:00–17:00, sb–nd 10:00–13:00. Calle 65, ~10 min spacerem od Plaza Grande (współrzędne przybliżone).', 'f/f0/Museo_Conmemorativo_de_la_Inmigracion_Coreana_a_Yucatan.jpg/500px-Museo_Conmemorativo_de_la_Inmigracion_Coreana_a_Yucatan.jpg'],
+    [11, 's', 20.9784, -89.6190, 'Paseo de Montejo', 'Bulwar z lat 1888–1905, wzorowany na Polach Elizejskich — rezydencje porfiriańskie (Las Casas Gemelas, Quinta Montes Molina), kawiarnie. Spacer z Remate (Calle 47) na północ do Monumento a la Patria (~2 km). Niedziela: Biciruta (8:00, ulice zamknięte dla aut).', 'a/ac/Paseo_de_Montejo%2C_Merida_Yucatan%2C_Mexico_Feb_2014_Banqueta.jpg/500px-Paseo_de_Montejo%2C_Merida_Yucatan%2C_Mexico_Feb_2014_Banqueta.jpg'],
+    [12, 's', 20.9783, -89.6170, 'Monumento a la Patria', 'Pomnik Ojczyzny (1956) — 14 m wysokości, 300+ rzeźb w kamieniu, historia Meksyku od Majów po XX w. Wolny wstęp, zawsze otwarty; wieczorami podświetlony. W soboty 20:00 (wg przewodników) videomapping.', 'b/bd/Monumento_a_la_Patria_-_Merida_-_Flickr_-_S._Rae.jpg/500px-Monumento_a_la_Patria_-_Merida_-_Flickr_-_S._Rae.jpg'],
+    [13, 's', 20.9758, -89.6111, 'Parque de la Plancha', 'Najnowszy wielki park Méridy (na terenie dawnych warsztatów kolejowych) — ścieżki dla biegaczy i rowerzystów, plac zabaw, gastronomia. Wolny wstęp, otwarty codziennie. Idealny na wieczorny spacer po upale.', 'd/da/Parque_La_Plancha.jpg/500px-Parque_La_Plancha.jpg'],
+    [14, 's', 20.9712, -89.6226, 'Parque de Santa Lucía', 'Kameralny plac z portykami i restauracjami; czwartki 21:00 — serenada trovy jukatańskiej (wolna). Obok Museo de la Canción Yucateca. Dobry punkt na kolację i muzykę na wolnym powietrzu.', '9/9d/Portales_del_Parque_de_Santa_Luc%C3%ADa_en_M%C3%A9rida%2C_Yucat%C3%A1n_%2801%29.jpg/500px-Portales_del_Parque_de_Santa_Luc%C3%ADa_en_M%C3%A9rida%2C_Yucat%C3%A1n_%2801%29.jpg'],
+    [15, 'r', 21.0347, -89.6283, 'Gran Museo del Mundo Maya', 'Muzeum Świata Majów (2012) — 4 sale stałe, 1000+ eksponatów (stelae, jadeit, tekstylia). Płatne: 200 MXN (100 narodowi, 50 rezydenci Jukatanu, 25 studenci/seniorzy/dzieci 4–12); śr–pon 9:00–17:00 (wt zamknięte); ndz wolne dla rezydentów Jukatanu. ~8 km na północ (taxi/bus).', '0/0c/Inauguraci%C3%B3n_del_Gran_Museo_del_Mundo_Maya_M%C3%A9rida%2C_Yucat%C3%A1n_dic_2012_02.jpg/500px-Inauguraci%C3%B3n_del_Gran_Museo_del_Mundo_Maya_M%C3%A9rida%2C_Yucat%C3%A1n_dic_2012_02.jpg']
+  ];
+
+  var grid = document.getElementById('grid');
+  pts.forEach(function (p) {
+    var d = document.createElement('div');
+    d.className = 'pcard';
+    d.innerHTML = '<img loading="lazy" src="' + W + p[6] + '" alt="' + p[4] + '"><div class="pb"><b><span class="dot-n" style="background:' + COL[p[1]] + '">' + p[0] + '</span>' + p[4] + '</b><p>' + p[5] + '</p></div>';
+    grid.appendChild(d);
+  });
+
+  var el = document.getElementById('plan');
+  if (!window.L) {
+    el.innerHTML = '<p style="padding:18px;margin:0;color:#766c5f">Mapa wymaga połączenia z internetem — lista punktów poniżej i tak działa.</p>';
+    return;
+  }
+  var map = L.map(el, { scrollWheelZoom: false });
+  var sat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics'
+  });
+  var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  });
+  sat.addTo(map);
+  L.control.layers({ '🛰️ Satelita (Esri)': sat, '🗺️ Mapa (OSM)': osm }, null, { position: 'topleft' }).addTo(map);
+  L.control.scale({ imperial: false }).addTo(map);
+
+  var route = [];
+  pts.forEach(function (p) { route.push([p[2], p[3]]); });
+  L.polyline(route, { color: '#b64a17', weight: 3, dashArray: '6 8', opacity: 0.7 })
+    .bindTooltip('Proponowana trasa: punkty 1–15 (ostatni to osobny wyjazd)', { sticky: true })
+    .addTo(map);
+
+  var all = [];
+  pts.forEach(function (p) {
+    var ic = L.divIcon({
+      className: '',
+      html: '<div class="pin" style="background:' + COL[p[1]] + '">' + p[0] + '</div>',
+      iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -16], tooltipAnchor: [0, -18]
+    });
+    L.marker([p[2], p[3]], { icon: ic, title: p[4] })
+      .bindTooltip('<div class="tip-card"><img src="' + W + p[6] + '" alt="' + p[4] + '"><span>' + p[0] + '. ' + p[4] + '</span></div>', { direction: 'top', offset: [0, -16], opacity: 1, className: 'foto-tip' })
+      .bindPopup('<strong>' + p[0] + '. ' + p[4] + '</strong><br><img src="' + W + p[6] + '" alt="' + p[4] + '" style="width:240px;max-width:100%;border-radius:8px;margin:6px 0 4px;display:block">' + p[5] + '<br><span style="font-size:.85em"><a href="https://www.google.com/maps/search/?api=1&query=' + p[2] + ',' + p[3] + '" target="_blank" rel="noopener">📍 Google Maps</a></span>', { maxWidth: 280, minWidth: 240 })
+      .addTo(map);
+    all.push([p[2], p[3]]);
+  });
+
+  map.fitBounds(L.latLngBounds(all).pad(0.12));
+})();
+</script>
+</body>
+</html>
