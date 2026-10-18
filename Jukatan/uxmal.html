@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uxmal — plan kompleksu · Jukatan 2026</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    :root{
+      --bg:#f5f1ea; --card:#fff; --ink:#2f2a24; --muted:#766c5f;
+      --accent:#b64a17; --accent-soft:#f8e9dd;
+      --ok:#2f7d4f; --ok-soft:#e2f2e7;
+      --line:#e7ddcf;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    .wrap{max-width:760px;margin:0 auto;padding:28px 16px 72px}
+    h1{margin:0;font-size:1.9rem}
+    .sub{color:var(--muted);margin:6px 0 0}
+    h2{font-size:1.2rem;margin:38px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--accent)}
+    h3{font-size:1rem;margin:22px 0 6px}
+    footer{margin-top:40px;color:var(--muted);font-size:.85rem}
+    a{color:var(--accent)}
+    .lead{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0 16px}
+    .caption{color:var(--muted);font-size:.85rem;margin:4px 2px 0}
+    ul.tight{margin:6px 0;padding-left:20px}
+    ul.tight li{margin:5px 0}
+    ol.tight{margin:6px 0;padding-left:24px}
+    ol.tight li{margin:5px 0}
+    .variant{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:12px 0;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+    #plan{height:520px;border-radius:12px;border:1px solid var(--line);background:#e9e4da}
+    @media (max-width:640px){#plan{height:420px}}
+    .pin{width:26px;height:26px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.55);color:#fff;font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center}
+    .foto-tip{background:transparent;border:0;box-shadow:none;padding:0}
+    .foto-tip::before{display:none!important}
+    .tip-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.35);width:190px}
+    .tip-card img{width:190px;height:120px;object-fit:cover;display:block}
+    .tip-card span{display:block;padding:6px 8px;font-weight:600;font-size:.84rem;color:#2f2a24;line-height:1.25}
+    .legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:8px 2px 0;color:var(--muted);font-size:.85rem}
+    .legend i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px}
+    .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:12px;margin:10px 0}
+    .pcard{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+    .pcard img{width:100%;height:132px;object-fit:cover;display:block}
+    .pcard .pb{padding:8px 11px 10px}
+    .pcard b{font-size:.92rem}
+    .pcard p{margin:4px 0 0;font-size:.82rem;color:var(--muted);line-height:1.4}
+    .dot-n{display:inline-flex;width:20px;height:20px;border-radius:50%;color:#fff;font-size:.72rem;font-weight:700;align-items:center;justify-content:center;margin-right:6px}
+    @media (max-width:480px){h1{font-size:1.6rem}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>🏛️ Uxmal — plan kompleksu</h1>
+    <p class="sub">Podstrona punktu 4 &middot; wypad z Méridy (sob 28.11.2026) &middot; 2 kl. SUR ~1 h 25 min (111 MXN)</p>
+  </header>
+
+  <p class="caption" style="margin-top:10px">↩︎ <a href="index.html">Wróć do planu wycieczki (mapa)</a> &middot; <a href="transport.html">🚌 transport: baza wiedzy</a> &middot; <a href="aplikacje.html">📱 aplikacje</a></p>
+
+  <section>
+    <p class="lead">Miasto „trzy razy budowane” (<em>Óoxmáal</em>) i najpiękniejszy przykład <strong>stylu Puuc</strong> — od 1996 r. na liście UNESCO (razem z Kabáh, Sayil i Labná). Poniżej <strong>interaktywny plan kompleksu</strong>: 12 punktów z numerami (kolejność = proponowana trasa, na mapie linia przerywana). <strong>Najedź kursorem na pinezkę</strong> — pokaże się zdjęcie; <strong>kliknij</strong> — opis i większa fotografia. Na telefonie po prostu dotknij pinezki. Kompleks jest zwarty (między punktami 1–10 rzadko więcej niż ~300 m), tylko dwa dodatki — Grupo Norte (11) i Casa de la Vieja (12) — leżą na skrajach.</p>
+
+    <h3 style="margin-top:14px">🧭 Praktycznie</h3>
+    <div class="variant">
+      <ul class="tight" style="margin:0">
+        <li>🎟️ <strong>Bilet:</strong> 566 MXN/os. (≈ 119,54 zł) — <strong>dwa bilety obok siebie w kasie przy wejściu</strong>: 105 MXN INAH + 461 MXN CULTUR (stan X.2026). INAH zwykle przyjmuje tylko gotówkę w pesos, CULTUR — karty; miejcie jedno i drugie.</li>
+        <li>🕗 <strong>Godziny:</strong> wg INAH (lugares.inah.gob.mx) codziennie <strong>8:00–16:00</strong>, ostatnie wejście 15:00. Część przewodników podaje jeszcze 17:00 — różnica bywa istotna, potwierdźcie przy zakupie. Najmniejszy upał i tłum rano.</li>
+        <li>🚌 <strong>Dojazd i powrót (28.11):</strong> SUR 2. klasy z terminalu <strong>TAME (Calle 69)</strong> w Méridzie: <strong>10:40 lub 10:45</strong> → Uxmal 12:05/12:10 (111 MXN, ~1 h 25 min; codziennie — wg YucatanBus, stan 18.10.2026). Powrót z Uxmal: <strong>14:25</strong>, <strong>16:25</strong> (→ Mérida 17:50) lub 19:25 (→ 20:50). Bilet: okienko SUR w TAME (karta AhorroBus) albo gotówką u kierowcy. Rozkłady: <a href="transport.html">transport.html</a>.</li>
+        <li>☀️ <strong>Upał i teren:</strong> otwarta przestrzeń bez cienia — 1–1,5 l wody na osobę, czapka, krem; repelent przyda się w zieleni. Jeśli chcecie być od otwarcia (8:00), pytajcie w TAME o wcześniejsze kursy (starsze przewodniki podają ~6:00/9:00) albo rozważcie taxi/kurs zorganizowany.</li>
+        <li>⏱️ <strong>Ile czasu:</strong> spokojne 2–2,5 h, z przerwami i dodatkami 3–3,5 h; pętla po kompleksie to ~1,5–2 km spaceru. Z autobusem 10:40 macie na miejscu ~4 h — bez pośpiechu.</li>
+        <li>🚫 <strong>Zasady:</strong> na budowle nie wolno wchodzić, drony zakazane; w strefie nie je się i nie pali. Przy wejściu: toalety, kawiarnia, sklepiki (i stragany przy parkingu).</li>
+        <li>🍫 <strong>Opcje na koniec:</strong> po drugiej stronie szosy <strong>Choco-Story</strong> (muzeum kakao + małe zoo; 9:00–19:30, wg OSM) i wieczorny pokaz światła i dźwięku, o którym piszą przewodniki — jeśli zostajecie dłużej, potwierdźcie tego dnia w kasie (ostatni bus SUR 19:25).</li>
+      </ul>
+    </div>
+
+    <h2>🗺️ Mapa kompleksu — 12 punktów</h2>
+    <div id="plan"></div>
+    <p class="legend">
+      <span><i style="background:#b03a2e"></i>piramidy, świątynie, boisko</span>
+      <span><i style="background:#2e7d32"></i>pałace, domy, krużganki</span>
+      <span><i style="background:#6b7280"></i>wejście i platformy</span>
+      <span><i style="background:#b64a17"></i>linia przerywana = trasa</span>
+    </p>
+    <p class="caption">🛰️ Kafelki: Esri World Imagery (satelita) / OpenStreetMap &middot; 📷 zdjęcia: Wikimedia Commons &middot; przełącznik warstw w lewym górnym rogu mapy.</p>
+
+    <h2>🚶 Kolejność zwiedzania (~2,5–3 h)</h2>
+    <ol class="tight">
+      <li>Wejście i kasy (brama wschodnia) — bilety, woda, toalety</li>
+      <li>Pirámide del Adivino — obejść dookoła</li>
+      <li>Cuadrángulo de las Monjas — cztery skrzydła pałacu</li>
+      <li>Juego de Pelota — boisko gry w piłkę</li>
+      <li>Casa de las Tortugas — droga do pałacu</li>
+      <li>Palacio del Gobernador — najdłuższa fasada Puuc</li>
+      <li>Plataforma de los Jaguares — tron, kolumna i sacbé</li>
+      <li>Gran Pirámide — papugi na szczycie</li>
+      <li>El Palomar i Templo del Sur — dziedziniec „gołębnika”</li>
+      <li>Cuadrángulo del Cementerio — czaszki i kości</li>
+      <li><em>Grupo Norte (opcja)</em> — ~10 min w jedną stronę</li>
+      <li><em>Casa de la Vieja (opcja)</em> — ~10–15 min w jedną stronę</li>
+    </ol>
+    <p class="caption">Bez dodatków 11–12 zwiedzanie zajmuje ~2–2,5 h; z nimi doliczcie ~40–60 min (idzie się tam i z powrotem). Punkty 11 i 12 są poza głównym szlakiem — spokojne, bez tłumu i straganów.</p>
+
+    <h2>📸 Punkty po kolei</h2>
+    <div class="pgrid" id="grid"></div>
+    <p class="caption">Zdjęcia: Wikimedia Commons (licencje plików) · godziny i ceny wg INAH (inah.gob.mx, lugares.inah.gob.mx), rozkłady wg YucatanBus, współrzędne: OpenStreetMap — stan 18.10.2026.</p>
+  </section>
+
+  <p class="caption">↩︎ <a href="index.html">Wróć do planu wycieczki</a></p>
+  <footer>Uxmal &middot; podstrona punktu 4 &middot; zdjęcia: Wikimedia Commons (licencje plików) &middot; kafelki: Esri / OpenStreetMap.</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function () {
+  var W = 'https://upload.wikimedia.org/wikipedia/commons/thumb/';
+  var COL = { r: '#b03a2e', g: '#2e7d32', s: '#6b7280' };
+  var pts = [
+    [1, 's', 20.36045, -89.76780, 'Wejście i kasy (brama wschodnia)', 'Brama strefy od strony parkingu i kas (szosa Mérida–Campeche, wschodni brzeg kompleksu): tu kupujecie dwa bilety, obok sklepiki, kawiarnia i toalety. Za bramą od razu wyrasta Adivino — stąd zaczyna się pętla.', '2/23/Uxmal_totale.jpg/500px-Uxmal_totale.jpg'],
+    [2, 'r', 20.36085, -89.76968, 'Pirámide del Adivino', 'Najwyższa budowla Uxmal (35 m) i jedyna piramida Majów na planie owalnym. Legenda: zbudował ją w jedną noc karzeł, syn czarownicy, wygrywając zakład o władzę nad miastem. To wieża z pięciu faz — z tyłu widać fragmenty wcześniejszych świątyń. Na górę nie wolno wchodzić.', 'e/ea/Archaeological_and_Cultural_Heritage_-_Pir%C3%A1mide_del_Adivino%2C_Uxmal%2C_Mexico.jpg/500px-Archaeological_and_Cultural_Heritage_-_Pir%C3%A1mide_del_Adivino%2C_Uxmal%2C_Mexico.jpg'],
+    [3, 'g', 20.36132, -89.77061, 'Cuadrángulo de las Monjas', 'Cztery pałace wokół dziedzińca na wielkiej platformie; „klasztor mniszek” to hiszpańskie nieporozumienie (kompleks pełnił funkcje pałacowo-administracyjne). Skrzydło północne góruje nad resztą (schody ze stelą, Templo de Venus), w południowym odkryto czerwone odciski dłoni, wschodnie zdobią dwugłowe węże z głowami sów. Najpiękniejszy zespół Puuc — obejdźcie wszystkie cztery boki.', '5/53/Cuadrangulo_de_las_Monjas%2C_Zona_Arqueol%C3%B3gica_de_Uxmal%2C_Yucatan%2C_Mexico_-_2021.jpg/500px-Cuadrangulo_de_las_Monjas%2C_Zona_Arqueol%C3%B3gica_de_Uxmal%2C_Yucatan%2C_Mexico_-_2021.jpg'],
+    [4, 'r', 20.36024, -89.77097, 'Juego de Pelota (boisko)', 'Jedyne boisko gry w piłkę w miastach Puuc — pole ~34 × 10 m. Inskrypcja mówi, że dedykował je w 901 r. władca Chan Chak K’ak’nal Ajaw; oryginalne kamienne pierścienie zabezpieczono (na miejscu kopie). Piłkę odbijano biodrem, a gra była rytuałem o walce światła z ciemnością.', 'f/fd/Uxmal_Juego_Pelota.jpg/500px-Uxmal_Juego_Pelota.jpg'],
+    [5, 'g', 20.35951, -89.77119, 'Casa de las Tortugas', 'Dom Żółwi — fryz z kamiennych żółwi (zwierzę kojarzone wówczas z deszczem). Wg badaczy jedno z najczystszych dzieł proporcji stylu Puuc: siedem sklepionych izb, spokój i symetria; stoi na północno-zachodnim skraju wielkiej platformy Pałacu Gubernatora.', '0/04/Uxmal_-_Casa_de_las_tortugas.JPG/500px-Uxmal_-_Casa_de_las_tortugas.JPG'],
+    [6, 'g', 20.35874, -89.77116, 'Palacio del Gobernador', 'Arcydzieło Puuc: fasada długa na ~100 m i mozaika z blisko 400 glifów Wenus ukrytych w maskach Chaca — boga deszczu. Pałac jest zorientowany tak, że o zachodzie Wenus (co 8 lat, na przełomie kwietnia i maja) gwiazda znikała nad jego północną krawędzią, zapowiadając porę deszczu. Stąd najlepsza panorama Gran Pirámide.', '2/2a/Uxmal_-_Palacio_del_Gobernador_-_Marzo_2022.jpg/500px-Uxmal_-_Palacio_del_Gobernador_-_Marzo_2022.jpg'],
+    [7, 's', 20.35851, -89.77067, 'Plataforma de los Jaguares', 'Niewielka platforma z ołtarzem: dwa jaguary zrośnięte torsami — prawdopodobnie miejsce ceremonii. Między platformą a pałacem zobaczycie kolumnę falliczną, a u stóp platformy zaczyna się sacbé („biała droga”) biegnąca do Kabáh. Zdjęcie: tron jaguara.', 'f/f9/Mexico-6366_-_Throne_of_the_Jaguar_%284691171977%29.jpg/500px-Mexico-6366_-_Throne_of_the_Jaguar_%284691171977%29.jpg'],
+    [8, 'r', 20.35822, -89.77210, 'Gran Pirámide (Guacamayos)', 'Dziewięć stopniowanych poziomów i świątynia na szczycie — Templo de los Guacamayos (fryz z papugami guacamayo, kojarzonymi ze słońcem). Rozmiarem niegdyś dorównywała Adivino; przylega do południowo-zachodniej krawędzi platformy Pałacu Gubernatora — świetnie widać ją z góry.', 'e/e1/Uxmal_-_Gran_Pir%C3%A1mide_-_Flickr_-_S._Rae.jpg/500px-Uxmal_-_Gran_Pir%C3%A1mide_-_Flickr_-_S._Rae.jpg'],
+    [9, 'g', 20.35857, -89.77278, 'El Palomar i Templo del Sur', 'Casa de las Palomas („gołębnik”): ażurowa crestería na dachu wygląda jak gniazda gołębi. Zespół zamyka dziedziniec, w narożniku stoi mała piramida z kapliczką, a ~100 m na południe leży Templo del Sur. Miejsce na oddech w cieniu i na zdjęcia w popołudniowym słońcu.', 'b/b1/Casa_de_las_Palomas.jpg/500px-Casa_de_las_Palomas.jpg'],
+    [10, 'g', 20.36106, -89.77305, 'Cuadrángulo del Cementerio', 'Cuadrángulo del Cementerio — fryzy z czaszkami i skrzyżowanymi kośćmi dały nazwę (związki z kultem śmierci). Północne skrzydło to piramida z resztkami świątyni, zachodnie wieńczy crestería z otworami. Leży na północno-zachodnim skraju kompleksu — dalej już tylko dżungla.', 'e/e8/Cuadr%C3%A1ngulo_del_cementerio.jpg/500px-Cuadr%C3%A1ngulo_del_cementerio.jpg'],
+    [11, 's', 20.36404, -89.77141, 'Grupo Norte (dodatek)', 'Dodatek na północny skraj: wysoka, nieodrestaurowana piramida i szczątki łuku, ~350 m od Monjas. Bez zwiedzania wnętrz; zdjęcie pokazuje stan z 1975 r. Jeśli lubicie miejsca bez ludzi — warto.', 'a/a9/Uxmal_Grupo_Norte_1975_02.jpg/500px-Uxmal_Grupo_Norte_1975_02.jpg'],
+    [12, 'g', 20.35684, -89.76975, 'Casa de la Vieja (dodatek)', 'Dodatek na południe: „dom starej kobiety” z legendy o karle (matka-czarownica), ~250–300 m od Pałacu Gubernatora — skromne ruiny pośród zieleni. Około 100 m dalej leżą pozostałości Los Falos z kamiennymi odpływami w kształcie fallusów (odprowadzały wodę z dachu). Wraca się tą samą drogą.', '1/17/Uxmal_Casa_Vieja2.jpg/500px-Uxmal_Casa_Vieja2.jpg']
+  ];
+
+  var grid = document.getElementById('grid');
+  pts.forEach(function (p) {
+    var d = document.createElement('div');
+    d.className = 'pcard';
+    d.innerHTML = '<img loading="lazy" src="' + W + p[6] + '" alt="' + p[4] + '"><div class="pb"><b><span class="dot-n" style="background:' + COL[p[1]] + '">' + p[0] + '</span>' + p[4] + '</b><p>' + p[5] + '</p></div>';
+    grid.appendChild(d);
+  });
+
+  var el = document.getElementById('plan');
+  if (!window.L) {
+    el.innerHTML = '<p style="padding:18px;margin:0;color:#766c5f">Mapa wymaga połączenia z internetem — lista punktów poniżej i tak działa.</p>';
+    return;
+  }
+  var map = L.map(el, { scrollWheelZoom: false });
+  var sat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics'
+  });
+  var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  });
+  sat.addTo(map);
+  L.control.layers({ '🛰️ Satelita (Esri)': sat, '🗺️ Mapa (OSM)': osm }, null, { position: 'topleft' }).addTo(map);
+  L.control.scale({ imperial: false }).addTo(map);
+
+  // proponowana trasa (1–11) + odnoga do południowego dodatku
+  var route = [];
+  pts.forEach(function (p) { if (p[0] <= 11) route.push([p[2], p[3]]); });
+  L.polyline(route, { color: '#b64a17', weight: 3, dashArray: '6 8', opacity: 0.7 })
+    .bindTooltip('Proponowana trasa: punkty 1–11', { sticky: true })
+    .addTo(map);
+  L.polyline([[pts[6][2], pts[6][3]], [pts[11][2], pts[11][3]]], { color: '#b64a17', weight: 3, dashArray: '3 9', opacity: 0.5 })
+    .bindTooltip('Odnoga: 12. Casa de la Vieja (idzie się tam i z powrotem)', { sticky: true })
+    .addTo(map);
+
+  var all = [];
+  pts.forEach(function (p) {
+    var ic = L.divIcon({
+      className: '',
+      html: '<div class="pin" style="background:' + COL[p[1]] + '">' + p[0] + '</div>',
+      iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -16], tooltipAnchor: [0, -18]
+    });
+    L.marker([p[2], p[3]], { icon: ic, title: p[4] })
+      .bindTooltip('<div class="tip-card"><img src="' + W + p[6] + '" alt="' + p[4] + '"><span>' + p[0] + '. ' + p[4] + '</span></div>', { direction: 'top', offset: [0, -16], opacity: 1, className: 'foto-tip' })
+      .bindPopup('<strong>' + p[0] + '. ' + p[4] + '</strong><br><img src="' + W + p[6] + '" alt="' + p[4] + '" style="width:240px;max-width:100%;border-radius:8px;margin:6px 0 4px;display:block">' + p[5] + '<br><span style="font-size:.85em"><a href="https://www.google.com/maps/search/?api=1&query=' + p[2] + ',' + p[3] + '" target="_blank" rel="noopener">📍 Google Maps</a></span>', { maxWidth: 280, minWidth: 240 })
+      .addTo(map);
+    all.push([p[2], p[3]]);
+  });
+
+  map.fitBounds(L.latLngBounds(all).pad(0.12));
+})();
+</script>
+</body>
+</html>
