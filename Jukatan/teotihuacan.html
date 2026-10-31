@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teotihuacán — plan kompleksu · Jukatan 2026</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>🏛️ Teotihuacán — plan kompleksu</h1>
+<p class="sub">Podstrona punktu 10 (wariant) &middot; wypad 8.12.2026 &middot; Meksyk (CDMX) &middot; opcja „Meksyk i Teotihuacán”</p>
+</header>
+<p class="caption" style="margin-top:10px">↩︎ <a href="index.html">Wróć do planu wycieczki (mapa)</a> &middot; <a href="transport.html#cdmx-teotihuacan">🚌 transport: baza wiedzy</a> &middot; <a href="aplikacje.html">📱 aplikacje</a>
+</p>
+<section>
+<p class="lead">Jedno z największych miast prekolumbijskich Meksyku i jedno z najsłynniejszych stanowisk archeologicznych na świecie — Aleja Zmarłych, Piramida Słońca i Księżyca oraz Cytadela Quetzalcoatla. Poniżej <strong>interaktywny plan kompleksu</strong>: 8 najważniejszych punktów z numerami (kolejność = proponowana trasa). <strong>Najedź kursorem na pinezkę</strong> — pokaże się zdjęcie; <strong>kliknij</strong> — opis i większa fotografia. Na telefonie po prostu dotknij pinezki. Najlepiej przyjechać rano (8:00–9:00) — przed tłumami i upałem.</p>
+<h3 style="margin-top:14px">🧭 Praktycznie</h3>
+<div class="variant">
+<ul class="tight" style="margin:0">
+<li>🎟️ <strong>Bilet:</strong> 210 MXN/os. (cudzoziemiec dorosły) — kasa przy wejściu (Puerta 1–5); płatność gotówką w pesos. Meksykanie i rezydenci: 105 MXN; niedziele bezpłatne dla Meksykanów i rezydentów. Dzieci do 13 lat, studenci, nauczyciele, seniorzy 60+ i osoby z niepełnosprawnościami — wstęp wolny (z dokumentem).</li>
+<li>🕗 <strong>Godziny:</strong> zona archeologiczna codziennie 8:00–17:00 (ostatnie wejście 16:30). Muzea (Museo de la Cultura Teotihuacana, Museo de los Murales) 9:00–16:30. Kasjerki zamykają o 16:00.</li>
+<li>🚌 <strong>Dojazd z CDMX (8.12):</strong> metro Linia 5 → stacja Autobuses del Norte → Gate 8 terminalu → Autobuses Teotihuacán (co 15–20 min od ~06:00). Bilet ~55–60 MXN/os., przejazd ~45–75 min. Mów kierowcy „Pirámides”, nie „San Juan”. Powrót: ten sam przystanek, po przeciwnej stronie drogi.</li>
+<li>🚶 <strong>Dystans:</strong> Puerta 1 → Piramida Słońca ~1,5 km Aleją Zmarłych; pełna trasa Puerta 1 → Piramida Księżyca ~2,5 km; powrót ~2,5 km. Całość ~5 km, ~3–4 h ze zwiedzaniem.</li>
+<li>☀️ <strong>Upał i woda:</strong> 1–1,5 l wody/os., czapka, krem z filtrem; cień rzadki (Aleja Zmarłych bez cienia). Kioski z napojami przy Puerta 2/3.</li>
+<li>🪜 <strong>Wejścia:</strong> Piramida Słońca — <strong>zamknięta dla wspinaczki</strong>; Piramida Księżyca — dozwolone wejście na pierwszy taras. Regulamin może się zmieniać — sprawdźcie tabliczki.</li>
+<li>🚫 <strong>Zasady:</strong> drony zakazane; brak jedzenia w strefie; zdjęcia bez statywów komercyjnych. Parking ~60 MXN (samochód).</li>
+<li>⏱️ <strong>Ile czasu:</strong> ~3–4 h na ruiny z przerwą; z muzeami ~5 h. Najlepiej rano (8:00–12:00) — mniej tłumów i upału.</li>
+<li>🎬 <strong>Ciekawostka:</strong> Aleja Zmarłych (Calzada de los Muertos) to główna oś miasta (~2 km); Piramida Słońca (~65 m) to trzecia co do wielkości piramida na świecie. Teotihuacán to obiekt UNESCO.</li>
+</ul>
+</div>
+<h2>🗺️ Mapa kompleksu — 8 punktów</h2>
+<div id="plan"></div>
+<p class="legend">
+<span><i style="background:#b03a2e"></i>piramidy, świątynie</span>
+<span><i style="background:#2e7d32"></i>pałace, place</span>
+<span><i style="background:#6b7280"></i>wejście, muzea, obsługa</span>
+</p>
+<p class="caption">🛰️ Kafelki: OpenStreetMap &middot; 📷 zdjęcia: Wikimedia Commons &middot; przełącznik warstw w lewym górnym rogu mapy.</p>
+<h2>🚶 Kolejność zwiedzania (~3–4 h)</h2>
+<ol class="tight">
+<li>Puerta 1 — kasy, centrum obsługi, muzeum (start)</li>
+<li>Cytadela i Świątynia Quetzalcoatla (południe Alei)</li>
+<li>Pałac Quetzalpapalotl (zachód od Księżyca)</li>
+<li>Piramida Księżyca (widok na Aleję Zmarłych)</li>
+<li>Aleja Zmarłych (Calzada de los Muertos) — spacer na południe</li>
+<li>Piramida Słońca (wschód Alei) — widok, muzeum</li>
+<li>Tepantitla (murale jaguara, opcja, poza głównym kompleksem)</li>
+<li>Muzeum Kultury Teotihuacánu (przy Puerta 5)</li>
+</ol>
+<p class="caption">Powrót: z Puerta 2/3 do przystanku autobusu (po przeciwnej stronie drogi) — ostatnie odjazdy wieczorem (~18:00). Z Puerta 1 do Terminal del Norte ~45–75 min.</p>
+<h2>📸 Punkty po kolei</h2>
+<div class="pgrid" id="grid"></div>
+<p class="caption">Zdjęcia: Wikimedia Commons (licencje plików) · ceny i godziny wg stanu na 10.2026 (INAH, lugares.inah.gob.mx, visitmexicocityguide.com) — potwierdźcie przed wyjazdem.</p>
+</section>
+<p class="caption">↩︎ <a href="index.html">Wróć do planu wycieczki</a>
+</p>
+<footer>Teotihuacán &middot; podstrona punktu 10 (wariant) &middot; zdjęcia: Wikimedia Commons (licencje plików) &middot; kafelki: OpenStreetMap.</footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function () {
+  var W = 'https://upload.wikimedia.org/wikipedia/commons/thumb/';
+  var COL = { r: '#b03a2e', g: '#2e7d32', s: '#6b7280' };
+  var pts = [
+    [1, 's', 19.6850, -98.8460, 'Puerta 1 — wejście i kasy', 'Główna brama południowa: kasy (210 MXN cudzoziemiec), centrum obsługi, parking i Muzeum Kultury Teotihuacánu. Tu zaczyna się Aleja Zmarłych. Dobry punkt startu rano (8:00) — najmniej tłoczno.', '1/1d/Teotihuacan_Pir%C3%A1mide_del_Sol.jpg'],
+    [2, 'r', 19.6895, -98.8445, 'Cytadela i Świątynia Quetzalcoatla', 'Wielki plac z Cytadelą i Świątynią Pierzastego Węża (Quetzalcoatl) — rzeźbione głowy Quetzalcoatla i Tlaloca na fasadzie. Jeden z najważniejszych zespołów architektonicznych kompleksu.', '9/9a/Teotihuacan,_Pyramid_of_the_Sun_and_Avenue_of_the_Dead_(20686678965).jpg'],
+    [3, 'g', 19.6920, -98.8440, 'Aleja Zmarłych (Calzada de los Muertos)', 'Główna oś miasta (~2 km), otoczona platformami i ruinami pałaców. Spacer na północ (w stronę Księżyca) — bez cienia, miej wodę i czapkę.', '9/9a/Teotihuacan,_Pyramid_of_the_Sun_and_Avenue_of_the_Dead_(20686678965).jpg'],
+    [4, 'r', 19.6925, -98.8438, 'Piramida Słońca', 'Najwyższa (ok. 65 m, III w.) — wejście na piramidę zamknięte; podziwia się z dołu i z Alei Zmarłych. Z platformy u podstawy dobry widok na Aleję i Piramidę Księżyca. Muzeum na miejscu.', '1/1d/Teotihuacan_Pir%C3%A1mide_del_Sol.jpg'],
+    [5, 'g', 19.6970, -98.8455, 'Pałac Quetzalpapalotl', 'Pałac Motyla (ok. 250–450 r.) z kolumnami z rzeźbionymi motylami i muszlami — jedno z najlepiej zachowanych wnętrz w kompleksie. Przy Piramidzie Księżyca.', '9/9e/Teotihuacan_Pir%C3%A1mide_de_la_Luna.jpg'],
+    [6, 'r', 19.6965, -98.8435, 'Piramida Księżyca', 'Druga co do wielkości (ok. 43 m) — wejście na pierwszy taras dozwolone (drewniane schody). Z tarasu widok na całą Aleję Zmarłych i Piramidę Słońca. Najlepsze zdjęcia rano.', '9/9e/Teotihuacan_Pir%C3%A1mide_de_la_Luna.jpg'],
+    [7, 'g', 19.6900, -98.8380, 'Tepantitla (murale jaguara, opcja)', 'Kompleks mieszkalny poza głównym szlakiem (ok. 10 min pieszo od Puerta 3) z zachowanymi muralami (jaguar, Tlaloc, raj). Opcja tylko jeśli zostanie czas.', '9/9a/Teotihuacan,_Pyramid_of_the_Sun_and_Avenue_of_the_Dead_(20686678965).jpg'],
+    [8, 's', 19.6855, -98.8465, 'Muzeum Kultury Teotihuacánu', 'Przy Puerta 1 — oryginały rzeźb, ceramika, obsydian, makieta miasta. W cenie biletu. 9:00–16:30. Dobry punkt na koniec (chłód i toalety).', '1/1d/Teotihuacan_Pir%C3%A1mide_del_Sol.jpg']
+  ];
+
+  var grid = document.getElementById('grid');
+  pts.forEach(function (p) {
+    var d = document.createElement('div');
+    d.className = 'pcard';
+    d.innerHTML = '<img loading="lazy" src="' + W + p[6] + '" alt="' + p[4] + '"><div class="pb"><b><span class="dot-n" style="background:' + COL[p[1]] + '">' + p[0] + '</span>' + p[4] + '</b><p>' + p[5] + '</p></div>';
+    grid.appendChild(d);
+  });
+
+  var el = document.getElementById('plan');
+  if (!window.L) { el.innerHTML = '<p style="padding:18px;margin:0;color:#766c5f">Mapa wymaga połączenia z internetem — lista punktów poniżej i tak działa.</p>'; return; }
+  var map = L.map(el, { scrollWheelZoom: false });
+  var sat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: 'Tiles &copy; Esri' });
+  var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' });
+  sat.addTo(map);
+  L.control.layers({ '🛰️ Satelita (Esri)': sat, '🗺️ Mapa (OSM)': osm }, null, { position: 'topleft' }).addTo(map);
+  L.control.scale({ imperial: false }).addTo(map);
+
+  var all = [];
+  pts.forEach(function (p) {
+    var ic = L.divIcon({ className: '', html: '<div class="pin" style="background:' + COL[p[1]] + '">' + p[0] + '</div>', iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -16], tooltipAnchor: [0, -18] });
+    L.marker([p[2], p[3]], { icon: ic, title: p[4] })
+      .bindTooltip('<div class="tip-card"><img src="' + W + p[6] + '" alt="' + p[4] + '"><span>' + p[0] + '. ' + p[4] + '</span></div>', { direction: 'top', offset: [0, -16], opacity: 1, className: 'foto-tip' })
+      .bindPopup('<strong>' + p[0] + '. ' + p[4] + '</strong><br><img src="' + W + p[6] + '" alt="' + p[4] + '" style="width:240px;max-width:100%;border-radius:8px;margin:6px 0 4px;display:block">' + p[5] + '<br><span style="font-size:.85em"><a href="https://www.google.com/maps/search/?api=1&query=' + p[2] + ',' + p[3] + '" target="_blank" rel="noopener">📍 Google Maps</a></span>', { maxWidth: 280, minWidth: 240 })
+      .addTo(map);
+    all.push([p[2], p[3]]);
+  });
+
+  // Główna trasa (punkty 1–6)
+  var route = [pts[0], pts[1], pts[2], pts[3], pts[5], pts[4]].map(function (p) { return [p[2], p[3]]; });
+  L.polyline(route, { color: '#b03a2e', weight: 3, dashArray: '6 8', opacity: 0.7 })
+    .bindTooltip('Proponowana trasa zwiedzania (punkty 1–6)', { sticky: true })
+    .addTo(map);
+
+  // Opcja Tepantitla (punkt 7)
+  L.polyline([[19.6925, -98.8438], [19.6900, -98.8380]], { color: '#6d28d9', weight: 2, dashArray: '4 7', opacity: 0.8 })
+    .bindTooltip('Opcja: Tepantitla (~5 min pieszo od Puerta 3)', { sticky: true })
+    .addTo(map);
+
+  map.fitBounds(L.latLngBounds(all).pad(0.12));
+})();
+</script>
+</body>
+</html>
