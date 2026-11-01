@@ -185,12 +185,12 @@
       html: '<div class="map-pin" style="background:' + VCOL + ';border:2px dashed #fff">' + p[0] + '</div>',
       iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -14]
     });
-    var mk = L.marker([p[2], p[3]], { icon: ic, title: p[4] });
-    mk.bindTooltip('<div class="tip-card"><img src="' + W + p[6] + '" alt="' + p[5] + '"><span>' + p[0] + '. ' + p[4] + '</span></div>', { direction: 'top', offset: [0, -16], opacity: 1, className: 'foto-tip' });
-    mk.bindPopup('<strong>' + p[0] + '. ' + p[4] + '</strong><br><img src="' + W + p[6] + '" alt="' + p[4] + '" style="width:200px;max-width:100%;border-radius:8px;margin:5px 0 4px;display:block">' + p[5] + '<br><span style="font-size:.85em">🎟️ wariant po 6.12 · <a href="https://www.google.com/maps/search/?api=1&query=' + p[2] + ',' + p[3] + '" target="_blank" rel="noopener">📍 Google Maps</a></span>');
+    var mk = L.marker([p[1], p[2]], { icon: ic, title: p[3] });
+    mk.bindTooltip('<div class="tip-card"><img src="' + W + p[5] + '" alt="' + p[3] + '"><span>' + p[0] + '. ' + p[3] + '</span></div>', { direction: 'top', offset: [0, -16], opacity: 1, className: 'foto-tip' });
+    mk.bindPopup('<strong>' + p[0] + '. ' + p[3] + '</strong><br><img src="' + W + p[5] + '" alt="' + p[3] + '" style="width:200px;max-width:100%;border-radius:8px;margin:5px 0 4px;display:block">' + p[4] + '<br><span style="font-size:.85em">🎟️ wariant po 6.12 · <a href="https://www.google.com/maps/search/?api=1&query=' + p[1] + ',' + p[2] + '" target="_blank" rel="noopener">📍 Google Maps</a></span>');
     mk.on('click', function () { if (p[0] === 10) window.location.href = 'teotihuacan.html'; });
     mk.addTo(map);
-    all.push([p[2], p[3]]);
+    all.push([p[1], p[2]]);
   });
 
   L.polyline([
