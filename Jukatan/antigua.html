@@ -1,0 +1,78 @@
+<!DOCTYPE html> <html lang="pl"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>Antigua — plan miasta i wulkanów · Jukatan 2026</title> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"> <link rel="stylesheet" href="style.css"> </head> <body> <div class="wrap"> <header> <h1>🌋 Antigua — plan miasta i wulkanów</h1> <p class="sub">Podstrona punktu 7 &middot; baza 3–8.12.2026 (5 nocy + obóz) &middot; trek Acatenango 6–7.12</p> </header> <p class="caption" style="margin-top:10px">↩︎ <a href="index.html">Wróć do planu wycieczki (mapa)</a> &middot; <a href="transport.html">🚌 transport: baza wiedzy</a> &middot; <a href="aplikacje.html">📱 aplikacje</a></p> <section> <p class="lead">Dawna stolica Gwatemali, wpisana na listę UNESCO, leży w dolinie pod trzema wulkanami — i właśnie ten widok (dzwonnice, dachówki i <strong>Volcán de Agua</strong> w tle) jest jej znakiem firmowym. Poniżej <strong>interaktywny plan</strong>: 12 punktów w mieście (numeracja = proponowana trasa spacerem) i 3 wulkany poza miastem. <strong>Najedź kursorem na pinezkę</strong> — zdjęcie; <strong>kliknij</strong> — opis, większa fotografia i link do Google Maps. Na telefonie po prostu dotknij pinezki. Przyciski nad mapą przełączają widok: miasto, wulkany albo całość.</p> <h3 style="margin-top:14px">🧭 Praktycznie</h3> <div class="variant"> <ul class="tight" style="margin:0"> <li>🏔️ <strong>Położenie:</strong> ~1530 m n.p.m., w dolinie Panchoy; miasto założono w 1543 r., a po trzęsieniu ziemi w 1773 r. stolicę przeniesiono do Ciudad de Guatemala. Zostają ruiny, kościoły i brukowane ulice — dziś UNESCO.</li> <li>🎟️ <strong>Wstępy:</strong> kościoły zwykle za darmo (datek), ruiny klasztorów ~Q20–50, muzeum w Casa Santo Domingo ~Q50. Gotówka się przyda — nie wszędzie działa karta.</li> <li>🕗 <strong>Godziny:</strong> świątynie otwarte wokół mszy (mniej więcej 6:00–18:00), muzea zwykle 9:00–17:00, część zamknięta w poniedziałki. Ruiny klasztorów zamykane ok. 17:00 — nie zostawiajcie ich na koniec dnia.</li> <li>🚶 <strong>Zwiedzanie:</strong> centrum to szachownica ~1,5 × 1,5 km — wszędzie pieszo, 5–15 min między punktami. Trasa 1–12 to ~3–4 h z przerwą na kawę; wulkany to osobny temat (trek lub punkty widokowe).</li> <li>🌋 <strong>Acatenango (6–7.12):</strong> trek 2-dniowy z obozem — rezerwujemy w agencji 1–2 dni wcześniej (czyli 4–5.12), ~Q400–600/os. + wstęp do parku; odbiór sprzed agencji rano. Na górze zimno (w nocy poniżej 0 °C), wiatr i pył z Fuego — czapka, rękawiczki, buff, dodatkowa warstwa.</li> <li>☀️ <strong>Klimat:</strong> grudzień to pora sucha — dni ~22–25 °C, wieczory chłodne (~10 °C), słońce mocne (1530 m). Warto mieć cienką kurtkę na wieczór i krem z filtrem.</li> <li>💵 <strong>Pieniądze:</strong> quetzal (Q), bankomaty w centrum; karty w restauracjach i hotelach, gotówka na targu i w mniejszych knajpach.</li> <li>🚐 <strong>Dojazd i wyjazd:</strong> shuttle z Flores wysadza w centrum 3.12 po południu (szczegóły: <a href="transport.html#flores-antigua">transport.html</a>); na lotnisko GUA jedzie się ~1–1,5 h — 9.12 wyjazd ~11:30 na lot 14:40.</li> <li>🚨 <strong>Bezpieczeństwo:</strong> normalne środki ostrożności. Na <strong>Cerro de la Cruz</strong> idźcie w dzień i najlepiej w grupie lub taksówką; po zmroku trzymajcie się oświetlonych ulic wokół Parque Central.</li> <li>🍽️ <strong>Jedzenie:</strong> pepián, kak-ik, tamales i plantany; kawa z okolicznych finc. W południe szukajcie „comedores” — domowe obiady za kilka quetzali.</li> </ul> </div> <h2>🗺️ Mapa — 12 punktów w mieście + 3 wulkany</h2> <div style="display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 8px"> <button id="b-city" type="button" style="font:inherit;font-size:.82rem;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer">🏙️ Miasto (1–12)</button> <button id="b-volc" type="button" style="font:inherit;font-size:.82rem;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer">🌋 Wulkany</button> <button id="b-all" type="button" style="font:inherit;font-size:.82rem;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer">🗺️ Wszystko</button> </div> <div id="plan"></div> <p class="legend"> <span><i style="background:#b03a2e"></i>kościoły i klasztory</span> <span><i style="background:#2e7d32"></i>pałace, muzea, domy</span> <span><i style="background:#6b7280"></i>place, targ, punkty widokowe</span> <span><i style="background:#6d28d9"></i>wulkany</span> </p> <p class="caption">🛰️ Kafelki: Esri World Imagery (satelita) / OpenStreetMap &middot; 📷 zdjęcia: Wikimedia Commons &middot; przełącznik warstw w lewym górnym rogu mapy. Czerwona przerywana linia = proponowana trasa spacerem po mieście.</p> <h2>🚶 Kolejność zwiedzania (~3–4 h)</h2> <ol class="tight"> <li>Parque Central — start, fontanna i widok na katedrę</li> <li>Catedral de San José — fasada i wnętrze</li> <li>Palacio de los Capitanes — arkady i muzeum sztuki kolonialnej</li> <li>Arco de Santa Catalina — ikona miasta (Calle del Arco)</li> <li>Iglesia La Merced — żółta fasada i plac</li> <li>Convento de las Capuchinas — wirydarz i cele mniszek</li> <li>Casa Santo Domingo — ruiny klasztoru, muzea i ogrody</li> <li>Convento Santa Clara — najbardziej klimatyczne ruiny</li> <li>Tanque La Unión — dawne publiczne pralnie</li> <li>Iglesia San Francisco el Grande — grób Hermana Pedro</li> <li>Mercado Central — owoce, tkaniny, jedzenie</li> <li>Cerro de la Cruz — panorama miasta i Volcán de Agua</li> </ol> <p class="caption">Punkty 1–7 leżą w ścisłym centrum, 8–11 na obrzeżach (5–10 min), a 12 to podejście ~15–20 min w górę — najlepiej na koniec dnia lub rano, gdy widoczność jest najlepsza.</p> <h2>📸 Punkty po kolei</h2> <div class="pgrid" id="grid"></div> <p class="caption">Zdjęcia: Wikimedia Commons (licencje plików) · ceny i godziny orientacyjne, stan 10.2026 — potwierdźcie na miejscu. Współrzędne: OpenStreetMap.</p> </section> <p class="caption">↩︎ <a href="index.html">Wróć do planu wycieczki</a></p> <footer>Antigua &middot; podstrona punktu 7 &middot; zdjęcia: Wikimedia Commons (licencje plików) &middot; kafelki: Esri / OpenStreetMap.</footer> </div> <script>
+(function () {
+  var W = 'https://upload.wikimedia.org/wikipedia/commons/thumb/';
+  var COL = { r: '#b03a2e', g: '#2e7d32', s: '#6b7280', v: '#6d28d9' };
+  var pts = [
+    [1, 's', 14.55683, -90.73373, 'Parque Central (Plaza Mayor)', 'Serce miasta od XVI w. — pośrodku fontanna z syrenami, wokół katedra, pałac kapitanów i arkady. Tu zaczyna się i kończy każda trasa; dobre miejsce na kawę i obserwowanie miasta.', '6/66/AntiguaPlazaFuente.jpg/500px-AntiguaPlazaFuente.jpg'],
+    [2, 'r', 14.55673, -90.73300, 'Catedral de San José', 'Katedra z XVI w., wielokrotnie niszczona przez trzęsienia ziemi; barokowa fasada z 1680 r., a za nią częściowo zawalone sklepienia. Nawa czynna, ruiny zwiedzane za drobną opłatą.', '0/00/Antigua_Guatemala_Cathedral_front.jpg/500px-Antigua_Guatemala_Cathedral_front.jpg'],
+    [3, 'g', 14.55599, -90.73391, 'Palacio de los Capitanes', 'Siedziba kapitanów generalnych z XVII w. — dziś Muzeum Sztuki Kolonialnej. Największe wrażenie robi arkadowy dziedziniec z kamiennymi kolumnami; wstęp drobny, warto na 30–40 min.', 'd/d6/Palacio_de_los_Capitanes_Generales_%281%29_%2840423320711%29.jpg/500px-Palacio_de_los_Capitanes_Generales_%281%29_%2840423320711%29.jpg'],
+    [4, 'g', 14.55957, -90.73425, 'Arco de Santa Catalina', 'XVII-wieczny łuk (1694) przerzucony nad ulicą, który łączył klasztor z kościołem — dziś najczęściej fotografowany punkt Antigui. W tle, przy dobrej pogodzie, widać Volcán de Agua; najlepiej rano, gdy ulica jest jeszcze pusta.', 'b/b6/Antigua_-_Arco.jpg/500px-Antigua_-_Arco.jpg'],
+    [5, 'r', 14.56122, -90.73435, 'Iglesia La Merced', 'Żółta, barokowa świątynia z 1767 r. — jedna z najlepiej zachowanych w mieście. Przed nią niewielki plac z palmami, w środku bogate ołtarze; wstęp wolny, wokół mszy.', 'c/c3/La_Merced_Church_Antigua_Guatemala_2.jpg/500px-La_Merced_Church_Antigua_Guatemala_2.jpg'],
+    [6, 'r', 14.55991, -90.73145, 'Convento de las Capuchinas', 'Klasztor kapucynek z 1736 r. — okrągły wirydarz, cele mniszek i podziemia; po trzęsieniu 1773 r. już nieodbudowany. Jedne z ciekawszych ruin w mieście, wstęp ~Q40.', 'd/d2/Convento_de_las_Capuchinas_Antigua.JPG/500px-Convento_de_las_Capuchinas_Antigua.JPG'],
+    [7, 'g', 14.55994, -90.72648, 'Casa Santo Domingo', 'Ruiny klasztoru dominikanów zamienione w hotel i muzea — krypty, sztuka kolonialna, ogrody z fontannami i papugami. Muzeum ~Q50; nawet bez wchodzenia warto zajrzeć na dziedziniec.', '4/41/Garden_View_-_Hotel_Casa_de_Santo_Domingo_-_Antigua_Guatemala_-_Sacatepequez_-_Guatemala_%2815919423265%29.jpg/500px-Garden_View_-_Hotel_Casa_de_Santo_Domingo_-_Antigua_Guatemala_-_Sacatepequez_-_Guatemala_%2815919423265%29.jpg'],
+    [8, 'r', 14.55506, -90.73094, 'Convento Santa Clara', 'Ruiny klasztoru klarysek z XVIII w. — wysokie filary i łuki bez dachu, przez które prześwituje niebo. Mniej tłumne niż Capuchinas, za to najbardziej „klimatyczne”; wstęp ~Q40.', '0/03/Convento_de_Santa_Clara_Antigua_Guatemala.jpg/500px-Convento_de_Santa_Clara_Antigua_Guatemala.jpg'],
+    [9, 's', 14.55522, -90.73121, 'Tanque La Unión', 'Dziewiętnastowieczne publiczne pralnie — kobiety z okolicy wciąż piorą tu ubrania w kamiennych nieckach. Wolny wstęp, dobre miejsce na zdjęcia i chwilę rozmowy; obok targ i kawiarnie.', 'b/bf/130125_tanque_de_la_union_antigua_luis_figueroa.jpg/500px-130125_tanque_de_la_union_antigua_luis_figueroa.jpg'],
+    [10, 'r', 14.55388, -90.72959, 'Iglesia San Francisco el Grande', 'Kościół z początku XVIII w. i sanktuarium Hermana Pedro, kanonizowanego w 2002 r. — cel pielgrzymek z całej Gwatemali; w środku jego grób i liczne wota. Wstęp wolny, warto na 20–30 min.', '9/9e/San_Francisco_el_Grande%2C_Antigua.jpg/500px-San_Francisco_el_Grande%2C_Antigua.jpg'],
+    [11, 's', 14.55848, -90.73923, 'Mercado Central', 'Targ miejski: owoce, warzywa, tkaniny i typowe jedzenie w „comedores”. Najlepiej rano — wtedy jest najświeższy i najmniej tłoczny; targujcie się z uśmiechem.', '0/03/Antigua_Guatemala_Mercado_Feb_2020_-_04.jpg/500px-Antigua_Guatemala_Mercado_Feb_2020_-_04.jpg'],
+    [12, 's', 14.56622, -90.73097, 'Cerro de la Cruz', 'Wzgórze z krzyżem na północ od centrum — najlepsza panorama Antigui z Volcán de Agua w tle. Podejście ~15–20 min (lub taksówka), idźcie w dzień i w grupie; na górze ławeczki i sprzedawcy.', '2/29/Cerro_de_la_Cruz%2C_Antigua_Guatemala_02.jpg/500px-Cerro_de_la_Cruz%2C_Antigua_Guatemala_02.jpg'],
+    [13, 'v', 14.46633, -90.74176, 'Volcán de Agua', '3760 m, uśpiony wulkan górujący nad miastem od południa — to jego stożek widać z Arco i Cerro de la Cruz. Wejście tylko z przewodnikiem i w grupie; nam wystarczy widok z miasta.', '6/60/Volc%C3%A1n_de_Aqua_from_Antigua_City_Center.jpg/500px-Volc%C3%A1n_de_Aqua_from_Antigua_City_Center.jpg'],
+    [14, 'v', 14.47407, -90.88065, 'Volcán de Fuego', '3763 m, jeden z najbardziej aktywnych wulkanów na świecie — w nocy widać z Antigui pomarańczowe wybuchy. Nie wchodzi się na niego bez przewodnika; najlepszy widok jest z obozu na Acatenango.', 'd/db/Volcan_de_Fuego_in_Guatemala_-_Eruption_at_night.jpg/500px-Volcan_de_Fuego_in_Guatemala_-_Eruption_at_night.jpg'],
+    [15, 'v', 14.50090, -90.87570, 'Acatenango (trek 6–7.12)', '3976 m — nasz trek: podejście ~5–6 h, nocleg w obozie na ~3600 m, świt z widokiem na wybuchające Fuego i zejście. Agencje w Antigui ~Q400–600/os. + wstęp do parku; rezerwacja 1–2 dni wcześniej.', '2/20/Volcan_de_Fuego_y_Acatenango.jpg/500px-Volcan_de_Fuego_y_Acatenango.jpg']
+  ];
+
+  var grid = document.getElementById('grid');
+  pts.forEach(function (p) {
+    var d = document.createElement('div');
+    d.className = 'pcard';
+    d.innerHTML = '<img loading="lazy" src="' + W + p[6] + '" alt="' + p[4] + '"><div class="pb"><b><span class="dot-n" style="background:' + COL[p[1]] + '">' + p[0] + '</span>' + p[4] + '</b><p>' + p[5] + '</p></div>';
+    grid.appendChild(d);
+  });
+
+  var el = document.getElementById('plan');
+  if (!window.L) {
+    el.innerHTML = '<p style="padding:18px;margin:0;color:#766c5f">Mapa wymaga połączenia z internetem — lista punktów poniżej i tak działa.</p>';
+    return;
+  }
+  var map = L.map(el, { scrollWheelZoom: false });
+  var sat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics'
+  });
+  var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  });
+  sat.addTo(map);
+  L.control.layers({ '🛰️ Satelita (Esri)': sat, '🗺️ Mapa (OSM)': osm }, null, { position: 'topleft' }).addTo(map);
+  L.control.scale({ imperial: false }).addTo(map);
+
+  var all = [];
+  pts.forEach(function (p) {
+    var ic = L.divIcon({
+      className: '',
+      html: '<div class="pin" style="background:' + COL[p[1]] + '">' + p[0] + '</div>',
+      iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -16], tooltipAnchor: [0, -18]
+    });
+    L.marker([p[2], p[3]], { icon: ic, title: p[4] })
+      .bindTooltip('<div class="tip-card"><img src="' + W + p[6] + '" alt="' + p[4] + '"><span>' + p[0] + '. ' + p[4] + '</span></div>', { direction: 'top', offset: [0, -16], opacity: 1, className: 'foto-tip' })
+      .bindPopup('<strong>' + p[0] + '. ' + p[4] + '</strong><br><img src="' + W + p[6] + '" alt="' + p[4] + '" style="width:240px;max-width:100%;border-radius:8px;margin:6px 0 4px;display:block">' + p[5] + '<br><span style="font-size:.85em"><a href="https://www.google.com/maps/search/?api=1&query=' + p[2] + ',' + p[3] + '" target="_blank" rel="noopener">📍 Google Maps</a></span>', { maxWidth: 280, minWidth: 240 })
+      .addTo(map);
+    all.push([p[2], p[3]]);
+  });
+
+  var city = pts.filter(function (p) { return p[0] <= 12; }).map(function (p) { return [p[2], p[3]]; });
+  L.polyline(city, { color: '#b03a2e', weight: 3, dashArray: '6 8', opacity: 0.7 })
+    .bindTooltip('Proponowana trasa spacerem (punkty 1–12)', { sticky: true })
+    .addTo(map);
+
+  var bCity = L.latLngBounds(city).pad(0.18);
+  var bAll = L.latLngBounds(all).pad(0.08);
+  map.fitBounds(bCity);
+
+  document.getElementById('b-city').onclick = function () { map.fitBounds(bCity); };
+  document.getElementById('b-volc').onclick = function () {
+    map.fitBounds(L.latLngBounds([[14.46633, -90.74176], [14.47407, -90.88065], [14.50090, -90.87570]]).pad(0.35));
+  };
+  document.getElementById('b-all').onclick = function () { map.fitBounds(bAll); };
+})();
+</script> </body> </html>
