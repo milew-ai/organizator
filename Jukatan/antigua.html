@@ -1,4 +1,4 @@
-<!DOCTYPE html> <html lang="pl"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>Antigua — plan miasta i wulkanów · Jukatan 2026</title> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"> <link rel="stylesheet" href="style.css"> </head> <body> <div class="wrap"> <header> <h1>🌋 Antigua — plan miasta i wulkanów</h1> <p class="sub">Podstrona punktu 7 &middot; baza 3–8.12.2026 (5 nocy + obóz) &middot; trek Acatenango 6–7.12</p> </header> <p class="caption" style="margin-top:10px">↩︎ <a href="index.html">Wróć do planu wycieczki (mapa)</a> &middot; <a href="transport.html">🚌 transport: baza wiedzy</a> &middot; <a href="aplikacje.html">📱 aplikacje</a>&middot; 📋 <a href="przed-wyjazdem.html">przed wyjazdem</a></p> <section> <p class="lead">Dawna stolica Gwatemali, wpisana na listę UNESCO, leży w dolinie pod trzema wulkanami — i właśnie ten widok (dzwonnice, dachówki i <strong>Volcán de Agua</strong> w tle) jest jej znakiem firmowym. Poniżej <strong>interaktywny plan</strong>: 12 punktów w mieście (numeracja = proponowana trasa spacerem) i 3 wulkany poza miastem. <strong>Najedź kursorem na pinezkę</strong> — zdjęcie; <strong>kliknij</strong> — opis, większa fotografia i link do Google Maps. Na telefonie po prostu dotknij pinezki. Przyciski nad mapą przełączają widok: miasto, wulkany albo całość.</p> <h3 style="margin-top:14px">🧭 Praktycznie</h3> <div class="variant"> <ul class="tight" style="margin:0"> <li>🏔️ <strong>Położenie:</strong> ~1530 m n.p.m., w dolinie Panchoy; miasto założono w 1543 r., a po trzęsieniu ziemi w 1773 r. stolicę przeniesiono do Ciudad de Guatemala. Zostają ruiny, kościoły i brukowane ulice — dziś UNESCO.</li> <li>🎟️ <strong>Wstępy:</strong> kościoły zwykle za darmo (datek), ruiny klasztorów ~Q20–50, muzeum w Casa Santo Domingo ~Q50. Gotówka się przyda — nie wszędzie działa karta.</li> <li>🕗 <strong>Godziny:</strong> świątynie otwarte wokół mszy (mniej więcej 6:00–18:00), muzea zwykle 9:00–17:00, część zamknięta w poniedziałki. Ruiny klasztorów zamykane ok. 17:00 — nie zostawiajcie ich na koniec dnia.</li> <li>🚶 <strong>Zwiedzanie:</strong> centrum to szachownica ~1,5 × 1,5 km — wszędzie pieszo, 5–15 min między punktami. Trasa 1–12 to ~3–4 h z przerwą na kawę; wulkany to osobny temat (trek lub punkty widokowe).</li> <li>🌋 <strong>Acatenango (6–7.12):</strong> trek 2-dniowy z obozem — rezerwujemy w agencji 1–2 dni wcześniej (czyli 4–5.12), ~Q400–600/os. + wstęp do parku; odbiór sprzed agencji rano. Na górze zimno (w nocy poniżej 0 °C), wiatr i pył z Fuego — czapka, rękawiczki, buff, dodatkowa warstwa.</li> <li>☀️ <strong>Klimat:</strong> grudzień to pora sucha — dni ~22–25 °C, wieczory chłodne (~10 °C), słońce mocne (1530 m). Warto mieć cienką kurtkę na wieczór i krem z filtrem.</li> <li>💵 <strong>Pieniądze:</strong> quetzal (Q), bankomaty w centrum; karty w restauracjach i hotelach, gotówka na targu i w mniejszych knajpach.</li> <li>🚐 <strong>Dojazd i wyjazd:</strong> shuttle z Flores wysadza w centrum 3.12 po południu (szczegóły: <a href="transport.html#flores-antigua">transport.html</a>); na lotnisko GUA jedzie się ~1–1,5 h — 9.12 wyjazd ~11:30 na lot 14:40.</li> <li>🚨 <strong>Bezpieczeństwo:</strong> normalne środki ostrożności. Na <strong>Cerro de la Cruz</strong> idźcie w dzień i najlepiej w grupie lub taksówką; po zmroku trzymajcie się oświetlonych ulic wokół Parque Central.</li> <li>🍽️ <strong>Jedzenie:</strong> pepián, kak-ik, tamales i plantany; kawa z okolicznych finc. W południe szukajcie „comedores” — domowe obiady za kilka quetzali.</li> </ul> </div> <h2>🗺️ Mapa — 12 punktów w mieście + 3 wulkany</h2> <div style="display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 8px"> <button id="b-city" type="button" style="font:inherit;font-size:.82rem;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer">🏙️ Miasto (1–12)</button> <button id="b-volc" type="button" style="font:inherit;font-size:.82rem;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer">🌋 Wulkany</button> <button id="b-all" type="button" style="font:inherit;font-size:.82rem;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer">🗺️ Wszystko</button> </div> <div id="plan"></div> <p class="legend"> <span><i style="background:#b03a2e"></i>kościoły i klasztory</span> <span><i style="background:#2e7d32"></i>pałace, muzea, domy</span> <span><i style="background:#6b7280"></i>place, targ, punkty widokowe</span> <span><i style="background:#6d28d9"></i>wulkany</span> </p> <p class="caption">🛰️ Kafelki: Esri World Imagery (satelita) / OpenStreetMap &middot; 📷 zdjęcia: Wikimedia Commons &middot; przełącznik warstw w lewym górnym rogu mapy. Czerwona przerywana linia = proponowana trasa spacerem po mieście.</p> <h2>🚶 Kolejność zwiedzania (~3–4 h)</h2> <ol class="tight"> <li>Parque Central — start, fontanna i widok na katedrę</li> <li>Catedral de San José — fasada i wnętrze</li> <li>Palacio de los Capitanes — arkady i muzeum sztuki kolonialnej</li> <li>Arco de Santa Catalina — ikona miasta (Calle del Arco)</li> <li>Iglesia La Merced — żółta fasada i plac</li> <li>Convento de las Capuchinas — wirydarz i cele mniszek</li> <li>Casa Santo Domingo — ruiny klasztoru, muzea i ogrody</li> <li>Convento Santa Clara — najbardziej klimatyczne ruiny</li> <li>Tanque La Unión — dawne publiczne pralnie</li> <li>Iglesia San Francisco el Grande — grób Hermana Pedro</li> <li>Mercado Central — owoce, tkaniny, jedzenie</li> <li>Cerro de la Cruz — panorama miasta i Volcán de Agua</li> </ol> <p class="caption">Punkty 1–7 leżą w ścisłym centrum, 8–11 na obrzeżach (5–10 min), a 12 to podejście ~15–20 min w górę — najlepiej na koniec dnia lub rano, gdy widoczność jest najlepsza.</p> <h2>📸 Punkty po kolei</h2> <div class="pgrid" id="grid"></div> <p class="caption">Zdjęcia: Wikimedia Commons (licencje plików) · ceny i godziny orientacyjne, stan 10.2026 — potwierdźcie na miejscu. Współrzędne: OpenStreetMap.</p> </section> <p class="caption">↩︎ <a href="index.html">Wróć do planu wycieczki</a></p> <footer>Antigua &middot; podstrona punktu 7 &middot; zdjęcia: Wikimedia Commons (licencje plików) &middot; kafelki: Esri / OpenStreetMap.</footer> </div> <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script> <script>
+<!DOCTYPE html> <html lang="pl"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>Antigua — plan miasta i wulkanów · Jukatan 2026</title> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"> <link rel="stylesheet" href="style.css"> </head> <body> <div class="wrap"> <header> <h1>🌋 Antigua — plan miasta i wulkanów</h1> <p class="sub">Podstrona punktu 7 &middot; baza 3–8.12.2026 (5 nocy + obóz) &middot; trek Acatenango 6–7.12</p> </header> <p class="caption" style="margin-top:10px">↩︎ <a href="index.html">Wróć do planu wycieczki (mapa)</a> &middot; <a href="transport.html">🚌 transport: baza wiedzy</a> &middot; <a href="aplikacje.html">📱 aplikacje</a>&middot; 📋 <a href="przed-wyjazdem.html">przed wyjazdem</a></p> <section> <p class="lead">Dawna stolica Gwatemali, wpisana na listę UNESCO, leży w dolinie pod trzema wulkanami — i właśnie ten widok (dzwonnice, dachówki i <strong>Volcán de Agua</strong> w tle) jest jej znakiem firmowym. Poniżej <strong>interaktywny plan</strong>: 12 punktów w mieście (numeracja = proponowana trasa spacerem) i 3 wulkany poza miastem. <strong>Najedź kursorem na pinezkę</strong> — zdjęcie; <strong>kliknij</strong> — opis, większa fotografia i link do Google Maps. Na telefonie po prostu dotknij pinezki. Przyciski nad mapą przełączają widok: miasto, wulkany albo całość.</p> <h3 style="margin-top:14px">🧭 Praktycznie</h3> <div class="variant"> <ul class="tight" style="margin:0"> <li>🏔️ <strong>Położenie:</strong> ~1530 m n.p.m., w dolinie Panchoy; miasto założono w 1543 r., a po trzęsieniu ziemi w 1773 r. stolicę przeniesiono do Ciudad de Guatemala. Zostają ruiny, kościoły i brukowane ulice — dziś UNESCO.</li> <li>🎟️ <strong>Wstępy:</strong> kościoły zwykle za darmo (datek), ruiny klasztorów ~Q20–50, muzeum w Casa Santo Domingo ~Q50. Gotówka się przyda — nie wszędzie działa karta.</li> <li>🕗 <strong>Godziny:</strong> świątynie otwarte wokół mszy (mniej więcej 6:00–18:00), muzea zwykle 9:00–17:00, część zamknięta w poniedziałki. Ruiny klasztorów zamykane ok. 17:00 — nie zostawiajcie ich na koniec dnia.</li> <li>🚶 <strong>Zwiedzanie:</strong> centrum to szachownica ~1,5 × 1,5 km — wszędzie pieszo, 5–15 min między punktami. Trasa 1–12 to ~3–4 h z przerwą na kawę; wulkany to osobny temat (trek lub punkty widokowe).</li> <li>🌋 <strong>Acatenango (6–7.12):</strong> trek 2-dniowy z obozem — rezerwujemy w agencji 1–2 dni wcześniej (czyli 4–5.12), ~Q400–600/os. + wstęp do parku; odbiór sprzed agencji rano. Na górze zimno (w nocy poniżej 0 °C), wiatr i pył z Fuego — czapka, rękawiczki, buff, dodatkowa warstwa. <a href="#trek">Mapa i przekrój podejścia ↓</a></li> <li>☀️ <strong>Klimat:</strong> grudzień to pora sucha — dni ~22–25 °C, wieczory chłodne (~10 °C), słońce mocne (1530 m). Warto mieć cienką kurtkę na wieczór i krem z filtrem.</li> <li>💵 <strong>Pieniądze:</strong> quetzal (Q), bankomaty w centrum; karty w restauracjach i hotelach, gotówka na targu i w mniejszych knajpach.</li> <li>🚐 <strong>Dojazd i wyjazd:</strong> shuttle z Flores wysadza w centrum 3.12 po południu (szczegóły: <a href="transport.html#flores-antigua">transport.html</a>); na lotnisko GUA jedzie się ~1–1,5 h — 9.12 wyjazd ~11:30 na lot 14:40.</li> <li>🚨 <strong>Bezpieczeństwo:</strong> normalne środki ostrożności. Na <strong>Cerro de la Cruz</strong> idźcie w dzień i najlepiej w grupie lub taksówką; po zmroku trzymajcie się oświetlonych ulic wokół Parque Central.</li> <li>🍽️ <strong>Jedzenie:</strong> pepián, kak-ik, tamales i plantany; kawa z okolicznych finc. W południe szukajcie „comedores” — domowe obiady za kilka quetzali.</li> </ul> </div> <h2>🗺️ Mapa — 12 punktów w mieście + 3 wulkany</h2> <div style="display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 8px"> <button id="b-city" type="button" style="font:inherit;font-size:.82rem;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer">🏙️ Miasto (1–12)</button> <button id="b-volc" type="button" style="font:inherit;font-size:.82rem;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer">🌋 Wulkany</button> <button id="b-all" type="button" style="font:inherit;font-size:.82rem;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer">🗺️ Wszystko</button> </div> <div id="plan"></div> <p class="legend"> <span><i style="background:#b03a2e"></i>kościoły i klasztory</span> <span><i style="background:#2e7d32"></i>pałace, muzea, domy</span> <span><i style="background:#6b7280"></i>place, targ, punkty widokowe</span> <span><i style="background:#6d28d9"></i>wulkany</span> </p> <p class="caption">🛰️ Kafelki: Esri World Imagery (satelita) / OpenStreetMap &middot; 📷 zdjęcia: Wikimedia Commons &middot; przełącznik warstw w lewym górnym rogu mapy. Czerwona przerywana linia = proponowana trasa spacerem po mieście.</p> <h2>🚶 Kolejność zwiedzania (~3–4 h)</h2> <ol class="tight"> <li>Parque Central — start, fontanna i widok na katedrę</li> <li>Catedral de San José — fasada i wnętrze</li> <li>Palacio de los Capitanes — arkady i muzeum sztuki kolonialnej</li> <li>Arco de Santa Catalina — ikona miasta (Calle del Arco)</li> <li>Iglesia La Merced — żółta fasada i plac</li> <li>Convento de las Capuchinas — wirydarz i cele mniszek</li> <li>Casa Santo Domingo — ruiny klasztoru, muzea i ogrody</li> <li>Convento Santa Clara — najbardziej klimatyczne ruiny</li> <li>Tanque La Unión — dawne publiczne pralnie</li> <li>Iglesia San Francisco el Grande — grób Hermana Pedro</li> <li>Mercado Central — owoce, tkaniny, jedzenie</li> <li>Cerro de la Cruz — panorama miasta i Volcán de Agua</li> </ol> <p class="caption">Punkty 1–7 leżą w ścisłym centrum, 8–11 na obrzeżach (5–10 min), a 12 to podejście ~15–20 min w górę — najlepiej na koniec dnia lub rano, gdy widoczność jest najlepsza.</p> <h2>📸 Punkty po kolei</h2> <div class="pgrid" id="grid"></div> <p class="caption">Zdjęcia: Wikimedia Commons (licencje plików) · ceny i godziny orientacyjne, stan 10.2026 — potwierdźcie na miejscu. Współrzędne: OpenStreetMap.</p> <h2 id="trek">🥾 Trek Acatenango — mapa i przekrój podejścia (6–7.12)</h2> <p class="lead">Start w <strong>La Soledad</strong> (2 400 m n.p.m.), obóz na ~3 650 m, szczyt <strong>Pico Mayor</strong> 3 976 m. Mapa pokazuje punkty orientacyjne na trasie — kliknij numer, żeby zobaczyć opis; pod nią jest <strong>przekrój wysokościowy</strong>: najedź kursorem na wykres, żeby odczytać kilometr i wysokość.</p> <div style="display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 8px"> <button id="tb-all" type="button" class="tbtn">🥾 Cała trasa</button> <button id="tb-start" type="button" class="tbtn">🚐 Start</button> <button id="tb-camp" type="button" class="tbtn">🏕️ Obóz</button> <button id="tb-sum" type="button" class="tbtn">⛰️ Szczyt</button> </div> <div id="trekmap" class="trek-map">Tu wczyta się mapa treku (OpenTopoMap / satelita). Jeśli widzisz ten tekst — mapa się nie załadowała, ale tabela punktów poniżej działa.</div> <p class="caption">🗺️ Warstwy: OpenTopoMap (warstwice, szlaki) / Esri World Imagery / OpenStreetMap — przełącznik w lewym górnym rogu mapy. 🔴 Czerwona pinezka <b>F</b> = Volcán de Fuego (widok z obozu). Przebieg trasy: ślad GPS (komoot), orientacyjny — w terenie idziemy z przewodnikiem.</p> <table class="mini"> <thead><tr><th>Punkt</th><th class="num">km</th><th class="num">wysokość</th></tr></thead> <tbody> <tr><td><b>1.</b> La Soledad — parking, rejestracja</td><td class="num">0,0</td><td class="num">2 400 m</td></tr> <tr><td><b>2.</b> Pierwszy przystanek (kawiarnia, toaleta)</td><td class="num">0,7</td><td class="num">2 550 m</td></tr> <tr><td><b>3.</b> Brama CONAP — wejście do lasu</td><td class="num">2,3</td><td class="num">3 000 m</td></tr> <tr><td><b>4.</b> Las chmurowy — przerwa na lunch</td><td class="num">2,9</td><td class="num">3 200 m</td></tr> <tr><td><b>5.</b> Grań, koniec lasu — pierwszy widok na Fuego</td><td class="num">3,8</td><td class="num">3 400 m</td></tr> <tr><td><b>6.</b> Obóz (pola namiotowe agencji)</td><td class="num">4,8</td><td class="num">3 650 m</td></tr> <tr class="total"><td><b>7.</b> Szczyt Pico Mayor</td><td class="num">6,3</td><td class="num">3 976 m</td></tr> </tbody> </table> <p class="caption">Razem <b>~6,3 km i +1 575 m</b> podejścia (5–6 h); zejście 2,5–3 h. Dojazd z Antigui ~1 h (31 km), wyjazd z agencji 5:30–6:00.</p> <figure class="elev-wrap" id="elevwrap"> <div id="elevsvg"></div> <div class="elev-tip" id="elevtip"></div> </figure> <p class="caption">Przekrój: odległość w km od La Soledad, wysokość w m n.p.m. Dane: ślad GPS (komoot) + DEM — wartości orientacyjne, zaokrąglone; agencje mogą prowadzić na pola namiotowe położone nieco wyżej lub dalej.</p> <div class="variant"> <ul class="tight" style="margin:0"> <li>🎫 <strong>Wstęp:</strong> ~Q50 (cudzoziemcy) przy bramie CONAP + wpis do rejestru; kije drewniane ~Q10 na parkingu — warto, odcinek w wulkanicznym piachu jest śliski.</li> <li>💧 <strong>Woda:</strong> na trasie brak źródła — 4–5 l na osobę; agencje dają ciepłe posiłki, ale nie wodę.</li> <li>🥶 <strong>Noc w obozie:</strong> poniżej 0 °C i wiatr — czapka, rękawiczki, buff, dodatkowa warstwa; śpiwór z agencji zwykle wystarcza, ale warto mieć własną bieliznę termiczną.</li> </ul> </div> </section> <p class="caption">↩︎ <a href="index.html">Wróć do planu wycieczki</a></p> <footer>Antigua &middot; podstrona punktu 7 &middot; zdjęcia: Wikimedia Commons (licencje plików) &middot; kafelki: Esri / OpenStreetMap.</footer> </div> <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script> <script>
 (function () {
   var W = 'https://upload.wikimedia.org/wikipedia/commons/thumb/';
   var COL = { r: '#b03a2e', g: '#2e7d32', s: '#6b7280', v: '#6d28d9' };
@@ -74,5 +74,157 @@
     map.fitBounds(L.latLngBounds([[14.46633, -90.74176], [14.47407, -90.88065], [14.50090, -90.87570]]).pad(0.35));
   };
   document.getElementById('b-all').onclick = function () { map.fitBounds(bAll); };
+})();
+</script>
+<script>
+(function () {
+  var TRK = [[14.53632,-90.88657],[14.53593,-90.88676],[14.53594,-90.88655],[14.53497,-90.88609],[14.53505,-90.8853],[14.53262,-90.884],[14.53164,-90.88301],[14.53167,-90.88252],[14.53218,-90.88153],[14.53143,-90.88121],[14.53064,-90.88058],[14.53042,-90.88036],[14.53054,-90.88002],[14.52967,-90.87974],[14.52973,-90.87943],[14.52672,-90.87857],[14.52611,-90.87863],[14.52597,-90.87834],[14.52571,-90.87845],[14.52546,-90.87816],[14.52488,-90.87819],[14.52479,-90.8779],[14.52363,-90.8782],[14.5235,-90.87793],[14.52343,-90.87808],[14.52316,-90.87785],[14.52298,-90.8782],[14.52267,-90.87809],[14.52225,-90.8783],[14.5222,-90.87801],[14.52211,-90.8781],[14.5218,-90.87776],[14.52172,-90.878],[14.52069,-90.87776],[14.52059,-90.87798],[14.52014,-90.87778],[14.51998,-90.87805],[14.51981,-90.87774],[14.51971,-90.87794],[14.51955,-90.8778],[14.51923,-90.87793],[14.51881,-90.87751],[14.51841,-90.87801],[14.51767,-90.87801],[14.51708,-90.87854],[14.51607,-90.87854],[14.51475,-90.88004],[14.51388,-90.87991],[14.51423,-90.87925],[14.51373,-90.87926],[14.51399,-90.87863],[14.51325,-90.87872],[14.51276,-90.87855],[14.51206,-90.8788],[14.51223,-90.87835],[14.51191,-90.87847],[14.51198,-90.87821],[14.51167,-90.87836],[14.51149,-90.87879],[14.50917,-90.87913],[14.50748,-90.87868],[14.50858,-90.87797],[14.50677,-90.87691],[14.5063,-90.87548],[14.50599,-90.87522],[14.50557,-90.87418],[14.50427,-90.87343],[14.50328,-90.87414],[14.50144,-90.87467],[14.50119,-90.87492],[14.50161,-90.87561],[14.50056,-90.87583]];
+  var PROF = [[0,2400],[0.14,2422],[0.26,2442],[0.41,2485],[0.53,2497],[0.65,2533],[0.73,2548],[0.85,2569],[1,2590],[1.12,2616],[1.29,2652],[1.32,2664],[1.47,2703],[1.57,2738],[1.69,2796],[1.83,2843],[1.93,2886],[2.07,2932],[2.17,2971],[2.28,3007],[2.42,3049],[2.52,3082],[2.65,3122],[2.76,3153],[2.89,3186],[3.02,3224],[3.12,3245],[3.25,3280],[3.37,3313],[3.55,3346],[3.6,3366],[3.75,3401],[3.84,3443],[4,3480],[4.09,3518],[4.23,3552],[4.34,3571],[4.46,3591],[4.6,3617],[4.78,3646],[4.81,3659],[4.92,3683],[5.09,3721],[5.2,3728],[5.31,3751],[5.41,3761],[5.54,3776],[5.65,3802],[5.77,3833],[5.89,3872],[6.01,3912],[6.15,3944],[6.32,3976]];
+  var CHK = [
+    [1, 14.53632, -90.88657, 0, 2400, 'La Soledad — start', 'Parking i rejestracja: tu płacimy wstęp (~Q50) i wpisujemy się do rejestru CONAP. Stragany z kijami, toalety (Q5), ostatnie cywilizowane miejsce na trasie.'],
+    [2, 14.53164, -90.88301, 0.7, 2550, 'Pierwszy przystanek', 'Kawiarnia i toalety; tu spotykają się oba warianty ścieżki przez pola kukurydzy. Dobrze uzupełnić wodę i poprawić plecak przed lasem.'],
+    [3, 14.52307, -90.87807, 2.3, 3000, 'Brama CONAP — las', 'Oficjalne wejście do parku: opłata i rejestracja. Dalej zaczyna się las chmurowy — stromo, ale przyjemnie i chłodno.'],
+    [4, 14.51909, -90.87778, 2.9, 3200, 'Las chmurowy — lunch', 'Mech, paprocie, wysokie drzewa; czasem uda się zobaczyć quetzala. Standardowa przerwa na lunch i zdjęcia.'],
+    [5, 14.51407, -90.87947, 3.8, 3400, 'Grań — koniec lasu', 'Wychodzimy z lasu i wchodzimy na grzbiet: pierwszy pełny widok na Fuego i dolinę. Od tego miejsca wieje mocniej.'],
+    [6, 14.50917, -90.87913, 4.8, 3650, 'Obóz (~3 650 m)', 'Pola namiotowe agencji: zachód słońca, nocne erupcje Fuego i temperatura poniżej 0 °C. Rano atak na szczyt z czołówką.'],
+    [7, 14.50056, -90.87583, 6.3, 3976, 'Szczyt Pico Mayor', 'Ostatnie ~1,5 km po luźnym piachu wulkanicznym (+330 m), 1–1,5 h. Na górze świt nad Fuegiem i całym pasmem wulkanów.']
+  ];
+
+  var map = null;
+  var el = document.getElementById('trekmap');
+  if (window.L && el) {
+    map = L.map(el, { scrollWheelZoom: false });
+    var topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+      maxZoom: 17,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, SRTM | &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)'
+    });
+    var sat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 19,
+      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics'
+    });
+    var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    });
+    topo.addTo(map);
+    L.control.layers({ '⛰️ Topo (szlaki)': topo, '🛰️ Satelita (Esri)': sat, '🗺️ Mapa (OSM)': osm }, null, { position: 'topleft' }).addTo(map);
+    L.control.scale({ imperial: false }).addTo(map);
+
+    L.polyline(TRK, { color: '#fff', weight: 7, opacity: 0.85 }).addTo(map);
+    L.polyline(TRK, { color: '#6d28d9', weight: 4, opacity: 0.95 })
+      .bindTooltip('Podejście 6–7.12 · ~6,3 km, +1 575 m', { sticky: true })
+      .addTo(map);
+
+    CHK.forEach(function (p) {
+      var ic = L.divIcon({
+        className: '',
+        html: '<div class="pin" style="background:#6d28d9">' + p[0] + '</div>',
+        iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -16], tooltipAnchor: [0, -18]
+      });
+      L.marker([p[1], p[2]], { icon: ic, title: p[5] })
+        .bindTooltip(p[0] + '. ' + p[5] + ' · ' + p[4] + ' m', { direction: 'top', offset: [0, -16] })
+        .bindPopup('<strong>' + p[0] + '. ' + p[5] + '</strong><br><span style="color:#766c5f">' + p[4] + ' m · km ' + String(p[3]).replace('.', ',') + '</span><br>' + p[6] +
+          '<br><span style="font-size:.85em"><a href="https://www.google.com/maps/search/?api=1&query=' + p[1] + ',' + p[2] + '" target="_blank" rel="noopener">📍 Google Maps</a></span>',
+          { maxWidth: 270, minWidth: 230 })
+        .addTo(map);
+    });
+
+    L.marker([14.47407, -90.88065], {
+      icon: L.divIcon({ className: '', html: '<div class="pin" style="background:#b03a2e">F</div>', iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -16], tooltipAnchor: [0, -18] }),
+      title: 'Volcán de Fuego'
+    })
+      .bindTooltip('Volcán de Fuego (3 763 m) — widok z obozu', { direction: 'top', offset: [0, -16] })
+      .bindPopup('<strong>Volcán de Fuego</strong><br><span style="color:#766c5f">3 763 m</span><br>Aktywny wulkan, który widać z obozu i ze szczytu — erupcje co ~20 min, w nocy pomarańczowe wybuchy. Na niego nie wchodzimy.')
+      .addTo(map);
+
+    var bAll = L.latLngBounds(TRK.concat([[14.47407, -90.88065]])).pad(0.08);
+    map.fitBounds(bAll);
+
+    document.getElementById('tb-all').onclick = function () { map.fitBounds(bAll); };
+    document.getElementById('tb-start').onclick = function () { map.flyTo([14.53632, -90.88657], 15, { duration: 0.7 }); };
+    document.getElementById('tb-camp').onclick = function () { map.flyTo([14.50917, -90.87913], 15, { duration: 0.7 }); };
+    document.getElementById('tb-sum').onclick = function () { map.flyTo([14.50056, -90.87583], 15, { duration: 0.7 }); };
+  }
+
+  var host = document.getElementById('elevsvg');
+  if (!host) return;
+  var W = 760, H = 300, PL = 52, PR = 18, PT = 26, PB = 40;
+  var kmMax = 6.5, mMin = 2350, mMax = 4050;
+  function X(km) { return PL + (km / kmMax) * (W - PL - PR); }
+  function Y(m) { return PT + (1 - (m - mMin) / (mMax - mMin)) * (H - PT - PB); }
+  function altAt(km) {
+    for (var i = 1; i < PROF.length; i++) {
+      if (PROF[i][0] >= km) {
+        var a = PROF[i - 1], b = PROF[i];
+        return a[1] + (km - a[0]) / ((b[0] - a[0]) || 1e-9) * (b[1] - a[1]);
+      }
+    }
+    return PROF[PROF.length - 1][1];
+  }
+  function pl(v, d) { return (d ? v.toFixed(d) : String(Math.round(v))).replace('.', ','); }
+
+  var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Przekrój wysokościowy podejścia na Acatenango: od 2 400 m do 3 976 m">';
+  s += '<defs><linearGradient id="gac" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6d28d9" stop-opacity=".38"/><stop offset="1" stop-color="#6d28d9" stop-opacity=".04"/></linearGradient></defs>';
+  for (var m = 2400; m <= 4000; m += 400) {
+    s += '<line x1="' + PL + '" y1="' + Y(m) + '" x2="' + (W - PR) + '" y2="' + Y(m) + '" stroke="#e7ddcf" stroke-width="1"/>';
+    s += '<text x="' + (PL - 9) + '" y="' + (Y(m) + 4) + '" text-anchor="end" font-size="12" fill="#766c5f">' + pl(m).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + '</text>';
+  }
+  for (var k = 0; k <= 6; k++) {
+    s += '<line x1="' + X(k) + '" y1="' + (H - PB) + '" x2="' + X(k) + '" y2="' + (H - PB + 5) + '" stroke="#c9bda9" stroke-width="1"/>';
+    s += '<text x="' + X(k) + '" y="' + (H - PB + 20) + '" text-anchor="middle" font-size="12" fill="#766c5f">' + k + '</text>';
+  }
+  s += '<text x="' + (W - PR) + '" y="' + (H - PB + 20) + '" text-anchor="end" font-size="12" fill="#766c5f">km</text>';
+  s += '<text x="' + PL + '" y="' + (PT - 10) + '" font-size="12" fill="#766c5f">m n.p.m.</text>';
+
+  var pts = PROF.map(function (p) { return X(Math.min(p[0], kmMax)).toFixed(1) + ',' + Y(p[1]).toFixed(1); });
+  s += '<path d="M' + X(0) + ',' + (H - PB) + ' L' + pts.join(' L') + ' L' + X(Math.min(PROF[PROF.length - 1][0], kmMax)) + ',' + (H - PB) + ' Z" fill="url(#gac)"/>';
+  s += '<polyline points="' + pts.join(' ') + '" fill="none" stroke="#6d28d9" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>';
+
+  s += '<line id="hl" x1="0" y1="' + PT + '" x2="0" y2="' + (H - PB) + '" stroke="#2f2a24" stroke-width="1" stroke-dasharray="4 4" opacity="0"/>';
+  s += '<circle id="hd" r="5" fill="#6d28d9" stroke="#fff" stroke-width="2" opacity="0"/>';
+
+  CHK.forEach(function (p) {
+    var x = X(p[3]), y = Y(p[4]);
+    s += '<circle class="chk-dot" data-lat="' + p[1] + '" data-lng="' + p[2] + '" cx="' + x + '" cy="' + y + '" r="5" fill="#fff" stroke="#6d28d9" stroke-width="2.2"><title>' + p[0] + '. ' + p[5] + ' — ' + p[4] + ' m (km ' + String(p[3]).replace('.', ',') + ')</title></circle>';
+    s += '<text x="' + x + '" y="' + (y - 11) + '" text-anchor="middle" font-size="11" font-weight="700" fill="#6d28d9">' + p[0] + '</text>';
+  });
+  s += '<text x="' + (X(0) + 10) + '" y="' + (Y(2400) - 13) + '" font-size="11.5" fill="#2f2a24">La Soledad 2 400 m</text>';
+  s += '<text x="' + (X(4.8) - 4) + '" y="' + (Y(3650) - 22) + '" text-anchor="end" font-size="11.5" fill="#2f2a24">obóz 3 650 m</text>';
+  s += '<text x="' + (X(6.3) - 6) + '" y="' + (Y(3976) + 20) + '" text-anchor="end" font-size="11.5" fill="#2f2a24">szczyt 3 976 m</text>';
+  s += '</svg>';
+  host.innerHTML = s;
+
+  var svg = host.querySelector('svg');
+  var ln = svg.querySelector('#hl');
+  var dot = svg.querySelector('#hd');
+  var tip = document.getElementById('elevtip');
+  var wrap = document.getElementById('elevwrap');
+
+  svg.querySelectorAll('.chk-dot').forEach(function (c) {
+    c.addEventListener('click', function () {
+      if (map) map.flyTo([+c.getAttribute('data-lat'), +c.getAttribute('data-lng')], 15, { duration: 0.7 });
+    });
+  });
+
+  function move(ev) {
+    var r = svg.getBoundingClientRect();
+    var wr = wrap.getBoundingClientRect();
+    var x = (ev.clientX - r.left) / r.width * W;
+    var km = Math.max(0, Math.min(kmMax, (x - PL) / (W - PL - PR) * kmMax));
+    var m = altAt(km);
+    ln.setAttribute('x1', X(km)); ln.setAttribute('x2', X(km)); ln.setAttribute('opacity', 0.55);
+    dot.setAttribute('cx', X(km)); dot.setAttribute('cy', Y(m)); dot.setAttribute('opacity', 1);
+    tip.style.left = (r.left - wr.left + X(km) / W * r.width) + 'px';
+    tip.style.top = (r.top - wr.top + Y(m) / H * r.height) + 'px';
+    tip.textContent = pl(km, 1) + ' km · ' + pl(m).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' m';
+    tip.classList.add('on');
+  }
+  svg.addEventListener('pointermove', move);
+  svg.addEventListener('pointerdown', move);
+  svg.addEventListener('pointerleave', function () {
+    tip.classList.remove('on');
+    ln.setAttribute('opacity', 0);
+    dot.setAttribute('opacity', 0);
+  });
 })();
 </script> </body> </html>
