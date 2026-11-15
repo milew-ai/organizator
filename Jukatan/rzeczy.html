@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rzeczy do zabrania — lista pakowania · Jukatan 2026</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🎒 Rzeczy do zabrania</h1>
+    <p class="sub">Tylko bagaż podręczny &middot; 16 nocy &middot; tropik + trek na 3 976 m &middot; lista z odhaczaniem</p>
+  </header>
+
+  <p class="caption" style="margin-top:10px">↩︎ <a href="index.html">Wróć do planu wycieczki</a> &middot; 📋 <a href="przed-wyjazdem.html">przed wyjazdem — checklist</a> &middot; 🚌 <a href="transport.html">transport</a> &middot; 📱 <a href="aplikacje.html">aplikacje</a> &middot; 🛠️ <a href="na-miejscu.html">na miejscu</a></p>
+
+  <section>
+    <p class="lead">Plecaki idą tylko w kabinie (55 × 40 × 20 cm, zwykle 8–10 kg — sprawdźcie limity każdego przewoźnika), a pralnia jest w większości noclegów. Dlatego bierzemy <strong>5–6 kompletów ubrań, nie 16</strong>, a połowę drobiazgów kupujemy na miejscu. Lista jest podzielona na kategorie — odhaczajcie, stan zapisuje się w przeglądarce.</p>
+    <div class="ck-head">
+      <strong>Postęp pakowania</strong>
+      <span class="ck-note" id="ck-txt">0 / 0 zrobione</span>
+    </div>
+    <div class="ck-bar"><i id="ck-bar"></i></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px" class="no-print">
+      <button class="tbtn" id="ck-reset" type="button">🧹 Wyczyść odhaczenia</button>
+      <button class="tbtn" type="button" onclick="window.print()">🖨️ Drukuj listę</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>🧳 Bagaż i organizacja</h2>
+    <div class="packgrid">
+      <div class="pack">
+        <h3>Plecaki</h3>
+        <ul class="ck-list">
+          <li><input class="ck" data-k="b1" id="b1" type="checkbox"><label for="b1">Plecak kabinowy 35–40 l (miękki, bez stelaża)</label></li>
+          <li><input class="ck" data-k="b2" id="b2" type="checkbox"><label for="b2">Składany plecak dzienny 15–20 l (Tikal, trek, plaża)</label></li>
+          <li><input class="ck" data-k="b3" id="b3" type="checkbox"><label for="b3">Torby kompresyjne / kostki pakunkowe (3–4 szt.)</label></li>
+          <li><input class="ck" data-k="b4" id="b4" type="checkbox"><label for="b4">Worek na brudne pranie</label></li>
+        </ul>
+      </div>
+      <div class="pack">
+        <h3>Drobiazgi, które ratują plan</h3>
+        <ul class="ck-list">
+          <li><input class="ck" data-k="b5" id="b5" type="checkbox"><label for="b5"><strong>🧵 Sznurek / linka 4–5 m + 2 karabińczyki</strong> — suszenie prania w pokoju, troki do namiotu, mocowanie bagażu w busie</label></li>
+          <li><input class="ck" data-k="b6" id="b6" type="checkbox"><label for="b6">Kłódka do plecaka + etykieta z danymi</label></li>
+          <li><input class="ck" data-k="b7" id="b7" type="checkbox"><label for="b7">Worki strunowe (5 szt.) — elektronika, leki, dokumenty</label></li>
+          <li><input class="ck" data-k="b8" id="b8" type="checkbox"><label for="b8">Zapasowa torba składana na pamiątki</label></li>
+        </ul>
+      </div>
+    </div>
+    <div class="hl"><b>🧵 Sznurek — dlaczego warto:</b> waży 30 g, a w 16 nocach z bagażem podręcznym robi trzy rzeczy: wiesza pranie w łazience (często nie ma suszarki), mocuje plecak w busie/na dachu i zastępuje zgubione troki przy namiocie. Wystarczy linka 4–5 m (np. sznurek do bielizny) i dwa małe karabińczyki.</div>
+  </section>
+
+  <section>
+    <h2>📄 Dokumenty i pieniądze</h2>
+    <div class="packgrid">
+      <div class="pack">
+        <h3>Dokumenty</h3>
+        <ul class="ck-list">
+          <li><input class="ck" data-k="d1" id="d1" type="checkbox"><label for="d1">Paszport — ważny min. 6 mies. po powrocie (do 13.06.2027)</label></li>
+          <li><input class="ck" data-k="d2" id="d2" type="checkbox"><label for="d2">Kopie paszportu — wydruk + PDF offline</label></li>
+          <li><input class="ck" data-k="d3" id="d3" type="checkbox"><label for="d3">Wydruki biletów (loty, pociąg Ełk–Gdańsk, bus)</label></li>
+          <li><input class="ck" data-k="d4" id="d4" type="checkbox"><label for="d4">Ubezpieczenie — PDF + numer assistance w telefonie</label></li>
+          <li><input class="ck" data-k="d5" id="d5" type="checkbox"><label for="d5">Adres pierwszego noclegu (Cancún) — zapisany offline</label></li>
+        </ul>
+      </div>
+      <div class="pack">
+        <h3>Pieniądze</h3>
+        <ul class="ck-list">
+          <li><input class="ck" data-k="d6" id="d6" type="checkbox"><label for="d6">Revolut (MXN dodane) + karta zapasowa</label></li>
+          <li><input class="ck" data-k="d7" id="d7" type="checkbox"><label for="d7">Gotówka awaryjna: ~100 € w drobnych (wymiana na miejscu)</label></li>
+          <li><input class="ck" data-k="d8" id="d8" type="checkbox"><label for="d8">Powiadomienie banku o wyjeździe (żeby nie zablokował karty)</label></li>
+          <li><input class="ck" data-k="d9" id="d9" type="checkbox"><label for="d9">Portfel na dokumenty pod koszulką / nerka</label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>👕 Ubranie — tropik i trek</h2>
+    <div class="packgrid">
+      <div class="pack">
+        <h3>Na co dzień (ciepło, wilgotno)</h3>
+        <ul class="ck-list">
+          <li><input class="ck" data-k="u1" id="u1" type="checkbox"><label for="u1">3× koszulka techniczna / merino (szybko schnie)</label></li>
+          <li><input class="ck" data-k="u2" id="u2" type="checkbox"><label for="u2">1× spodnie długie „miejskie" (lekkie)</label></li>
+          <li><input class="ck" data-k="u3" id="u3" type="checkbox"><label for="u3">1× szorty</label></li>
+          <li><input class="ck" data-k="u4" id="u4" type="checkbox"><label for="u4">1× koszula z długim rękawem (komary, słońce)</label></li>
+          <li><input class="ck" data-k="u5" id="u5" type="checkbox"><label for="u5">1× kurtka przeciwdeszczowa (oddychająca, pakowna)</label></li>
+          <li><input class="ck" data-k="u6" id="u6" type="checkbox"><label for="u6">1× strój kąpielowy (cenote, plaża)</label></li>
+          <li><input class="ck" data-k="u7" id="u7" type="checkbox"><label for="u7">Sandały / klapki</label></li>
+        </ul>
+      </div>
+      <div class="pack">
+        <h3>Na trek i chłodne noce</h3>
+        <ul class="ck-list">
+          <li><input class="ck" data-k="u8" id="u8" type="checkbox"><label for="u8">Buty trekkingowe — rozchodzone</label></li>
+          <li><input class="ck" data-k="u9" id="u9" type="checkbox"><label for="u9">1× spodnie trekkingowe</label></li>
+          <li><input class="ck" data-k="u10" id="u10" type="checkbox"><label for="u10">1× polar / softshell</label></li>
+          <li><input class="ck" data-k="u11" id="u11" type="checkbox"><label for="u11">1× kurtka puchowa ultralight (obóz 3 650 m)</label></li>
+          <li><input class="ck" data-k="u12" id="u12" type="checkbox"><label for="u12">3× skarpety trekkingowe + 2× cienkie</label></li>
+          <li><input class="ck" data-k="u13" id="u13" type="checkbox"><label for="u13">3× bielizna merino / szybkoschnąca</label></li>
+          <li><input class="ck" data-k="u14" id="u14" type="checkbox"><label for="u14">Czapka, rękawiczki, buff (na szczyt i do spania)</label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🥾 Trek Acatenango — tylko to, co naprawdę potrzebne</h2>
+    <div class="packgrid">
+      <div class="pack">
+        <h3>Sprzęt</h3>
+        <ul class="ck-list">
+          <li><input class="ck" data-k="t1" id="t1" type="checkbox"><label for="t1">Czołówka + zapasowe baterie</label></li>
+          <li><input class="ck" data-k="t2" id="t2" type="checkbox"><label for="t2">Bidon 1 l (butelki 1,5 l dokupimy w Antigui)</label></li>
+          <li><input class="ck" data-k="t3" id="t3" type="checkbox"><label for="t3">Wkładka do śpiwora (agencje dają śpiwory — to dla higieny i ciepła)</label></li>
+          <li><input class="ck" data-k="t4" id="t4" type="checkbox"><label for="t4">Przekąski: batony, orzechy, żel (kupić w Antigui)</label></li>
+          <li><input class="ck" data-k="t5" id="t5" type="checkbox"><label for="t5">Powerbank naładowany (zimno zjada baterię)</label></li>
+          <li><input class="ck" data-k="t6" id="t6" type="checkbox"><label for="t6">Worek na śmieci / na mokre ubrania</label></li>
+        </ul>
+      </div>
+      <div class="pack">
+        <h3>Czego nie brać</h3>
+        <ul class="ck-list">
+          <li><input class="ck" data-k="t7" id="t7" type="checkbox"><label for="t7">Kijków trekkingowych — agencja daje drewniane za ~Q10, a z kijkami bywa problem na kontroli bagażu</label></li>
+          <li><input class="ck" data-k="t8" id="t8" type="checkbox"><label for="t8">Namiotu i karimaty — wszystko jest w obozie</label></li>
+          <li><input class="ck" data-k="t9" id="t9" type="checkbox"><label for="t9">Dużego bagażu — na trek idzie tylko plecak dzienny + rzeczy z agencji</label></li>
+        </ul>
+      </div>
+    </div>
+    <p class="caption">Szczegóły trasy, obóz i wysokości: <a href="antigua.html#trek">mapa i przekrój podejścia na Acatenango</a>.</p>
+  </section>
+
+  <section>
+    <h2>🔌 Elektronika</h2>
+    <div class="packgrid">
+      <div class="pack">
+        <ul class="ck-list">
+          <li><input class="ck" data-k="e1" id="e1" type="checkbox"><label for="e1">Powerbank 20 000 mAh (do kabiny — nie do luku!)</label></li>
+          <li><input class="ck" data-k="e2" id="e2" type="checkbox"><label for="e2">Ładowarka sieciowa + kable USB-C / Lightning</label></li>
+          <li><input class="ck" data-k="e3" id="e3" type="checkbox"><label for="e3"><strong>Adapter A/B</strong> — Meksyk i Gwatemala mają gniazda jak USA (120 V), polska wtyczka nie wejdzie</label></li>
+          <li><input class="ck" data-k="e4" id="e4" type="checkbox"><label for="e4">Słuchawki (samolot, bus, obóz)</label></li>
+          <li><input class="ck" data-k="e5" id="e5" type="checkbox"><label for="e5">Telefon + etui + szkło zapasowe</label></li>
+        </ul>
+      </div>
+      <div class="pack">
+        <h3>Przed wylotem</h3>
+        <ul class="ck-list">
+          <li><input class="ck" data-k="e6" id="e6" type="checkbox"><label for="e6">Wszystko naładowane w 100% (telefon, powerbank, czołówka)</label></li>
+          <li><input class="ck" data-k="e7" id="e7" type="checkbox"><label for="e7">Mapy offline + pakiet hiszpański pobrane</label></li>
+          <li><input class="ck" data-k="e8" id="e8" type="checkbox"><label for="e8">Zrzuty ekranu rezerwacji w folderze „offline"</label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🧴 Higiena i apteczka</h2>
+    <div class="packgrid">
+      <div class="pack">
+        <h3>Kosmetyki (płyny do 100 ml)</h3>
+        <ul class="ck-list">
+          <li><input class="ck" data-k="h1" id="h1" type="checkbox"><label for="h1">Filtr UV 50+ (wodoodporny) + pomadka z SPF</label></li>
+          <li><input class="ck" data-k="h2" id="h2" type="checkbox"><label for="h2">Repelent z ikaryną 20% (z Polski — pewne stężenie)</label></li>
+          <li><input class="ck" data-k="h3" id="h3" type="checkbox"><label for="h3">Sprej z permetryną na ubrania (dżungla, Tikal)</label></li>
+          <li><input class="ck" data-k="h4" id="h4" type="checkbox"><label for="h4">Szczoteczka, pasta, mydło w kostce</label></li>
+          <li><input class="ck" data-k="h5" id="h5" type="checkbox"><label for="h5">Ręcznik szybkoschnący</label></li>
+          <li><input class="ck" data-k="h6" id="h6" type="checkbox"><label for="h6">Chusteczki nawilżane + żel antybakteryjny</label></li>
+        </ul>
+      </div>
+      <div class="pack">
+        <h3>Apteczka</h3>
+        <ul class="ck-list">
+          <li><input class="ck" data-k="h7" id="h7" type="checkbox"><label for="h7">Paracetamol (przy podejrzeniu dengi nie ibuprofen)</label></li>
+          <li><input class="ck" data-k="h8" id="h8" type="checkbox"><label for="h8">Tabletki nawadniające (ORS) — na upał i trekk</label></li>
+          <li><input class="ck" data-k="h9" id="h9" type="checkbox"><label for="h9">Plastry na pęcherze (Compeed) + bandaż elastyczny</label></li>
+          <li><input class="ck" data-k="h10" id="h10" type="checkbox"><label for="h10">Podstawowe leki osobiste + recepta/opis</label></li>
+          <li><input class="ck" data-k="h11" id="h11" type="checkbox"><label for="h11">Małe nożyczki/pęseta (w bagażu rejestrowanym? nie — ostre do 6 cm w kabinie)</label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🛒 Kupujemy na miejscu — nie taszczemy</h2>
+    <table class="mini">
+      <thead><tr><th>Co</th><th>Gdzie</th></tr></thead>
+      <tbody>
+        <tr><td>Woda 2 × 1,5 l, przekąski na trek</td><td>supermarket w Antigui (Paiz, Maxi Despensa)</td></tr>
+        <tr><td>Płyn do prania, kosmetyki &gt; 100 ml</td><td>Walmart / Soriana / Paiz</td></tr>
+        <tr><td>Zapas repelentu, ORS, krem po słońcu</td><td>apteki (Farmacias del Ahorro, Cruz Verde)</td></tr>
+        <tr><td>Kije drewniane na trek</td><td>parking w La Soledad, ~Q10</td></tr>
+        <tr><td>Kapelusz, worek, sandały (jeśli zapomniane)</td><td>Mérida, Antigua — targi</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Płyny w bagażu podręcznym: pojemniki do 100 ml, wszystko w jednej przezroczystej torebce (1 l). Reszta — kupiona na miejscu.</p>
+  </section>
+
+  <section>
+    <h2>⚖️ Kontrola wagi przed wyjściem</h2>
+    <table class="mini">
+      <thead><tr><th>Kategoria</th><th class="num">Waga</th></tr></thead>
+      <tbody>
+        <tr><td>Ubrania (5–6 kompletów + trek)</td><td class="num">~3,0 kg</td></tr>
+        <tr><td>Elektronika (powerbank, kable, adapter)</td><td class="num">~1,2 kg</td></tr>
+        <tr><td>Apteczka i kosmetyki</td><td class="num">~0,9 kg</td></tr>
+        <tr><td>Dokumenty, drobiazgi, sznurek</td><td class="num">~0,6 kg</td></tr>
+        <tr class="total"><td>Razem w plecaku (buty i kurtka na sobie)</td><td class="num">~5,7 kg</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Zostaje zapas do limitu 8–10 kg na pamiątki i jedzenie. Jeśli przewoźnik waży bagaż — miejcie pod ręką torbę, w którą przełożycie cięższe rzeczy na czas odprawy.</p>
+  </section>
+
+  <p class="caption">↩︎ <a href="index.html">Wróć do planu wycieczki</a> &middot; 📋 <a href="przed-wyjazdem.html">przed wyjazdem — checklist</a></p>
+  <footer>Rzeczy do zabrania &middot; Jukatan 2026 &middot; lista praktyczna, nie aptekarska — dostosujcie do siebie.</footer>
+</div>
+<script src="checklist.js"></script>
+</body>
+</html>
