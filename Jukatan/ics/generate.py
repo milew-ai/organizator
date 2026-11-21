@@ -161,6 +161,22 @@ EVENTS = [
     ),
 ]
 
+# Pobyt w miejscowościach jako wydarzenia całodniowe. DTEND jest wyłączny,
+# zgodnie z RFC 5545 (np. 24–25.11 oznacza noc 24.11 i wymeldowanie 25.11).
+# UID pozostają stałe, aby Google Calendar aktualizował wydarzenia po imporcie.
+STAYS = [
+    ("20261123-nocleg-gdansk", "20261123", "20261124", "Gdańsk", "Nocleg u Patryka"),
+    ("20261124-pobyt-cancun", "20261124", "20261125", "Cancún", "1 noc; przylot wieczorem"),
+    ("20261125-pobyt-merida", "20261125", "20261128", "Mérida", "3 noce; wyjazd do Palenque 28.11"),
+    ("20261128-pobyt-palenque", "20261128", "20261201", "Palenque", "3 noce; wyjazd do Flores 1.12"),
+    ("20261201-pobyt-flores", "20261201", "20261203", "Flores", "2 noce; wyjazd do Antigui 3.12"),
+    ("20261203-pobyt-antigua", "20261203", "20261206", "Antigua", "3 noce przed trekiem; wymeldowanie rano 6.12"),
+    ("20261206-acatenango-oboz", "20261206", "20261207", "Acatenango", "Nocleg w obozie podczas 2-dniowego treku"),
+    ("20261207-pobyt-antigua", "20261207", "20261209", "Antigua", "2 noce po zejściu z Acatenango; lot do Cancún 9.12"),
+    ("20261209-pobyt-cancun", "20261209", "20261210", "Cancún", "1 noc po przylocie z Gwatemali"),
+    ("20261211-pobyt-madryt", "20261211", "20261212", "Madryt", "Pobyt po przylocie; wylot do Warszawy 12.12"),
+]
+
 
 def fold(line: str) -> str:
     """Zawija linię do 75 oktetów (RFC 5545), nie rozcinając znaków UTF-8."""
@@ -224,6 +240,20 @@ def build() -> str:
                 "END:VALARM",
             ]
         lines.append("END:VEVENT")
+
+    for uid, start, end, town, desc in STAYS:
+        lines += [
+            "BEGIN:VEVENT",
+            "UID:%s@organizator.milew-ai.github.io" % uid,
+            "DTSTAMP:20261121T000000Z",
+            "DTSTART;VALUE=DATE:%s" % start,
+            "DTEND;VALUE=DATE:%s" % end,
+            "SUMMARY:" + esc("📍 Pobyt: " + town),
+            "DESCRIPTION:" + esc(desc),
+            "STATUS:CONFIRMED",
+            "TRANSP:TRANSPARENT",
+            "END:VEVENT",
+        ]
 
     lines.append("END:VCALENDAR")
     return CRLF.join(fold(l) for l in lines) + CRLF
