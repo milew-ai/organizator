@@ -166,7 +166,7 @@ EVENTS = [
 # UID pozostają stałe, aby Google Calendar aktualizował wydarzenia po imporcie.
 STAYS = [
     ("20261123-nocleg-gdansk", "20261123", "20261124", "Gdańsk", "Nocleg u Patryka"),
-    ("20261124-pobyt-cancun", "20261124", "20261125", "Cancún", "1 noc; przylot wieczorem"),
+    ("20261124-pobyt-cancun", "20261124", "20261125", "Cancún", "Tauch Cancún Centro — 1 noc, pokój Queen dla 2 osób. Zameldowanie 15:00–23:30; wymeldowanie 25.11 do 12:00. Adres: 56 Tauch, 77509 Cancún."),
     ("20261125-pobyt-merida", "20261125", "20261128", "Mérida", "3 noce; wyjazd do Palenque 28.11"),
     ("20261128-pobyt-palenque", "20261128", "20261201", "Palenque", "3 noce; wyjazd do Flores 1.12"),
     ("20261201-pobyt-flores", "20261201", "20261203", "Flores", "2 noce; wyjazd do Antigui 3.12"),
