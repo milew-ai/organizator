@@ -59,8 +59,9 @@ DTSTAMP:20261121T000000Z
 DTSTART;TZID=Europe/Warsaw:20261123T160000
 DTEND;TZID=Europe/Warsaw:20261123T170000
 SUMMARY:🚗 Suwałki → Ełk (auto)
-DESCRIPTION:40\,00 zł. Wyjazd punktualnie\; w Ełku ~45 min zapasu na park
- ing i dojście na peron.\nDalej: pociąg IC 15110 BIEBRZA 17:47.
+DESCRIPTION:40\,00 zł. Samochód zostawiony w Ełku przy ul. Por. Władys
+ ława Świackiego „Sępa”\, 19-300 Ełk.\nMiejsce: https://maps.app.go
+ o.gl/K2h7s9vSYM6Y6xZP9\nDalej: pociąg IC 15110 BIEBRZA 17:47.
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 BEGIN:VALARM

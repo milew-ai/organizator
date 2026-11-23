@@ -70,7 +70,8 @@ EVENTS = [
         "20261123T170000",
         "Europe/Warsaw",
         "🚗 Suwałki → Ełk (auto)",
-        "40,00 zł. Wyjazd punktualnie; w Ełku ~45 min zapasu na parking i dojście na peron.\n"
+        "40,00 zł. Samochód zostawiony w Ełku przy ul. Por. Władysława Świackiego „Sępa”, 19-300 Ełk.\n"
+        "Miejsce: https://maps.app.goo.gl/K2h7s9vSYM6Y6xZP9\n"
         "Dalej: pociąg IC 15110 BIEBRZA 17:47.",
         "-PT15M",
     ),
